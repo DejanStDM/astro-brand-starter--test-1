@@ -1,0 +1,91 @@
+<section class="page-sec page-sec--example-modal">
+  <div class="container">
+    <div class="example-modal sec">
+      <div class="example-modal__header sec__header">
+        <h2 class="heading-h2 example-modal__title sec__title">Modal Components</h2>
+        <p class="example-modal__subtitle">Interactive modal dialogs with smooth animations and accessibility features</p>
+      </div>
+      
+      <div class="example-modal__content sec__content">
+        <div class="button-holder">
+          <button type="button" class="btn btn-primary js-open-modal" data-target="#exampleModalCenter">
+            Vertically centered modal
+          </button>
+
+          <button type="button" class="btn btn-primary js-open-modal" data-target="#exampleModalCenteredScrollable">
+            Vertically centered scrollable modal
+          </button>
+        </div>
+        
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="modal fade js-auto" id="exampleModalCenter" tabindex="-1" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenterTitle">Modal Centered</h5>
+                <button type="button" class="btn-close js-close" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+                    the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
+                    of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                    but also the leap into electronic typesetting, remaining essentially unchanged. It was
+                    popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages,
+                    and more recently with desktop publishing software like Aldus PageMaker including versions of
+                    Lorem Ipsum.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn js-close btn-secondary">Close</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<div class="modal fade" id="exampleModalCenteredScrollable" tabindex="-1"
+    aria-labelledby="exampleModalCenteredScrollableTitle" aria-hidden="true">
+
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalCenteredScrollableTitle">Modal Centered - scrollable</h5>
+                <button type="button" class="btn-close js-close" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body">
+                <p>This is some placeholder content to show a vertically centered modal. We've added some extra copy
+                    here to show how vertically centering the modal works when combined with scrollable modals. We
+                    also use some repeated line breaks to quickly extend the height of the content, thereby
+                    triggering the scrolling. When content becomes longer than the prefedined max-height of modal,
+                    content will be cropped and scrollable within the modal.</p>
+                <br><br><br><br><br><br><br><br><br><br>
+                <p>Just like that.</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn js-close btn-secondary">Close</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div class="modal-backdrop"></div> 

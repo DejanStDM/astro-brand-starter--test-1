@@ -1,0 +1,89 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleCheckbox from '../../../components/examples/ExampleCheckbox.astro';
+---
+
+<DevLayout>
+  <ExampleCheckbox />
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Example Checkbox Component</h2>
+      <p>
+        <strong>ExampleCheckbox</strong> is a section component that demonstrates two different styles of custom checkboxes: traditional tick checkboxes and modern toggle switches. Both are fully accessible and include smooth animations.
+      </p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Checkbox Features</h3>
+          <ul class="mb-0">
+            <li>Follows BEM structure and project section conventions</li>
+            <li>Section wrapper: <code>page-sec page-sec--example-checkbox</code> with <code>container</code></li>
+            <li>Two checkbox styles: tick checkbox and toggle switch</li>
+            <li>Smooth animations with CSS transitions</li>
+            <li>Fully accessible with proper focus states and keyboard navigation</li>
+            <li>Visual feedback on hover, focus, and change states</li>
+            <li>Form validation example with interactive demo</li>
+            <li>Custom SVG checkmark using data URI (no external files needed)</li>
+            <li>Responsive design that adapts to mobile devices</li>
+            <li>All styles in dedicated SCSS partial, imported in <code>main.scss</code></li>
+            <li>JavaScript functionality in dedicated module</li>
+            <li>Ready for use in design system and real site pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Usage Examples</h3>
+          
+          <h6 class="mt-3">Tick Checkbox</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="custom-checkbox js__example-checkbox">
+  <input id="my-checkbox" type="checkbox" class="custom-checkbox__input">
+  <label for="my-checkbox" class="custom-checkbox__label">
+    Accept terms and conditions
+  </label>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Toggle Switch</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="custom-toggle js__example-toggle">
+  <input id="my-toggle" type="checkbox" class="custom-toggle__input">
+  <label for="my-toggle" class="custom-toggle__label">
+    Enable notifications
+  </label>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Required Checkbox with Validation</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="custom-checkbox js__example-checkbox">
+  <input id="required-checkbox" type="checkbox" class="custom-checkbox__input" required>
+  <label for="required-checkbox" class="custom-checkbox__label">
+    I agree to the terms and conditions *
+  </label>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Component Usage</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`---
+import ExampleCheckbox from '../../../components/examples/ExampleCheckbox.astro';
+---
+<ExampleCheckbox />`}</code></pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Technical Details</h3>
+          <ul class="mb-0">
+            <li><strong>CSS Classes:</strong> Uses <code>js__example-checkbox</code> and <code>js__example-toggle</code> for JavaScript targeting</li>
+            <li><strong>Animations:</strong> 120ms transitions for smooth state changes</li>
+            <li><strong>Accessibility:</strong> Proper ARIA labels, focus states, and keyboard navigation</li>
+            <li><strong>SVG Checkmark:</strong> Embedded as data URI for no external dependencies</li>
+            <li><strong>JavaScript:</strong> Module-based initialization with event handling</li>
+            <li><strong>Responsive:</strong> Adapts size and spacing for different screen sizes</li>
+            <li><strong>Brand Colors:</strong> Uses brand blue (#0099f7) for active states</li>
+            <li><strong>Form Validation:</strong> Includes example validation with visual feedback</li>
+            <li><strong>Cross-browser:</strong> Works with webkit and standard browsers</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</DevLayout> 

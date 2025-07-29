@@ -1,0 +1,153 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleCountDown from '../../../components/examples/example-count-down.astro';
+---
+<DevLayout>
+  <ExampleCountDown />
+  
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Example Countdown Component</h2>
+      <p>
+        <strong>ExampleCountDown</strong> is a modern, animated countdown timer component following BEM and project conventions. It demonstrates how to create interactive components with beautiful visual effects and responsive design.
+      </p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">HTML Structure</h3>
+          <pre><code>&lt;section class="page-sec page-sec--example-count-down"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="example-count-down"&gt;
+      &lt;div class="example-count-down__header"&gt;
+        &lt;h2 class="heading-h2 example-count-down__title"&gt;Example Count Down&lt;/h2&gt;
+        &lt;div&gt;
+          &lt;label for=""&gt;Select end date&lt;/label&gt;
+          &lt;input type="date" name="date" id="date"&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class="example-count-down__content"&gt;
+        &lt;div class="counter-wrapper" data-count-down-to=""&gt;
+          &lt;div class="numbers-holder"&gt;
+            &lt;div class="numbers" data-days&gt;00&lt;/div&gt;
+            &lt;span&gt;Days&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="numbers-holder"&gt;
+            &lt;div class="numbers" data-hours&gt;00&lt;/div&gt;
+            &lt;span&gt;Hours&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="numbers-holder"&gt;
+            &lt;div class="numbers" data-minutes&gt;00&lt;/div&gt;
+            &lt;span&gt;Minutes&lt;/span&gt;
+          &lt;/div&gt;
+          &lt;div class="numbers-holder"&gt;
+            &lt;div class="numbers" data-seconds&gt;00&lt;/div&gt;
+            &lt;span&gt;Seconds&lt;/span&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Visual Features</h3>
+          <ul>
+            <li><strong>Gradient Background:</strong> Beautiful purple to blue gradient with subtle grain texture</li>
+            <li><strong>Glassmorphism Effect:</strong> Translucent cards with backdrop blur and border effects</li>
+            <li><strong>Floating Elements:</strong> Animated decorative particles in the background</li>
+            <li><strong>Responsive Grid:</strong> 4-column desktop, 2-column tablet, 1-column mobile layout</li>
+            <li><strong>Modern Typography:</strong> Large, bold numbers with text shadows and proper spacing</li>
+            <li><strong>Interactive Date Input:</strong> Styled date picker with glass effect and hover states</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Animation Features</h3>
+          <ul>
+            <li><strong>Fade-in Animation:</strong> Title animates in from bottom on page load</li>
+            <li><strong>Hover Effects:</strong> Cards lift, scale, and glow on hover with shimmer effect</li>
+            <li><strong>Number Pulse:</strong> Numbers can pulse with color change when values update</li>
+            <li><strong>Floating Particles:</strong> Background decorative elements with continuous float animation</li>
+            <li><strong>Smooth Transitions:</strong> All interactions use custom cubic-bezier easing</li>
+            <li><strong>Shimmer Effect:</strong> Light sweep across cards on hover</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">CSS Architecture</h3>
+          <ul>
+            <li><strong>BEM Methodology:</strong> Follows project naming conventions with proper nesting</li>
+            <li><strong>Component Isolation:</strong> Styles scoped to <code>.example-count-down</code> class</li>
+            <li><strong>Responsive Design:</strong> Mobile-first approach with breakpoint variables</li>
+            <li><strong>CSS Custom Properties:</strong> Uses modern CSS features for maintainability</li>
+            <li><strong>Backdrop Filter:</strong> Glassmorphism effects with browser support considerations</li>
+            <li><strong>Flexbox & Grid:</strong> Modern layout techniques for optimal positioning</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">JavaScript Integration</h3>
+          <ul>
+            <li><strong>Data Attributes:</strong> Uses <code>data-count-down-to</code> and <code>data-days</code>, <code>data-hours</code>, etc.</li>
+            <li><strong>Event Handling:</strong> Date input triggers countdown updates</li>
+            <li><strong>Animation Classes:</strong> Ready for <code>.pulse</code> class on number updates</li>
+            <li><strong>Modular Structure:</strong> JavaScript can be added in separate module file</li>
+            <li><strong>Accessibility:</strong> Proper labels and semantic HTML structure</li>
+            <li><strong>Performance:</strong> Efficient DOM queries and minimal reflows</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Implementation Details</h3>
+          <ul>
+            <li><strong>Self-contained Variables:</strong> Breakpoint variables defined in component file</li>
+            <li><strong>Modern Sass:</strong> Uses <code>@use</code> instead of deprecated <code>@import</code></li>
+            <li><strong>SVG Backgrounds:</strong> Grain texture created with inline SVG data URI</li>
+            <li><strong>Cross-browser Support:</strong> Fallbacks for backdrop-filter and other modern features</li>
+            <li><strong>Performance Optimized:</strong> Hardware-accelerated animations and efficient selectors</li>
+            <li><strong>Maintainable Code:</strong> Well-organized with clear comments and structure</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Usage Instructions</h3>
+          <ol>
+            <li>Import the component: <code>import ExampleCountDown from '../../../components/examples/example-count-down.astro';</code></li>
+            <li>Add to your page: <code>&lt;ExampleCountDown /&gt;</code></li>
+            <li>Ensure the SCSS is imported in <code>main.scss</code> (already done)</li>
+            <li>Add JavaScript functionality for countdown logic (optional)</li>
+            <li>Customize colors, timing, and animations as needed</li>
+            <li>Test across different screen sizes for responsive behavior</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Customization Options</h3>
+          <ul>
+            <li><strong>Colors:</strong> Modify gradient colors in <code>.page-sec--example-count-down</code></li>
+            <li><strong>Timing:</strong> Adjust animation durations and easing functions</li>
+            <li><strong>Layout:</strong> Change grid columns and spacing for different designs</li>
+            <li><strong>Typography:</strong> Customize font sizes, weights, and spacing</li>
+            <li><strong>Effects:</strong> Modify glassmorphism opacity and blur values</li>
+            <li><strong>Particles:</strong> Add or remove floating decorative elements</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</DevLayout>

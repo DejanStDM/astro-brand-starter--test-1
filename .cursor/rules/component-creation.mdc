@@ -1,0 +1,404 @@
+---
+description: Creating or updating production components
+globs:
+alwaysApply: false
+---
+# Component Creation Guidelines
+
+This rule outlines the complete process for adding new production components to the project, following established conventions and patterns.
+
+## File Structure Requirements
+
+### 1. Component File Location
+- **Example/Demo components**: `src/components/examples/ExampleComponentName.astro` (for development/demo)
+- **Production components**: `src/components/components/ComponentName.astro` (styled by Builders.io)
+- **Presentation pages**: `src/pages/dev/components-pages/component-name-page.astro` (uses Bootstrap)
+- **JavaScript modules**: `src/scripts/modules/component-name.mjs`
+- **SCSS files**: `src/scss/components/_component-name.scss`
+
+### 2. Framework Usage
+- **Example Components**: Use pure CSS/SCSS (for development/demo purposes)
+- **Production Components**: Use pure CSS/SCSS (styled by Builders.io) - NO Bootstrap
+- **Presentation Pages**: Use Bootstrap for layout and styling
+- **Design System**: Provides global classes and variables for components
+
+### 3. Naming Conventions
+- **Example components**: PascalCase with "Example" prefix (e.g., `ExampleSlider.astro`)
+- **Production components**: PascalCase (e.g., `Slider.astro`)
+- **Page files**: kebab-case with "-page" suffix (e.g., `slider-page.astro`)
+- **JavaScript modules**: kebab-case (e.g., `slider.mjs`)
+- **SCSS files**: kebab-case with underscore prefix (e.g., `_slider.scss`)
+
+## Component Implementation Steps
+
+### Step 1: Create the Component File
+Create `src/components/components/ComponentName.astro` (for production) or `src/components/examples/ExampleComponentName.astro` (for demo):
+
+```astro
+<section class="page-sec page-sec--component-name">
+  <div class="container">
+    <div class="component-name sec">
+      <div class="component-name__header sec__header">
+        <h2 class="heading-h2 component-name__title sec__title">Component Title</h2>
+        <p class="component-name__subtitle">Component description</p>
+      </div>
+      
+      <div class="component-name__content sec__content">
+        <!-- Component content here -->
+      </div>
+    </div>
+  </div>
+</section>
+```
+
+**Key Requirements:**
+- Use `page-sec` and `page-sec--component-name` classes for section
+- Use `sec` class for main component wrapper
+- Use `sec__header` for header container
+- Use `sec__title` for main title (with `heading-h2`)
+- Use `sec__content` for main content area
+- Follow BEM methodology for CSS classes
+- Use `js__component-name` class for JavaScript hooks
+- Include proper semantic HTML structure
+
+### Step 2: Create the Presentation Page
+Create `src/pages/dev/components-pages/component-name-page.astro`:
+
+```astro
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ComponentName from '../../../components/examples/ComponentName.astro';
+---
+<DevLayout>
+  <ComponentName />
+  
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Component Name Component</h2>
+      <p>
+        <strong>ComponentName</strong> description following project conventions.
+      </p>
+      
+      <!-- Add documentation cards for HTML, JS, CSS, etc. -->
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">HTML Structure</h3>
+          <pre><code><!-- HTML structure here --></code></pre>
+        </div>
+      </div>
+      
+      <!-- Additional documentation sections -->
+    </div>
+  </section>
+</DevLayout>
+```
+
+**Documentation Sections to Include:**
+- HTML Structure
+- JavaScript Features
+- CSS Styling
+- Implementation Details
+- Usage Instructions
+
+### Step 3: Create JavaScript Module
+Create `src/scripts/modules/component-name.mjs`:
+
+```javascript
+// Component Name Module
+export function initComponentName() {
+  // Wait for DOM to be ready
+  document.addEventListener('DOMContentLoaded', () => {
+    // Initialize component
+    initComponent();
+  });
+}
+
+function initComponent() {
+  const component = document.querySelector('.js__component-name');
+  
+  if (!component) return;
+
+  // Component initialization logic here
+  // Include error handling and performance considerations
+}
+```
+
+**JavaScript Requirements:**
+- Export initialization function with `initComponentName` naming
+- Use DOM ready event listener
+- Check for element existence before initialization
+- Include proper error handling
+- Follow modular architecture pattern
+
+### Step 4: Create SCSS File
+Create `src/scss/components/_component-name.scss`:
+
+```scss
+// Use design system variables
+@use "../utils/variables" as *;
+
+.page-sec--component-name {
+  // Only component-specific background needs
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  padding: 4rem 0;
+}
+
+.component-name {
+  // Component-specific styles only
+  // Global section styles are handled by .sec, .sec__header, .sec__title, .sec__content
+  
+  &__subtitle {
+    // Only component-specific styling not covered by design system
+    color: $text-muted;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__content {
+    // Only component-specific layout needs beyond sec__content
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  // Add responsive breakpoints using design system variables
+  @media (max-width: $md) {
+    // Mobile styles
+  }
+
+  @media (max-width: $sm) {
+    // Small mobile styles
+  }
+}
+```
+
+**SCSS Requirements:**
+- Follow BEM methodology
+- Use project color variables (`#0099f7` for primary)
+- Include responsive breakpoints (768px, 480px)
+- Use consistent spacing and typography
+- Include hover effects and transitions
+
+### Step 5: Update Integration Files
+
+#### Update `src/scripts/functions.js`:
+```javascript
+// Add import at the top
+import { initComponentName } from "./modules/component-name.mjs";
+
+// Add initialization call
+initComponentName();
+```
+
+#### Update `src/scss/main.scss`:
+```scss
+// Add to components section
+@use 'components/component-name';
+```
+
+#### Update `src/pages/dev/design-system/components-all.astro`:
+```astro
+---
+// Add import
+import ComponentName from '../../../components/examples/ComponentName.astro';
+---
+
+<!-- Add component section -->
+<div class="container component-section">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="component-title">
+                <a href="/dev/components-pages/component-name-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                    Component Name
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                        <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                    </svg>
+                </a>
+            </h2>
+        </div>
+    </div>
+</div>
+<ComponentName />
+```
+
+#### Update `src/components/dev/DevNav.astro`:
+```astro
+<!-- Add to Dev components dropdown -->
+<li>
+    <a class={`dropdown-item${pathname === '/dev/components-pages/component-name-page' ? ' active' : ''}`} href="/dev/components-pages/component-name-page">Component Name</a>
+</li>
+```
+
+## Design System Integration
+
+### Primary Rule: Use Existing Design System Classes
+**ALWAYS use existing design system classes before creating component-specific styles.** This ensures maintainability and consistency across the project.
+
+### Required Design System Classes
+
+#### Section Structure
+- **Section wrapper**: Always use `page-sec` and `page-sec--component-name` classes
+- **Container**: Use `container` class for content width constraints
+- **Main section**: Use `sec` class for the main component wrapper
+- **Section header**: Use `sec__header` class for the header container
+- **Section title**: Use `sec__title` class for the main title (along with `heading-h2`)
+- **Section content**: Use `sec__content` class for the main content area
+
+#### Typography Classes
+- **Main titles**: Use `heading-h2` class (already defined in design system)
+- **Subheadings**: Use `heading-h3` class if available
+- **Body text**: Use existing typography classes from design system
+- **DO NOT** override typography styles unless absolutely necessary
+
+#### Layout Classes
+- **Grid system**: Use CSS Grid or Flexbox (styled by Builders.io)
+- **Spacing**: Use design system spacing variables and utilities
+- **Flexbox**: Use CSS Flexbox properties (styled by Builders.io)
+- **DO NOT use Bootstrap classes** in production components - Bootstrap is only for presentation pages
+
+
+**DO NOT create styles for:**
+- Typography (use existing classes)
+- Basic spacing (use design system spacing utilities)
+- Common layouts (use CSS Grid/Flexbox styled by Builders.io)
+- Standard colors (use design system variables)
+- Bootstrap classes (only for presentation pages)
+
+### SCSS Best Practices for Components
+
+```scss
+// GOOD: Use design system classes and minimal component styles
+.page-sec--component-name {
+  // Only component-specific background or layout needs
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
+  padding: 4rem 0;
+}
+
+.component-name {
+  // Component-specific styles only
+  // Global section styles are handled by .sec, .sec__header, .sec__title, .sec__content
+  
+  &__subtitle {
+    // Only component-specific styling not covered by design system
+    color: $text-muted;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__content {
+    // Only component-specific layout needs beyond sec__content
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+```
+
+### Design System Variables
+Always use design system variables instead of hardcoded values:
+- **Colors**: Use `$primary-color`, `$secondary-color`, etc.
+- **Breakpoints**: Use `$md`, `$lg`, etc. from variables
+- **Spacing**: Use spacing variables if defined in design system
+
+## JavaScript Patterns
+
+### Module Structure
+```javascript
+// Always use this pattern
+export function initComponentName() {
+  document.addEventListener('DOMContentLoaded', () => {
+    initComponent();
+  });
+}
+
+function initComponent() {
+  const element = document.querySelector('.js__component-name');
+  if (!element) return;
+  
+  // Component logic here
+}
+```
+
+### Error Handling
+- Always check for element existence
+- Use try-catch blocks for external library calls
+- Provide fallback behavior when possible
+
+## CSS Patterns
+
+### BEM Methodology
+- **Block**: `.component-name`
+- **Element**: `.component-name__element`
+- **Modifier**: `.component-name__element--modifier`
+
+### Responsive Design
+- **Desktop first** approach
+- **Breakpoints**: 768px (tablet), 480px (mobile)
+- **Flexible layouts** using CSS Grid/Flexbox (styled by Builders.io)
+- **No Bootstrap dependencies** in production components
+
+### Animation Guidelines
+- **Transitions**: 0.3s ease for hover effects
+- **Transforms**: Use for hover animations
+- **Performance**: Use `transform` and `opacity` for animations
+
+## Testing Checklist
+
+Before completing a component, ensure:
+
+- [ ] Component renders correctly in all browsers
+- [ ] JavaScript functionality works without errors
+- [ ] Responsive design works on mobile/tablet
+- [ ] Component is accessible (ARIA labels, keyboard navigation)
+- [ ] Documentation is complete and accurate
+- [ ] All integration files are updated
+- [ ] Navigation links work correctly
+- [ ] **Design system classes are used properly** (heading-h2, container, etc.)
+- [ ] **No duplicate styles** for typography, spacing, or colors that exist in design system
+- [ ] **Component-specific styles are minimal** and only for unique needs
+- [ ] **Design system variables are used** instead of hardcoded values
+- [ ] BEM methodology is followed consistently
+- [ ] Performance is optimized (no memory leaks, efficient DOM queries)
+
+## Maintainability Guidelines
+
+### Code Review Checklist
+When reviewing component code, ask these questions:
+
+1. **Could this style be achieved with existing design system classes?**
+   - If yes, remove the custom CSS and use the design system class
+
+2. **Is this typography style already defined in the design system?**
+   - If yes, use the existing class instead of creating new styles
+
+3. **Could this spacing be achieved with design system utilities?**
+   - If yes, use design system spacing utilities instead of custom margins/padding
+
+4. **Are we using design system color variables?**
+   - Replace hardcoded colors with `$primary-color`, `$secondary-color`, etc.
+
+5. **Is this layout pattern reusable?**
+   - Consider if this should be added to the design system instead of being component-specific
+
+### Refactoring Guidelines
+- **Regular audits**: Review components quarterly to identify duplicate styles
+- **Design system updates**: When new patterns emerge, add them to the design system
+- **Component consolidation**: Merge similar components to reduce duplication
+- **Documentation updates**: Keep design system documentation current with new patterns
+
+## Common Pitfalls to Avoid
+
+1. **Missing JavaScript hooks**: Always use `js__` prefix for JavaScript selectors
+2. **Inconsistent naming**: Follow the exact naming conventions
+3. **Missing imports**: Update all integration files
+4. **Poor documentation**: Include comprehensive usage instructions
+5. **No responsive design**: Always include mobile breakpoints
+6. **Accessibility issues**: Include proper ARIA labels and keyboard support
+7. **Performance problems**: Use efficient DOM queries and event handling
+
+## References
+
+- [components-all.astro](mdc:src/pages/dev/design-system/components-all.astro) - Main component showcase
+- [DevNav.astro](mdc:src/components/dev/DevNav.astro) - Navigation structure
+- [functions.js](mdc:src/scripts/functions.js) - JavaScript integration
+- [main.scss](mdc:src/scss/main.scss) - SCSS integration

@@ -1,0 +1,45 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleHero from '../../../components/examples/ExampleHero.astro';
+---
+<DevLayout>
+  <ExampleHero />
+  <section class="component-info-section  py-5">
+    <div class="container">
+          <h2 class="mb-3">Example Hero Section</h2>
+          <p>
+            <strong>ExampleHero</strong> is a section component following BEM and project conventions. It demonstrates how to structure, style, and register a new section for the design system.
+          </p>
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="h5 mb-3">Example Hero Section Features</h3>
+              <ul class="mb-0">
+                <li>Follows BEM structure and project section conventions</li>
+                <li>Section wrapper: <code>page-sec page-sec--example-hero</code> with <code>container</code></li>
+                <li>Prominent sun background with centered hero image</li>
+                <li>Arc text headline above the image</li>
+                <li>Decorative leaves using SVG icons</li>
+                <li>Banner with highlighted text below the hero</li>
+                <li>Fully responsive: mobile-first, adapts to all screen sizes</li>
+                <li>All styles in dedicated SCSS partial, imported in <code>main.scss</code></li>
+                <li>No JavaScript or inline scripts in the component</li>
+                <li>Ready for use in design system and real site pages</li>
+              </ul>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h3 class="h5 mb-3">Usage Example</h3>
+              <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`---
+              import ExampleHero from '../../../components/ExampleHero.astro';
+              ---
+              <ExampleHero />
+              `}</code>
+              </pre>
+            </div>
+         
+      </div>
+    </div>
+  </section>
+</DevLayout>
+    

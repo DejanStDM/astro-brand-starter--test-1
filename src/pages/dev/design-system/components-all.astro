@@ -1,0 +1,212 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleSlider from '../../../components/examples/ExampleSlider.astro';
+import ExampleHero from '../../../components/examples/ExampleHero.astro';
+import ExampleCountDown from '../../../components/examples/example-count-down.astro';
+import ExampleAccordion from '../../../components/examples/ExampleAccordion.astro';
+import ExampleBackToTop from '../../../components/examples/ExampleBackToTop.astro';
+import ExampleCheckbox from '../../../components/examples/ExampleCheckbox.astro';
+import ExampleFloatingLabels from '../../../components/examples/ExampleFloatingLabels.astro';
+import ExampleModal from '../../../components/examples/ExampleModal.astro';
+---
+
+<style>
+  .component-link {
+    color: inherit;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    position: relative;
+  }
+
+  .component-link:hover {
+    color: #045049;
+    background-color: rgba(0, 247, 214, 0.233);
+    transform: translateX(4px);
+  }
+
+  .component-link .icon {
+    width: 16px;
+    height: 16px;
+    fill: currentColor;
+    transition: transform 0.3s ease;
+  }
+
+  .component-link:hover .icon {
+    transform: translate(2px, -2px);
+  }
+
+  .component-section {
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .component-title {
+    margin-bottom: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+</style>
+
+<DevLayout>
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4 mb-4 text-center">Component Showcase</h1>
+                <p class="lead text-center text-muted mb-5">Explore all available components in our design system</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Example Slider -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-slider-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Slider
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleSlider />
+
+    <!-- Example Hero -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-hero-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Hero
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleHero />
+
+    <!-- Example Count Down -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-count-down-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Count Down
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleCountDown />
+
+    <!-- Example Accordion -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-accordion-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Accordion
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleAccordion />
+
+    <!-- Example Back to Top -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-back-to-top-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Back to Top
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleBackToTop />
+
+    <!-- Example Checkbox -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-checkbox-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Checkbox
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleCheckbox />
+
+    <!-- Example Floating Labels -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-floating-labels-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Floating Labels
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleFloatingLabels />
+
+    <!-- Example Modal -->
+    <div class="container component-section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="component-title">
+                    <a href="/dev/components-pages/example-modal-page" class="component-link" target="_blank" rel="noopener noreferrer">
+                        Example Modal
+                        <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+                            <path d="M384 64C366.3 64 352 78.3 352 96C352 113.7 366.3 128 384 128L466.7 128L265.3 329.4C252.8 341.9 252.8 362.2 265.3 374.7C277.8 387.2 298.1 387.2 310.6 374.7L512 173.3L512 256C512 273.7 526.3 288 544 288C561.7 288 576 273.7 576 256L576 96C576 78.3 561.7 64 544 64L384 64zM144 160C99.8 160 64 195.8 64 240L64 496C64 540.2 99.8 576 144 576L400 576C444.2 576 480 540.2 480 496L480 416C480 398.3 465.7 384 448 384C430.3 384 416 398.3 416 416L416 496C416 504.8 408.8 512 400 512L144 512C135.2 512 128 504.8 128 496L128 240C128 231.2 135.2 224 144 224L224 224C241.7 224 256 209.7 256 192C256 174.3 241.7 160 224 160L144 160z"/>
+                        </svg>
+                    </a>
+                </h2>
+            </div>
+        </div>
+    </div>
+    <ExampleModal />
+
+    <!-- Footer Section -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <hr class="my-4">
+                <p class="text-muted mb-0">
+                    <small>All components are built with modern web standards and follow our design system guidelines.</small>
+                </p>
+            </div>
+        </div>
+    </div>
+</DevLayout>

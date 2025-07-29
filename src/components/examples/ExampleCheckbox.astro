@@ -1,0 +1,113 @@
+<section class="page-sec page-sec--example-checkbox">
+  <div class="container">
+    <div class="example-checkbox sec">
+      <div class="example-checkbox__header sec__header">
+        <h2 class="heading-h2 example-checkbox__title sec__title">Custom Checkbox Design</h2>
+        <p class="example-checkbox__subtitle">Beautiful, accessible checkbox components with smooth animations</p>
+      </div>
+      
+      <div class="example-checkbox__content sec__content">
+        <div class="example-checkbox__demo">
+          <div class="example-checkbox__section">
+            <h3 class="example-checkbox__section-title">Basic Checkbox</h3>
+            <div class="example-checkbox__options js__example-checkbox">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__input">
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">Accept terms and conditions</span>
+              </label>
+              
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__input" checked>
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">Subscribe to newsletter</span>
+              </label>
+              
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__input">
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">Send me promotional emails</span>
+              </label>
+            </div>
+          </div>
+          
+          <div class="example-checkbox__section">
+            <h3 class="example-checkbox__section-title">Checkbox with Description</h3>
+            <div class="example-checkbox__options js__example-checkbox">
+              <label class="custom-checkbox custom-checkbox--with-description">
+                <input type="checkbox" class="custom-checkbox__input">
+                <span class="custom-checkbox__checkmark"></span>
+                <div class="custom-checkbox__content">
+                  <span class="custom-checkbox__label">Enable notifications</span>
+                  <span class="custom-checkbox__description">Receive updates about new products and offers</span>
+                </div>
+              </label>
+              
+              <label class="custom-checkbox custom-checkbox--with-description">
+                <input type="checkbox" class="custom-checkbox__input" checked>
+                <span class="custom-checkbox__checkmark"></span>
+                <div class="custom-checkbox__content">
+                  <span class="custom-checkbox__label">Share data for analytics</span>
+                  <span class="custom-checkbox__description">Help us improve our services (anonymous data only)</span>
+                </div>
+              </label>
+            </div>
+          </div>
+          
+          <div class="example-checkbox__section">
+            <h3 class="example-checkbox__section-title">Disabled State</h3>
+            <div class="example-checkbox__options js__example-checkbox">
+              <label class="custom-checkbox custom-checkbox--disabled">
+                <input type="checkbox" class="custom-checkbox__input" disabled>
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">This option is disabled</span>
+              </label>
+              
+              <label class="custom-checkbox custom-checkbox--disabled">
+                <input type="checkbox" class="custom-checkbox__input" disabled checked>
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">Disabled and checked</span>
+              </label>
+            </div>
+          </div>
+        </div>
+        
+        <div class="example-checkbox__info">
+          <h3 class="example-checkbox__info-title">Features</h3>
+          <ul class="example-checkbox__features">
+            <li>Smooth animations and transitions</li>
+            <li>Fully accessible with proper ARIA labels</li>
+            <li>Keyboard navigation support</li>
+            <li>Customizable styling with CSS variables</li>
+            <li>Responsive design for all devices</li>
+            <li>Support for disabled states</li>
+          </ul>
+        </div>
+        
+        <div class="example-checkbox__section">
+          <h3 class="example-checkbox__section-title">Interactive Demo</h3>
+          <div class="example-checkbox__form">
+            <div class="example-checkbox__items js__example-checkbox">
+              <label class="custom-checkbox">
+                <input type="checkbox" class="custom-checkbox__input" id="demo-tick" required>
+                <span class="custom-checkbox__checkmark"></span>
+                <span class="custom-checkbox__label">I agree to the terms and conditions *</span>
+              </label>
+              
+              <label class="custom-toggle js__example-toggle">
+                <input type="checkbox" class="custom-toggle__input" id="demo-toggle">
+                <span class="custom-toggle__label">Enable email notifications</span>
+              </label>
+            </div>
+            
+            <button type="button" class="btn btn-primary example-checkbox__submit" onclick="validateForm()">
+              Submit Form
+            </button>
+            
+            <div id="form-status" class="example-checkbox__status"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section> 

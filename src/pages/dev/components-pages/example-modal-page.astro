@@ -1,0 +1,118 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleModal from '../../../components/examples/ExampleModal.astro';
+---
+
+<DevLayout>
+  <ExampleModal />
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Example Modal Component</h2>
+      <p>
+        <strong>ExampleModal</strong> is a section component that demonstrates interactive modal dialogs with different configurations. It includes centered modals, scrollable modals, large modals, and auto-opening modals with smooth animations.
+      </p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Modal Features</h3>
+          <ul class="mb-0">
+            <li>Follows BEM structure and project section conventions</li>
+            <li>Section wrapper: <code>page-sec page-sec--example-modal</code> with <code>container</code></li>
+            <li>Multiple modal types: centered, scrollable, large, and auto-opening</li>
+            <li>Smooth fade animations with CSS transitions</li>
+            <li>Fully accessible with proper ARIA attributes and keyboard navigation</li>
+            <li>Focus trapping within modal for accessibility</li>
+            <li>Backdrop with click-to-close functionality</li>
+            <li>Escape key to close modal</li>
+            <li>Body scroll prevention when modal is open</li>
+            <li>Responsive design that adapts to mobile devices</li>
+            <li>All styles in dedicated SCSS partial, imported in <code>main.scss</code></li>
+            <li>JavaScript functionality in dedicated module</li>
+            <li>Ready for use in design system and real site pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Usage Examples</h3>
+          
+          <h6 class="mt-3">Basic Modal Structure</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="modal fade js__example-modal" id="myModal" tabindex="-1" aria-labelledby="myModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="myModalTitle">Modal Title</h5>
+        <button type="button" class="btn-close js__example-modal-close" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal content goes here...</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary js__example-modal-close">Close</button>
+        <button type="button" class="btn btn-primary">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Modal Trigger Button</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<button type="button" class="btn btn-primary js__example-modal-trigger" data-target="#myModal">
+  Open Modal
+</button>`}</code></pre>
+
+          <h6 class="mt-3">Scrollable Modal</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="modal fade js__example-modal" id="scrollableModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <!-- Modal content -->
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Large Modal</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="modal fade js__example-modal" id="largeModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content">
+      <!-- Modal content -->
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Auto-Open Modal</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="modal fade js__example-modal js__example-modal-auto" id="autoModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <!-- Modal content -->
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Component Usage</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`---
+import ExampleModal from '../../../components/examples/ExampleModal.astro';
+---
+<ExampleModal />`}</code></pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Technical Details</h3>
+          <ul class="mb-0">
+            <li><strong>CSS Classes:</strong> Uses <code>js__example-modal</code>, <code>js__example-modal-trigger</code>, and <code>js__example-modal-close</code> for JavaScript targeting</li>
+            <li><strong>Animations:</strong> 0.3s fade transitions for smooth modal appearance</li>
+            <li><strong>Accessibility:</strong> Proper ARIA attributes, focus management, and keyboard navigation</li>
+            <li><strong>Focus Trapping:</strong> Tab key is trapped within modal for accessibility</li>
+            <li><strong>JavaScript:</strong> Module-based initialization with event handling</li>
+            <li><strong>Responsive:</strong> Adapts size and layout for mobile devices</li>
+            <li><strong>Brand Colors:</strong> Uses brand blue (#0099f7) for primary buttons</li>
+            <li><strong>Z-index Management:</strong> Proper layering with backdrop and modal</li>
+            <li><strong>Body Scroll Control:</strong> Prevents background scrolling when modal is open</li>
+            <li><strong>Multiple Sizes:</strong> Default, large (modal-lg), and scrollable variants</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</DevLayout> 

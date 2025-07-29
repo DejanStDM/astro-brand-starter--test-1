@@ -1,0 +1,101 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleSlider from '../../../components/examples/ExampleSlider.astro';
+---
+<DevLayout>
+  <ExampleSlider />
+  
+
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Example Slider Component</h2>
+      <p>
+        <strong>ExampleSlider</strong> is a Swiper-powered image slider component following BEM and project conventions. It demonstrates how to integrate third-party libraries with proper JavaScript modularization.
+      </p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">HTML Structure</h3>
+          <pre><code>&lt;div class="swiper example-slider__swiper js__example-slider"&gt;
+  &lt;div class="swiper-wrapper"&gt;
+    &lt;div class="swiper-slide"&gt;
+      &lt;img src="/images/image.jpg" alt="Description" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="swiper-button-next"&gt;&lt;/div&gt;
+  &lt;div class="swiper-button-prev"&gt;&lt;/div&gt;
+  &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">JavaScript Features</h3>
+          <ul>
+            <li><strong>Modular Architecture:</strong> JavaScript in separate module file (<code>example-slider.mjs</code>)</li>
+            <li><strong>Multiple Sliders:</strong> Supports multiple sliders on the same page</li>
+            <li><strong>Auto-initialization:</strong> Automatically finds and initializes all <code>.js__example-slider</code> elements</li>
+            <li><strong>DOM Ready Handling:</strong> Waits for DOM and Swiper library to be available</li>
+            <li><strong>Error Handling:</strong> Retry mechanism if Swiper isn't loaded yet</li>
+            <li><strong>Scoped Navigation:</strong> Each slider uses its own navigation and pagination elements</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Swiper Configuration</h3>
+          <ul>
+            <li><strong>Loop:</strong> Infinite scrolling enabled</li>
+            <li><strong>Autoplay:</strong> 3-second delay between slides</li>
+            <li><strong>Navigation:</strong> Previous/Next arrow buttons</li>
+            <li><strong>Pagination:</strong> Clickable dot indicators</li>
+            <li><strong>Touch Support:</strong> Swipe gestures on mobile devices</li>
+            <li><strong>Keyboard Navigation:</strong> Arrow keys support</li>
+            <li><strong>Accessibility:</strong> Built-in ARIA attributes and screen reader support</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">CSS Styling</h3>
+          <ul>
+            <li><strong>BEM Methodology:</strong> Follows project naming conventions</li>
+            <li><strong>Component Isolation:</strong> Styles scoped to <code>.example-slider</code> class</li>
+            <li><strong>Responsive Design:</strong> Adapts to different screen sizes</li>
+            <li><strong>Swiper Integration:</strong> Uses Swiper's default CSS classes</li>
+            <li><strong>Custom Styling:</strong> Extends Swiper with project-specific styles</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Implementation Details</h3>
+          <ul>
+            <li><strong>CDN Loading:</strong> Swiper loaded via CDN in layout</li>
+            <li><strong>Module Import:</strong> JavaScript module imported in <code>functions.js</code></li>
+            <li><strong>Selector Pattern:</strong> Uses <code>js__</code> prefix for JavaScript hooks</li>
+            <li><strong>Error Prevention:</strong> Checks for element existence before initialization</li>
+            <li><strong>Performance:</strong> Efficient DOM queries and event handling</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Usage Instructions</h3>
+          <ol>
+            <li>Add the HTML structure with <code>js__example-slider</code> class</li>
+            <li>Include Swiper CSS and JS in your layout (already done in DevLayout)</li>
+            <li>Ensure the JavaScript module is imported in <code>functions.js</code></li>
+            <li>The slider will automatically initialize when the page loads</li>
+            <li>Multiple sliders on the same page are supported automatically</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+</DevLayout>

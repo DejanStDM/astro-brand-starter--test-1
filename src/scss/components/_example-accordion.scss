@@ -1,0 +1,164 @@
+.page-sec--example-accordion {
+  background: #f8f9fa;
+  padding: 4rem 0;
+}
+
+.example-accordion {
+  &__header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  &__title {
+    color: #0099f7;
+    margin-bottom: 0.5rem;
+  }
+
+  &__subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  &__section {
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__section-title {
+    font-size: 1.3rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+}
+
+// Accordion styles
+.accordion {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  .accordion-item {
+    border-bottom: 1px solid #e0e0e0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .accordion-header {
+    width: 100%;
+    padding: 1.25rem 1.5rem;
+    background: #fff;
+    border: none;
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    user-select: none;
+
+    &:hover {
+      background: #f8f9fa;
+      color: #0099f7;
+    }
+
+    &:focus {
+      outline: 2px solid #0099f7;
+      outline-offset: -2px;
+    }
+
+    &.active {
+      background: #0099f7;
+      color: #fff;
+      font-weight: 600;
+
+      &:hover {
+        background: #0088e6;
+      }
+    }
+
+    // Add arrow indicator
+    &::after {
+      content: '';
+      position: absolute;
+      right: 1.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid currentColor;
+      transition: transform 0.3s ease;
+    }
+
+    &.active::after {
+      transform: translateY(-50%) rotate(180deg);
+    }
+  }
+
+  .accordion-body {
+    display: none;
+    background: #fff;
+
+    &.collapsing {
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s ease;
+    }
+
+    &.open {
+      display: block;
+    }
+  }
+
+  .accordion-body__inner {
+    padding: 1.5rem;
+    color: #666;
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .example-accordion {
+    &__title {
+      font-size: 1.8rem;
+    }
+
+    &__subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  .accordion {
+    .accordion-header {
+      padding: 1rem 1.25rem;
+      font-size: 0.95rem;
+
+      &::after {
+        right: 1.25rem;
+      }
+    }
+
+    .accordion-body__inner {
+      padding: 1.25rem;
+      font-size: 0.9rem;
+    }
+  }
+} 

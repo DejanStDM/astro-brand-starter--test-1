@@ -1,0 +1,179 @@
+# Project Structure & Directory Organization
+
+## Overview
+This is an Astro-based project with a dual-purpose structure supporting both design system documentation and development components.
+
+## Root Directory Structure
+
+```
+astro-brand-starter/
+├── .astro/                 # Astro build cache (auto-generated)
+├── .cursor/                # Cursor IDE configuration
+│   └── rules/             # Project-specific coding rules
+├── .ai/                   # AI-related files and configurations
+├── data/                  # JSON data files for content management
+├── docs/                  # Project documentation
+├── node_modules/          # Dependencies (auto-generated)
+├── public/                # Static assets served directly
+├── src/                   # Main source code
+├── astro.config.mjs       # Astro configuration
+├── package.json           # Project dependencies and scripts
+├── package-lock.json      # Locked dependency versions
+├── README.md              # Project overview and setup
+└── CONTRIBUTING.md        # Contribution guidelines
+```
+
+## Source Code Structure (`src/`)
+
+### Core Directories
+```
+src/
+├── assets/               # Static assets (images, fonts, etc.)
+├── components/           # Reusable Astro components (organized by purpose)
+├── layouts/              # Page layout templates
+├── pages/                # Route-based pages (Astro file-based routing)
+├── scss/                 # Styling with SCSS architecture
+└── scripts/              # JavaScript utilities and modules
+```
+
+### Components (`src/components/`)
+```
+components/
+├── dev/                  # Development-specific components
+│   |── DevNav.astro     # Navigation component for development pages
+|   └── Welcome.astro         # Welcome message component
+├── examples/             # Example components for documentation
+│   ├── ExampleComponent1.astro  # Example component template
+│   └── ExampleHero.astro        # Hero section component example
+└── design/               # Design system components (empty)
+```
+
+### Pages (`src/pages/`)
+```
+pages/
+├── index.astro          # Homepage route (/)
+├── design/              # Design system pages
+│   └── example-page.astro
+└── dev/                 # Development documentation pages
+    ├── components-pages/ # Individual component documentation pages
+    │   ├── example-component-1-page.astro
+    │   └── example-hero-page.astro
+    └── design-system/   # Design system documentation
+        ├── buttons-page.astro
+        ├── components-all.astro
+        ├── container.astro
+        ├── tags.astro
+        └── typography.astro
+```
+
+### Styling Architecture (`src/scss/`)
+```
+scss/
+├── main.scss            # Main SCSS entry point
+├── base/                # Base styles and resets
+│   ├── _fonts.scss
+│   ├── _globals.scss
+│   ├── _normalize.scss
+│   └── _typography.scss
+├── components/          # Component-specific styles
+│   ├── _buttons.scss
+│   └── _example-hero.scss
+├── layout/              # Layout and structural styles
+│   ├── _container.scss
+│   └── _section.scss
+├── utils/               # Utilities and variables
+│   └── _variables.scss
+└── vendors/             # Third-party library styles
+```
+
+### Scripts (`src/scripts/`)
+```
+scripts/
+├── functions.js         # Utility functions
+└── modules/             # Modular JavaScript files
+    ├── buttons-example.mjs
+    └── module-example.mjs
+```
+
+## Static Assets (`public/`)
+
+```
+public/
+├── favicon.svg          # Site favicon
+├── icons/               # SVG icons and graphics
+└── images/              # Image assets
+```
+
+## Data Management (`data/`)
+
+```
+data/
+├── footer.json          # Footer content and links
+├── header.json          # Header navigation and branding
+└── homepage.json        # Homepage content and sections
+```
+
+## Documentation (`docs/`)
+
+```
+docs/
+├── ai/                  # AI-related documentation
+│   └── core/
+│       ├── design-system-rules.md
+│       └── project-overview.md
+├── CONTRIBUTING_GUIDES.md  # Detailed contribution guidelines
+└── PROJECT_SETUP.md        # Project setup instructions
+```
+
+## Configuration Files
+
+### Key Configuration Files
+- **astro.config.mjs** - Astro framework configuration
+- **package.json** - Project dependencies, scripts, and metadata
+- **README.md** - Project overview, setup, and conventions
+
+### Cursor Rules (`.cursor/rules/`)
+- **cursor-rules.mdc** - General cursor rule guidelines
+- **self-improvement.mdc** - Rule improvement and maintenance
+- **project-structure.mdc** - This file (directory structure guide)
+
+## Development Conventions
+
+### File Naming
+- **Components**: PascalCase (e.g., `ExampleHero.astro`)
+- **Pages**: kebab-case (e.g., `example-page.astro`)
+- **Component directories**: kebab-case (e.g., `components-pages/`)
+- **Styles**: kebab-case with underscore prefix (e.g., `_buttons.scss`)
+- **Data**: kebab-case (e.g., `homepage.json`)
+
+### Import Patterns
+- Use relative imports for local components
+- Import SCSS partials in `main.scss`
+- Use ES modules for JavaScript utilities
+
+### Routing Structure
+- File-based routing in `src/pages/`
+- Design system pages under `/design/`
+- Development docs under `/dev/`
+- Component examples under `/dev/components-pages/`
+- Design system documentation under `/dev/design-system/`
+
+## Important Notes
+
+1. **Dual Purpose**: This project serves both as a design system showcase and development documentation
+2. **Content Management**: JSON files in `data/` manage dynamic content
+3. **Component Architecture**: Reusable components in `src/components/`
+4. **Styling**: SCSS with organized partials and variables
+5. **Documentation**: Comprehensive docs in `docs/` with AI-specific guidance
+
+## File Organization Rules
+
+- Keep components focused and single-purpose
+- Use consistent naming conventions across all file types
+- Organize SCSS with clear separation of concerns
+- Maintain documentation alongside code changes
+- Follow Astro's file-based routing conventions
+description:
+globs:
+alwaysApply: false
+---

@@ -1,0 +1,89 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import ExampleAccordion from '../../../components/examples/ExampleAccordion.astro';
+---
+
+<DevLayout>
+  <ExampleAccordion />
+  <section class="component-info-section py-5">
+    <div class="container">
+      <h2 class="mb-3">Example Accordion Component</h2>
+      <p>
+        <strong>ExampleAccordion</strong> is a section component that demonstrates an interactive accordion with smooth animations. It supports both single (only one open at a time) and multiple (multiple can be open) accordion modes.
+      </p>
+      
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Accordion Features</h3>
+          <ul class="mb-0">
+            <li>Follows BEM structure and project section conventions</li>
+            <li>Section wrapper: <code>page-sec page-sec--example-accordion</code> with <code>container</code></li>
+            <li>Two accordion types: single (default) and multiple (with <code>data-accordion="multiple"</code>)</li>
+            <li>Smooth height animations with CSS transitions</li>
+            <li>Accessible with proper focus states and keyboard navigation</li>
+            <li>Visual indicators (arrows) that rotate when active</li>
+            <li>Hover and active states with brand colors</li>
+            <li>Fully responsive: mobile-first design</li>
+            <li>All styles in dedicated SCSS partial, imported in <code>main.scss</code></li>
+            <li>JavaScript functionality in dedicated module</li>
+            <li>Ready for use in design system and real site pages</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card mb-4">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Usage Examples</h3>
+          
+          <h6 class="mt-3">Basic Single Accordion</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="accordion js__example-accordion">
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Accordion Header
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-body__inner">
+        Accordion content here
+      </div>
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Multiple Accordion (multiple can be open)</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`<div class="accordion js__example-accordion" data-accordion="multiple">
+  <div class="accordion-item">
+    <button class="accordion-header">
+      Accordion Header
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-body__inner">
+        Accordion content here
+      </div>
+    </div>
+  </div>
+</div>`}</code></pre>
+
+          <h6 class="mt-3">Component Usage</h6>
+          <pre style="background:#f8f8f8;padding:1rem;border-radius:6px;overflow:auto"><code>{`---
+import ExampleAccordion from '../../../components/examples/ExampleAccordion.astro';
+---
+<ExampleAccordion />`}</code></pre>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-body">
+          <h3 class="h5 mb-3">Technical Details</h3>
+          <ul class="mb-0">
+            <li><strong>CSS Classes:</strong> Uses <code>js__example-accordion</code> for JavaScript targeting</li>
+            <li><strong>Animation:</strong> 300ms height transition with smooth easing</li>
+            <li><strong>Accessibility:</strong> Proper focus states, semantic HTML, and keyboard navigation</li>
+            <li><strong>JavaScript:</strong> Module-based initialization with event delegation</li>
+            <li><strong>Responsive:</strong> Adapts padding and font sizes for mobile devices</li>
+            <li><strong>Brand Colors:</strong> Uses brand blue (#0099f7) for active states</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</DevLayout> 

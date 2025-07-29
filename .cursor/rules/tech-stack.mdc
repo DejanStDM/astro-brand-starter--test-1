@@ -1,0 +1,426 @@
+---
+description:
+globs:
+alwaysApply: true
+---
+
+# Technology Stack & Architecture
+
+This rule outlines the technology stack, dependencies, and architectural patterns for the Astro Brand Starter project, with clear separation between example components and production components.
+
+## Core Framework
+
+### Astro (v5.12.0)
+- **Purpose**: Static site generator and component framework
+- **Version**: `^5.12.0` (latest stable)
+- **Type**: ES Module (`"type": "module"`)
+
+**Best Practices:**
+- Use `.astro` files for pages and components
+- Leverage Astro's built-in static site generation
+- Use `import` statements for component composition
+- Follow Astro's component syntax with frontmatter and template sections
+
+**Configuration:**
+```javascript
+// astro.config.mjs
+export default defineConfig({
+    devToolbar: { enabled: false },  // Disabled for cleaner dev experience
+    vite: {
+        css: { devSourcemap: true }  // Source maps for SCSS debugging
+    }
+});
+```
+
+## Styling & CSS
+
+### Sass (v1.89.2)
+- **Purpose**: CSS preprocessor for advanced styling
+- **Version**: `^1.89.2` (latest stable)
+- **Architecture**: 7-1 pattern with partials
+
+**Best Practices:**
+- Use `@use` instead of `@import` (modern Sass syntax)
+- Follow BEM methodology for class naming
+- Use variables for consistent theming
+- Organize files in `src/scss/` with clear structure
+
+**File Structure:**
+```
+src/scss/
+├── main.scss          # Entry point
+├── utils/             # Variables, mixins, functions
+├── base/              # Typography, normalize, globals
+├── layout/            # Grid, sections, containers
+├── components/        # Component-specific styles
+└── vendors/           # Third-party styles
+```
+
+## Component Architecture
+
+### Example Components (Development/Demo)
+**Location**: `src/components/examples/`
+**Purpose**: Demonstration and development reference
+
+**Technology Stack:**
+- **Styling**: Custom SCSS with design system classes
+- **JavaScript**: ES6 modules for interactivity
+- **Layout**: Global section classes (`.sec`, `.sec__header`, `.sec__title`, `.sec__content`)
+- **External Libraries**: Swiper for slider functionality
+
+**Example Components:**
+- `ExampleSlider.astro` - Image slider with Swiper
+- `ExampleAccordion.astro` - Collapsible content sections
+- `ExampleModal.astro` - Modal dialogs
+- `ExampleHero.astro` - Hero sections
+- `ExampleCheckbox.astro` - Custom checkbox styling
+- `ExampleFloatingLabels.astro` - Form input animations
+- `ExampleBackToTop.astro` - Scroll-to-top functionality
+- `example-count-down.astro` - Countdown timer
+
+**Key Characteristics:**
+- Use global design system classes
+- Minimal component-specific CSS
+- JavaScript modules for interactivity
+- No Bootstrap classes
+- Styled by Builders.io in production
+
+### Production Components (Real Implementation)
+**Location**: `src/components/` (future)
+**Purpose**: Actual production use
+
+**Technology Stack:**
+- **Styling**: Pure SCSS with design system integration
+- **JavaScript**: ES6 modules (if needed)
+- **Layout**: Global section classes
+- **External Libraries**: None (unless specifically required)
+
+**Key Characteristics:**
+- **NO Bootstrap** - Styled entirely by Builders.io
+- Use existing design system classes
+- Minimal custom CSS
+- Focus on maintainability
+- Follow component creation guidelines
+
+## Presentation Pages (Development)
+
+### Dev Pages
+**Location**: `src/pages/dev/components-pages/`
+**Purpose**: Showcase and documentation for example components
+
+**Technology Stack:**
+- **Styling**: Bootstrap 5.3.2 + Custom SCSS
+- **Layout**: DevLayout.astro
+- **Navigation**: DevNav.astro
+- **External Libraries**: Bootstrap, Swiper
+
+**Presentation Pages:**
+- `example-slider-page.astro`
+- `example-accordion-page.astro`
+- `example-modal-page.astro`
+- `example-hero-page.astro`
+- `example-checkbox-page.astro`
+- `example-floating-labels-page.astro`
+- `example-back-to-top-page.astro`
+- `example-count-down-page.astro`
+
+**Key Characteristics:**
+- **Bootstrap for layout and utilities**
+- Documentation and examples
+- Interactive demos
+- Development tooling
+
+### Design Pages
+**Location**: `src/pages/design/`
+**Purpose**: Design system and production component showcase
+
+**Technology Stack:**
+- **Styling**: Pure SCSS (no Bootstrap)
+- **Layout**: DesignLayout.astro
+- **External Libraries**: Swiper only (if needed)
+
+**Key Characteristics:**
+- **NO Bootstrap** - Clean design system
+- Production-ready styling
+- Minimal external dependencies
+- Focus on design system consistency
+
+## External Dependencies
+
+### Swiper (v11.0.5)
+- **Purpose**: Touch slider/carousel functionality
+- **Loading**: CDN via Cloudflare
+- **Usage**: Example components and design pages
+
+**CDN Links:**
+```html
+<!-- CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.css" integrity="sha512-pmAAV1X4Nh5jA9m+jcvwJXFQvCBi3T17aZ1KWkqXr7g/O2YMvO8rfaa5ETWDuBq6fbDjlw4jHL44jNTScaKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js" integrity="sha512-Ysw1DcK1P+uYLqprEAzNQJP+J4hTx4t/3X2nbVwszao8wD+9afLjBQYjz7Uk4ADP+Er++mJoScI42ueGtQOzEA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+```
+
+**Best Practices:**
+- Use integrity checks for security
+- Load via CDN for performance
+- Initialize in JavaScript modules
+- Use `js__` prefix for JavaScript hooks
+
+### Bootstrap (v5.3.2)
+- **Purpose**: CSS framework for presentation pages only
+- **Loading**: CDN via jsDelivr
+- **Usage**: ONLY in DevLayout and presentation pages
+
+**CDN Links:**
+```html
+<!-- CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+```
+
+**CRITICAL**: Bootstrap is ONLY used in:
+- `DevLayout.astro` (development pages)
+- Presentation pages (`src/pages/dev/components-pages/`)
+- **NEVER in example components or production components**
+
+## Layout Architecture
+
+### DesignLayout.astro
+**Purpose**: Clean layout for design system and production pages
+```astro
+---
+const { title = "Dev Page" } = Astro.props;
+import '../scss/main.scss';
+---
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Swiper CSS only (if needed) -->
+    <title>{title}</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+  <!-- Swiper JS + functions.js (if needed) -->
+</html>
+```
+
+**Features:**
+- **NO Bootstrap** (clean design system)
+- Swiper for slider functionality (if needed)
+- Custom SCSS styling
+- Minimal JavaScript
+- Production-ready
+
+### DevLayout.astro
+**Purpose**: Development environment with full tooling
+```astro
+---
+const { title = "Dev Page" } = Astro.props;
+import '../scss/main.scss';
+import DevNav from '../components/dev/DevNav.astro';
+---
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap + Swiper CSS -->
+    <title>{title}</title>
+  </head>
+  <body>
+    <DevNav />
+    <slot />
+  </body>
+  <!-- Bootstrap + Swiper JS + functions.js -->
+</html>
+```
+
+**Features:**
+- **Bootstrap for layout and utilities**
+- Navigation component
+- Swiper for slider functionality
+- Full development tooling
+- Documentation and examples
+
+## JavaScript Architecture
+
+### Module System
+- **Type**: ES Modules (`"type": "module"`)
+- **Entry Point**: `/src/scripts/functions.js`
+- **Pattern**: Modular architecture with separate files
+
+**Structure:**
+```
+src/scripts/
+├── functions.js           # Main entry point
+└── modules/               # Component modules
+    ├── example-slider.mjs
+    ├── example-accordion.mjs
+    └── ...
+```
+
+**Best Practices:**
+- Use ES6 module syntax (`import`/`export`)
+- Separate concerns into modules
+- Use `DOMContentLoaded` for initialization
+- Check element existence before operations
+
+## Technology Usage by Component Type
+
+### Example Components
+```scss
+// ✅ CORRECT - Example component styling
+.example-slider {
+  // Component-specific styles only
+  &__navigation {
+    // Unique navigation styles
+  }
+}
+
+// ✅ CORRECT - Using global classes
+<div class="example-slider sec">
+  <div class="example-slider__header sec__header">
+    <h2 class="heading-h2 example-slider__title sec__title">Title</h2>
+  </div>
+</div>
+```
+
+### Production Components
+```scss
+// ✅ CORRECT - Production component styling
+.production-component {
+  // Minimal component-specific styles
+  // Rely on design system classes
+}
+
+// ✅ CORRECT - Using design system
+<div class="production-component sec">
+  <div class="production-component__header sec__header">
+    <h2 class="heading-h2 sec__title">Title</h2>
+  </div>
+</div>
+```
+
+### Presentation Pages
+```html
+<!-- ✅ CORRECT - Bootstrap in presentation pages -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <ExampleSlider />
+    </div>
+  </div>
+</div>
+```
+
+## Version Management
+
+### Current Versions
+- **Astro**: `^5.12.0` (latest stable)
+- **Sass**: `^1.89.2` (latest stable)
+- **Swiper**: `11.0.5` (via CDN)
+- **Bootstrap**: `5.3.2` (via CDN)
+
+### Update Strategy
+- **Core Dependencies**: Use caret ranges (`^`) for minor updates
+- **CDN Libraries**: Pin specific versions for stability
+- **Security**: Use integrity checks for all CDN resources
+- **Testing**: Test thoroughly before updating major versions
+
+## Development Workflow
+
+### Scripts
+```json
+{
+  "dev": "astro dev",      // Development server
+  "build": "astro build",  // Production build
+  "preview": "astro preview" // Preview production build
+}
+```
+
+### Best Practices by Component Type
+
+#### Example Components
+1. **Styling**: Use SCSS with design system variables
+2. **JavaScript**: Modular approach with ES6 modules
+3. **Layout**: Global section classes
+4. **External Libraries**: Only when necessary (Swiper)
+
+#### Production Components
+1. **Styling**: Pure SCSS, minimal custom CSS
+2. **JavaScript**: Only if required for functionality
+3. **Layout**: Design system classes only
+4. **External Libraries**: None (styled by Builders.io)
+
+#### Presentation Pages
+1. **Styling**: Bootstrap + custom SCSS
+2. **Layout**: Bootstrap grid system
+3. **Documentation**: Clear examples and usage
+4. **External Libraries**: Bootstrap, Swiper
+
+## Security Considerations
+
+### CDN Security
+- All CDN resources use integrity checks
+- Use `crossorigin="anonymous"` for external resources
+- Prefer `referrerpolicy="no-referrer"` for privacy
+
+### Best Practices
+- Keep dependencies updated
+- Use HTTPS for all external resources
+- Validate user inputs in forms
+- Follow Astro's security guidelines
+
+## Performance Optimization
+
+### Loading Strategy
+- **CSS**: Load critical styles inline, defer non-critical
+- **JavaScript**: Use `defer` attribute for non-critical scripts
+- **Images**: Optimize and use appropriate formats
+- **CDN**: Use global CDN for faster loading
+
+### Build Optimization
+- Astro's built-in optimization
+- CSS minification and purging
+- JavaScript bundling and tree-shaking
+- Static asset optimization
+
+## Environment Considerations
+
+### Development
+- Source maps enabled for debugging
+- Dev toolbar disabled for cleaner experience
+- Hot module replacement
+- Fast refresh for components
+
+### Production
+- Optimized builds
+- Minified assets
+- Static site generation
+- CDN distribution ready
+
+## Key Takeaways
+
+### Technology Separation
+- **Example Components**: SCSS + ES6 modules + Swiper (if needed)
+- **Production Components**: Pure SCSS (styled by Builders.io)
+- **Presentation Pages**: Bootstrap + SCSS + Swiper
+- **Design Pages**: Pure SCSS (no Bootstrap)
+
+### Bootstrap Usage Rules
+- ✅ **Use Bootstrap in**: DevLayout, presentation pages
+- ❌ **Never use Bootstrap in**: Example components, production components, design pages
+
+### Design System Integration
+- **Global Classes**: `.sec`, `.sec__header`, `.sec__title`, `.sec__content`
+- **Typography**: `heading-h2`, etc.
+- **Layout**: `container`, etc.
+- **Minimal Custom CSS**: Only for component-specific needs
+description:
+globs:
+alwaysApply: false
+---
