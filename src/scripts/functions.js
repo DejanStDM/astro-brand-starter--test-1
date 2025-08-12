@@ -8,6 +8,7 @@ import { initExampleBackToTop } from "./modules/example-back-to-top.mjs";
 import { initExampleCheckbox } from "./modules/example-checkbox.mjs";
 import { initExampleFloatingLabels } from "./modules/example-floating-labels.mjs";
 import { initExampleModal } from "./modules/example-modal.mjs";
+import { initHeroSlider } from './modules/hero-section.mjs';
 
 exampleFunction();
 buttonsExample();
@@ -22,10 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // Start the countdown timer
     countDownTimer();
     
-    // Initialize back-to-top
-    initExampleBackToTop();
-    
-    // Set up date input functionality
+          // Initialize back-to-top
+      initExampleBackToTop();
+      
+      // Initialize hero slider if element exists
+      if (document.querySelector('.hero-swiper')) {
+          initHeroSlider();
+      }
+      
+      // Set up date input functionality
     const dateInput = document.getElementById("date");
     const counterWrapper = document.querySelector(".counter-wrapper");
 

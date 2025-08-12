@@ -7,3 +7,106 @@ $md: 768px; // Desktop starts here
 $lg: 992px;
 $xl: 1200px;
 $xxl: 1400px;
+
+// ==========================================================================
+// Typography System
+// ==========================================================================
+
+// Font Family
+$font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+// Font Weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// ==========================================================================
+// Color System - From Figma Design (Corrected)
+// ==========================================================================
+
+// Primary Colors
+$color-primary-blue: #0671E0;        // M_Blue
+$color-primary-white: #FFFFFF;       // White
+
+// Brand Colors
+$color-brand-primary: #4CAF4F;      // Brand Primary (Green)
+$color-brand-secondary: #263238;     // Brand Secondary (Dark Blue-Grey)
+$color-brand-info: #2194F3;         // Brand Info (Blue)
+
+// Color Shades (Darker variations of primary)
+$color-shade-1: #43A046;            // S1
+$color-shade-2: #388E3B;            // S2
+$color-shade-3: #237D31;            // S3
+$color-shade-4: #1B5E1F;            // S4
+$color-shade-5: #103E13;            // S5
+
+// Color Tints (Lighter variations of primary)
+$color-tint-1: #66BB69;             // T1
+$color-tint-2: #81C784;             // T2
+$color-tint-3: #A5D6A7;             // T3
+$color-tint-4: #C8E6C9;             // T4
+$color-tint-5: #E8F5E9;             // T5
+
+// Action Colors
+$color-action-warning: #FBC02D;      // Warning
+$color-action-error: #E53835;        // Error
+$color-action-success: #2E7D31;      // Success
+
+// Neutral Colors
+$color-neutral-black: #263238;       // Black
+$color-neutral-dark-grey: #4D4D4D;  // D_Grey
+$color-neutral-grey: #717171;       // Grey
+$color-neutral-light-grey: #89939E; // L_Grey
+$color-neutral-grey-blue: #ABBED1;  // Grey-blue
+$color-neutral-silver: #F5F7FA;     // Silver
+$color-neutral-white: #FFFFFF;      // White
+
+// Text Colors
+$color-text-primary: #212121;        // Primary Text
+$color-text-secondary: #717171;      // Secondary Text
+$color-text-muted: #89939E;          // Muted Text
+
+// ==========================================================================
+// Spacing System
+// ==========================================================================
+
+// Base spacing unit
+$spacing-base: 8px;
+
+// Spacing scale
+$spacing-xs: $spacing-base * 0.5;    // 4px
+$spacing-sm: $spacing-base;          // 8px
+$spacing-md: $spacing-base * 1.5;    // 12px
+$spacing-lg: $spacing-base * 2;      // 16px
+$spacing-xl: $spacing-base * 3;      // 24px
+$spacing-xxl: $spacing-base * 4;     // 32px
+$spacing-xxxl: $spacing-base * 6;    // 48px
+
+// ==========================================================================
+// Border Radius
+// ==========================================================================
+
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 10px;             // From Figma
+$border-radius-xl: 16px;
+$border-radius-pill: 50px;
+
+// ==========================================================================
+// Shadows - From Figma Design
+// ==========================================================================
+
+$shadow-sm: 0px 2px 4px 0px rgba(171, 190, 209, 0.6);    // 2px shadow
+$shadow-md: 0px 4px 8px 0px rgba(171, 190, 209, 0.4);    // 4px shadow
+$shadow-lg: 0px 6px 12px 0px rgba(171, 190, 209, 0.3);   // 6px shadow
+$shadow-xl: 0px 8px 16px 0px rgba(171, 190, 209, 0.4);   // 8px shadow
+$shadow-xxl: 0px 16px 32px 0px rgba(171, 190, 209, 0.3); // 16px shadow
+
+// ==========================================================================
+// Transitions
+// ==========================================================================
+
+$transition-fast: 0.15s ease-in-out;
+$transition-normal: 0.3s ease-in-out;
+$transition-slow: 0.5s ease-in-out;

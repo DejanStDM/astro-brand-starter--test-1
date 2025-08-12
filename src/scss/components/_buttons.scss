@@ -1,3 +1,372 @@
 // ==========================================================================
-// Button Components
+// Button Components - From Figma Design
 // ==========================================================================
+
+@use '../utils/variables' as *;
+
+// ==========================================================================
+// Button Base Styles
+// ==========================================================================
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: $spacing-sm;
+  border: none;
+  border-radius: $border-radius-lg;
+  cursor: pointer;
+  font-family: $font-family-primary;
+  font-weight: $font-weight-medium;
+  text-decoration: none;
+  transition: all $transition-normal;
+  white-space: nowrap;
+  
+  // Focus styles
+  &:focus {
+    outline: 2px solid $color-primary-blue;
+    outline-offset: 2px;
+  }
+  
+  // Disabled state
+  &:disabled,
+  &.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+  
+  // Loading state
+  &.loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      border: 2px solid transparent;
+      border-top: 2px solid currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+// ==========================================================================
+// Button Sizes
+// ==========================================================================
+
+// Normal size (default)
+.btn {
+  padding: $spacing-md $spacing-xl;
+  font-size: 18px;
+  line-height: 28px;
+  min-height: 48px;
+}
+
+// Medium size
+.btn--medium {
+  padding: $spacing-sm $spacing-lg;
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 40px;
+}
+
+// Small size
+.btn--small {
+  padding: $spacing-sm $spacing-md;
+  font-size: 14px;
+  line-height: 16px;
+  min-height: 32px;
+}
+
+// ==========================================================================
+// Button Variants
+// ==========================================================================
+
+// Primary Button
+.btn--primary {
+  background-color: $color-brand-primary;
+  color: $color-neutral-white;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-shade-1;
+  }
+  
+  &:active:not(:disabled) {
+    background-color: $color-shade-2;
+  }
+}
+
+// Secondary Button
+.btn--secondary {
+  background-color: $color-brand-secondary;
+  color: $color-neutral-white;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-neutral-dark-grey;
+  }
+  
+  &:active:not(:disabled) {
+    background-color: $color-neutral-black;
+  }
+}
+
+// Tertiary Button
+.btn--tertiary {
+  background-color: transparent;
+  color: $color-brand-primary;
+  border: 1px solid $color-brand-primary;
+  
+  &:hover:not(:disabled) {
+    background-color: $color-brand-primary;
+    color: $color-neutral-white;
+  }
+  
+  &:active:not(:disabled) {
+    background-color: $color-shade-1;
+    border-color: $color-shade-1;
+  }
+}
+
+// Link Button
+.btn--link {
+  background-color: transparent;
+  color: $color-primary-blue;
+  padding: 0;
+  min-height: auto;
+  
+  &:hover:not(:disabled) {
+    color: $color-shade-1;
+    text-decoration: underline;
+  }
+  
+  &:active:not(:disabled) {
+    color: $color-shade-2;
+  }
+}
+
+// ==========================================================================
+// Icon Button Variants - Using Placeholder Icon
+// ==========================================================================
+
+// Icon only button
+.btn--icon {
+  padding: $spacing-md;
+  min-width: 48px;
+  min-height: 48px;
+  
+  &.btn--medium {
+    padding: $spacing-sm;
+    min-width: 40px;
+    min-height: 40px;
+  }
+  
+  &.btn--small {
+    padding: $spacing-sm;
+    min-width: 32px;
+    min-height: 32px;
+  }
+}
+
+// Icon with text - using placeholder icon
+.btn--icon-left {
+  .btn__icon {
+    order: -1;
+  }
+}
+
+.btn--icon-right {
+  .btn__icon {
+    order: 1;
+  }
+}
+
+// ==========================================================================
+// Button States
+// ==========================================================================
+
+// Default state (already defined in base)
+.btn--default {
+  // Default styles are in .btn base
+}
+
+// Hover state
+.btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: $shadow-md;
+}
+
+// Active/Click state
+.btn:active:not(:disabled) {
+  transform: translateY(0);
+  box-shadow: $shadow-sm;
+}
+
+// Focus state (already defined in base)
+.btn:focus {
+  // Focus styles are in .btn base
+}
+
+// Loading state (already defined in base)
+.btn.loading {
+  // Loading styles are in .btn base
+}
+
+// Disabled state (already defined in base)
+.btn:disabled,
+.btn.disabled {
+  // Disabled styles are in .btn base
+}
+
+// ==========================================================================
+// Button Content - Using Placeholder Icon
+// ==========================================================================
+
+.btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  
+  .btn--medium & {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .btn--small & {
+    width: 16px;
+    height: 16px;
+  }
+  
+  // Using placeholder icon for all buttons
+  background-image: url('/icons/arrow-up-right-from-square-solid-full.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.btn__text {
+  display: inline-block;
+}
+
+// ==========================================================================
+// Button Groups
+// ==========================================================================
+
+.btn-group {
+  display: inline-flex;
+  gap: $spacing-sm;
+  
+  .btn {
+    border-radius: $border-radius-lg;
+    
+    &:not(:first-child) {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    
+    &:not(:last-child) {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+}
+
+// ==========================================================================
+// Button Stack
+// ==========================================================================
+
+.btn-stack {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  
+  .btn {
+    width: 100%;
+  }
+}
+
+// ==========================================================================
+// Button Utilities
+// ==========================================================================
+
+// Full width button
+.btn--full {
+  width: 100%;
+}
+
+// Centered button
+.btn--center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Button with custom colors
+.btn--custom {
+  // Custom colors can be applied via CSS custom properties
+  --btn-bg: #{$color-brand-primary};
+  --btn-color: #{$color-neutral-white};
+  --btn-hover-bg: #{$color-shade-1};
+  --btn-active-bg: #{$color-shade-2};
+  
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  
+  &:hover:not(:disabled) {
+    background-color: var(--btn-hover-bg);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: var(--btn-active-bg);
+  }
+}
+
+// ==========================================================================
+// Button Animations
+// ==========================================================================
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+// ==========================================================================
+// Button Examples
+// ==========================================================================
+
+// Example usage classes
+.btn-example {
+  &--primary {
+    @extend .btn;
+    @extend .btn--primary;
+  }
+  
+  &--secondary {
+    @extend .btn;
+    @extend .btn--secondary;
+  }
+  
+  &--tertiary {
+    @extend .btn;
+    @extend .btn--tertiary;
+  }
+  
+  &--link {
+    @extend .btn;
+    @extend .btn--link;
+  }
+  
+  &--icon {
+    @extend .btn;
+    @extend .btn--icon;
+    @extend .btn--primary;
+  }
+}

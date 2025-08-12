@@ -1,3 +1,122 @@
+@use "../utils/variables" as *;
+@use "../base/typography" as *;
 // ==========================================================================
 // Section Layout Styles
 // ==========================================================================
+
+.sec {
+    width: 100%;
+    position: relative;
+    
+    // Base section spacing between sections
+    margin-bottom: 50px;
+    
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+// Section header elements
+.sec__header {
+    margin-bottom: 16px; 
+    text-align: center;
+    
+    .sec--left-aligned & {
+        text-align: left;
+    }
+    
+    .sec--right-aligned & {
+        text-align: right;
+    }
+}
+
+.sec__title {
+    color: $color-text-primary;
+    margin-bottom: 8px; 
+    @include headline-1;
+    
+  
+}
+
+.sec__subtitle {
+    color: $color-text-secondary;
+    max-width: 600px;
+    margin: 0 auto;
+    @include body-2-regular;
+    
+    .sec--left-aligned & {
+        margin: 0;
+    }
+    
+    .sec--right-aligned & {
+        margin: 0 0 0 auto;
+    }
+}
+
+.sec__content {
+    width: 100%;
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Section padding mixins
+// ---------------------------------------------------------------------------------------------------------------
+// Section padding mixins - top and bottom only
+@mixin section-padding($desktop-padding, $mobile-padding) {
+    padding-top: $mobile-padding;
+    padding-bottom: $mobile-padding;
+    @media (min-width: $sm) {
+        padding-top: $desktop-padding;
+        padding-bottom: $desktop-padding;
+    }
+}
+
+// Section padding variations using mixins
+.sec--padding-none {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.sec--padding-small {
+    @include section-padding(32px, 25px);
+}
+
+.sec--padding-medium {
+    @include section-padding(52px, 25px);
+}
+
+.sec--padding-large {
+    @include section-padding(64px, 25px);
+}
+
+// ---------------------------------------------------------------------------------------------------------------
+// Section spacing between sections
+// ---------------------------------------------------------------------------------------------------------------
+.sec--spacing-none {
+    margin-bottom: 0;
+  }
+  
+  .sec--spacing-small {
+    margin-bottom: 16px; 
+  }
+  
+  .sec--spacing-medium {
+    margin-bottom: 40px; 
+  }
+  
+  .sec--spacing-large {
+    margin-bottom: 50px; 
+  }
+
+// ---------------------------------------------------------------------------------------------------------------
+// Section background variants
+// ---------------------------------------------------------------------------------------------------------------
+.sec--bg-silver {
+    background-color: $color-neutral-silver;
+}
+
+.sec--bg-white {
+    background-color: $color-neutral-white;
+}
+
+
+

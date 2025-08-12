@@ -1,0 +1,317 @@
+---
+title: Design System Rules
+description: Rules for creating and maintaining the design system foundation before building any components
+globs: ["src/scss/**/*.scss", "src/components/**/*.astro", "src/pages/design/**/*.astro"]
+alwaysApply: true
+---
+
+# Design System Rules
+
+## Core Principle: Design System First
+
+**NEVER create components without first establishing the design system foundation.** The design system provides the building blocks that all components will use.
+
+## Design System Hierarchy
+
+### 1. Foundation Layer (Required First)
+- **Variables** (`src/scss/utils/_variables.scss`)
+- **Typography** (`src/scss/base/_typography.scss`)
+- **Colors** (`src/scss/utils/_variables.scss`)
+- **Spacing** (`src/scss/utils/_variables.scss`)
+- **Breakpoints** (`src/scss/utils/_variables.scss`)
+
+### 2. Layout Layer (Required Second)
+- **Container** (`src/scss/layout/_container.scss`)
+- **Section** (`src/scss/layout/_section.scss`)
+- **Grid System** (if needed)
+
+### 3. Component Layer (Only After Foundation + Layout)
+- **Buttons** (`src/scss/components/_buttons.scss`)
+- **Form Elements**
+- **Navigation**
+- **Content Components**
+
+## Required Design System Elements
+
+### Typography System
+```scss
+// REQUIRED: Complete typography scale
+$font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+// Font weights must be defined
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+
+// Typography mixins for each level
+@mixin headline-1 { /* Mobile-first responsive typography */ }
+@mixin headline-2 { /* Mobile-first responsive typography */ }
+@mixin headline-3 { /* Mobile-first responsive typography */ }
+@mixin headline-4 { /* Mobile-first responsive typography */ }
+@mixin body-1-regular { /* Mobile-first responsive typography */ }
+@mixin body-1-medium { /* Mobile-first responsive typography */ }
+@mixin body-2-regular { /* Mobile-first responsive typography */ }
+@mixin body-2-medium { /* Mobile-first responsive typography */ }
+@mixin body-3-regular { /* Mobile-first responsive typography */ }
+@mixin body-3-medium { /* Mobile-first responsive typography */ }
+@mixin body-4-regular { /* Mobile-first responsive typography */ }
+@mixin body-4-medium { /* Mobile-first responsive typography */ }
+
+// Utility classes for typography
+.heading-h1 { @include headline-1; }
+.heading-h2 { @include headline-2; }
+.heading-h3 { @include headline-3; }
+.heading-h4 { @include headline-4; }
+.body-1-regular { @include body-1-regular; }
+.body-1-medium { @include body-1-medium; }
+.body-2-regular { @include body-2-regular; }
+.body-2-medium { @include body-2-medium; }
+.body-3-regular { @include body-3-regular; }
+.body-3-medium { @include body-3-medium; }
+.body-4-regular { @include body-4-regular; }
+.body-4-medium { @include body-4-medium; }
+```
+
+### Color System
+```scss
+// REQUIRED: Complete color palette
+// Primary Colors
+$color-primary-blue: #0671E0;
+
+// Brand Colors
+$color-brand-primary: #4CAF4F;      // Green
+$color-brand-secondary: #263238;     // Dark Blue-Grey
+$color-brand-info: #2194F3;         // Blue
+
+// Color Shades (Darker variations)
+$color-shade-1: #43A046;            // S1
+$color-shade-2: #388E3B;            // S2
+$color-shade-3: #237D31;            // S3
+$color-shade-4: #1B5E1F;            // S4
+$color-shade-5: #103E13;            // S5
+
+// Color Tints (Lighter variations)
+$color-tint-1: #66BB69;             // T1
+$color-tint-2: #81C784;             // T2
+$color-tint-3: #A5D6A7;             // T3
+$color-tint-4: #C8E6C9;             // T4
+$color-tint-5: #E8F5E9;             // T5
+
+// Action Colors
+$color-action-warning: #FBC02D;      // Yellow
+$color-action-error: #E53835;        // Red
+$color-action-success: #2E7D31;      // Green
+
+// Neutral Colors
+$color-neutral-black: #263238;       // Black
+$color-neutral-dark-grey: #4D4D4D;  // D_Grey
+$color-neutral-grey: #717171;       // Grey
+$color-neutral-light-grey: #89939E; // L_Grey
+$color-neutral-grey-blue: #ABBED1;  // Grey-blue
+$color-neutral-silver: #F5F7FA;     // Silver
+$color-neutral-white: #FFFFFF;      // White
+```
+
+### Breakpoint System
+```scss
+// REQUIRED: Mobile-first breakpoints
+$xs: 0;
+$sm: 576px;
+$md: 768px; // Desktop starts here
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+```
+
+### Layout System
+```scss
+// REQUIRED: Section layout classes
+.sec {
+  // Base section styles
+}
+
+.sec__header {
+  // Section header styles
+}
+
+.sec__title {
+  // Section title styles
+}
+
+.sec__content {
+  // Section content styles
+}
+
+// REQUIRED: Container system
+.container {
+  // Container styles
+}
+```
+
+## Component Creation Rules
+
+### Before Creating Any Component:
+1. **Check if design system is complete**
+2. **Verify typography classes exist**
+3. **Confirm color variables are defined**
+4. **Ensure layout classes are available**
+
+### Component Styling Rules:
+```scss
+// ✅ CORRECT: Use design system classes
+.component-name {
+  // Minimal component-specific styles only
+  
+  &__header {
+    // Use existing typography classes
+    @extend .sec__header;
+  }
+  
+  &__title {
+    // Use existing typography classes
+    @extend .heading-h2;
+  }
+  
+  &__content {
+    // Use existing layout classes
+    @extend .sec__content;
+  }
+}
+
+// ❌ WRONG: Don't recreate design system elements
+.component-name {
+  font-family: 'Inter', sans-serif;  // Use $font-family-primary
+  font-size: 24px;                   // Use typography mixins
+  color: #4CAF4F;                    // Use $color-brand-primary
+  margin-bottom: 2rem;               // Use spacing variables
+}
+```
+
+## File Organization Rules
+
+### SCSS Structure (Required Order):
+```
+src/scss/
+├── main.scss              # Entry point
+├── utils/
+│   └── _variables.scss   # ALL variables (colors, spacing, breakpoints)
+├── base/
+│   ├── _normalize.scss   # CSS reset
+│   ├── _globals.scss     # Global styles
+│   ├── _fonts.scss       # Font imports
+│   └── _typography.scss  # Typography system
+├── layout/
+│   ├── _container.scss   # Container system
+│   └── _section.scss     # Section layout
+├── components/            # Only after foundation is complete
+│   ├── _buttons.scss
+│   ├── _example-*.scss
+│   └── _production-*.scss
+└── vendors/               # Third-party styles
+```
+
+### Import Order in main.scss:
+```scss
+// 1. Variables first
+@use 'utils/variables';
+
+// 2. Base styles
+@use 'base/normalize';
+@use 'base/globals';
+@use 'base/fonts';
+@use 'base/typography';
+
+// 3. Layout system
+@use 'layout/container';
+@use 'layout/section';
+
+// 4. Components (only after foundation)
+@use 'components/buttons';
+@use 'components/example-accordion';
+// ... other components
+```
+
+## Validation Checklist
+
+### Before Component Development:
+- [ ] Typography system complete with all mixins and utility classes
+- [ ] Color system defined with all variations
+- [ ] Breakpoint system established
+- [ ] Layout classes (.sec, .container) implemented
+- [ ] Spacing variables defined
+- [ ] All variables imported in main.scss
+
+### Before Production:
+- [ ] Design system documented in `/src/pages/design/`
+- [ ] All components use design system classes
+- [ ] No hardcoded colors, fonts, or spacing
+- [ ] Responsive design using breakpoint variables
+- [ ] Typography scale tested across all breakpoints
+
+## Example Component Using Design System
+
+```astro
+---
+// Example component using design system
+---
+
+<div class="example-component sec">
+  <div class="example-component__header sec__header">
+    <h2 class="heading-h2 example-component__title sec__title">
+      Component Title
+    </h2>
+  </div>
+  
+  <div class="example-component__content sec__content">
+    <p class="body-1-regular">
+      Content using design system typography
+    </p>
+  </div>
+</div>
+```
+
+## Maintenance Rules
+
+### When Updating Design System:
+1. **Update variables first**
+2. **Regenerate typography if needed**
+3. **Update layout classes if needed**
+4. **Test all existing components**
+5. **Update documentation**
+
+### When Adding New Design Elements:
+1. **Add to appropriate foundation layer**
+2. **Create utility classes if needed**
+3. **Update main.scss imports**
+4. **Document in design pages**
+5. **Test across breakpoints**
+
+## Emergency Procedures
+
+### If Design System is Incomplete:
+1. **STOP component development**
+2. **Complete missing foundation elements**
+3. **Verify all variables and classes work**
+4. **Test with simple examples**
+5. **Resume component development**
+
+### If Design System is Broken:
+1. **Revert to last working version**
+2. **Identify breaking changes**
+3. **Fix foundation issues first**
+4. **Test thoroughly**
+5. **Update documentation**
+
+## Key Takeaways
+
+- **Design system is NOT optional** - it's the foundation
+- **Typography must be complete** before any components
+- **Colors must be defined** in variables
+- **Layout classes must exist** before component development
+- **Use existing classes** instead of recreating them
+- **Test across all breakpoints** before production
+- **Document everything** in design pages
+
+Remember: A solid design system saves development time, ensures consistency, and makes maintenance easier. Never skip this step.
+

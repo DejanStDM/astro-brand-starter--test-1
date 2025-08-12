@@ -1,0 +1,301 @@
+// ==========================================================================
+// Effects System - From Figma Design
+// ==========================================================================
+
+@use 'variables' as *;
+
+// ==========================================================================
+// Shadow System
+// ==========================================================================
+
+// Shadow utility classes
+.shadow-sm {
+  box-shadow: $shadow-sm;
+}
+
+.shadow-md {
+  box-shadow: $shadow-md;
+}
+
+.shadow-lg {
+  box-shadow: $shadow-lg;
+}
+
+.shadow-xl {
+  box-shadow: $shadow-xl;
+}
+
+.shadow-xxl {
+  box-shadow: $shadow-xxl;
+}
+
+// ==========================================================================
+// Shadow with Hover Effects
+// ==========================================================================
+
+.shadow-hover {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+.shadow-hover--sm {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-sm;
+  }
+}
+
+.shadow-hover--md {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.shadow-hover--xl {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-xl;
+  }
+}
+
+.shadow-hover--xxl {
+  transition: box-shadow $transition-normal;
+  
+  &:hover {
+    box-shadow: $shadow-xxl;
+  }
+}
+
+// ==========================================================================
+// Interactive Shadows
+// ==========================================================================
+
+.shadow-interactive {
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.shadow-interactive--subtle {
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-1px);
+    box-shadow: $shadow-md;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+}
+
+.shadow-interactive--strong {
+  transition: all $transition-normal;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: $shadow-xxl;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-sm;
+  }
+}
+
+// ==========================================================================
+// Depth System
+// ==========================================================================
+
+.depth-1 {
+  box-shadow: $shadow-sm;
+}
+
+.depth-2 {
+  box-shadow: $shadow-md;
+}
+
+.depth-3 {
+  box-shadow: $shadow-lg;
+}
+
+.depth-4 {
+  box-shadow: $shadow-xl;
+}
+
+.depth-5 {
+  box-shadow: $shadow-xxl;
+}
+
+// ==========================================================================
+// Elevation System
+// ==========================================================================
+
+.elevation-0 {
+  box-shadow: none;
+}
+
+.elevation-1 {
+  box-shadow: $shadow-sm;
+}
+
+.elevation-2 {
+  box-shadow: $shadow-md;
+}
+
+.elevation-3 {
+  box-shadow: $shadow-lg;
+}
+
+.elevation-4 {
+  box-shadow: $shadow-xl;
+}
+
+.elevation-5 {
+  box-shadow: $shadow-xxl;
+}
+
+// ==========================================================================
+// Shadow Modifiers
+// ==========================================================================
+
+// Shadow with custom color
+.shadow-custom {
+  --shadow-color: #{$color-neutral-grey-blue};
+  --shadow-opacity: 0.3;
+  
+  box-shadow: 0px 2px 4px 0px rgba(171, 190, 209, var(--shadow-opacity));
+}
+
+// Shadow with custom spread
+.shadow-spread--sm {
+  box-shadow: 0px 1px 2px 0px rgba(171, 190, 209, 0.6);
+}
+
+.shadow-spread--md {
+  box-shadow: 0px 2px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+.shadow-spread--lg {
+  box-shadow: 0px 4px 8px 0px rgba(171, 190, 209, 0.4);
+}
+
+.shadow-spread--xl {
+  box-shadow: 0px 6px 12px 0px rgba(171, 190, 209, 0.3);
+}
+
+.shadow-spread--xxl {
+  box-shadow: 0px 8px 16px 0px rgba(171, 190, 209, 0.4);
+}
+
+.shadow-spread--xxxl {
+  box-shadow: 0px 16px 32px 0px rgba(171, 190, 209, 0.3);
+}
+
+// ==========================================================================
+// Shadow Combinations
+// ==========================================================================
+
+// Multiple shadows
+.shadow-multiple {
+  box-shadow: 
+    $shadow-sm,
+    0px 0px 0px 1px rgba(171, 190, 209, 0.1);
+}
+
+.shadow-multiple--strong {
+  box-shadow: 
+    $shadow-md,
+    0px 0px 0px 1px rgba(171, 190, 209, 0.2);
+}
+
+// ==========================================================================
+// Shadow Utilities
+// ==========================================================================
+
+// Remove shadow
+.shadow-none {
+  box-shadow: none !important;
+}
+
+// Shadow on specific sides
+.shadow-top {
+  box-shadow: 0px -2px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+.shadow-bottom {
+  box-shadow: 0px 2px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+.shadow-left {
+  box-shadow: -2px 0px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+.shadow-right {
+  box-shadow: 2px 0px 4px 0px rgba(171, 190, 209, 0.6);
+}
+
+// ==========================================================================
+// Shadow with Border Radius
+// ==========================================================================
+
+.shadow-rounded {
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+}
+
+.shadow-rounded--sm {
+  border-radius: $border-radius-sm;
+  overflow: hidden;
+}
+
+.shadow-rounded--md {
+  border-radius: $border-radius-md;
+  overflow: hidden;
+}
+
+.shadow-rounded--xl {
+  border-radius: $border-radius-xl;
+  overflow: hidden;
+}
+
+// ==========================================================================
+// Shadow Examples
+// ==========================================================================
+
+// Example shadow usage
+.shadow-example {
+  &--card {
+    @extend .shadow-md;
+    @extend .shadow-hover;
+  }
+  
+  &--button {
+    @extend .shadow-sm;
+    @extend .shadow-interactive;
+  }
+  
+  &--modal {
+    @extend .shadow-xxl;
+  }
+  
+  &--tooltip {
+    @extend .shadow-lg;
+  }
+}

@@ -1,6 +1,6 @@
 // UTILS
 @use "./utils/variables" as *;
-
+@use "./utils/effects";
 
 // VENDORS
 
@@ -16,6 +16,7 @@
 
 // COMPONENTS
 @use 'components/buttons';
+@use 'components/hero-section';
 @use 'components/example-hero';
 @use 'components/example-slider';
 @use 'components/example-count-down';

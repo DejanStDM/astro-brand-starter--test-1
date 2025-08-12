@@ -1,3 +1,41 @@
+@use "../utils/variables" as *;
 // ==========================================================================
 // Container Layout 
 // ==========================================================================
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 35px;  
+    padding-right: 35px; 
+  
+    // Responsive breakpoints
+    @media (min-width: $sm) {
+      max-width: 540px;
+    }
+  
+    @media (min-width: $md) {
+      max-width: 720px;
+    }
+  
+    @media (min-width: $lg) {
+      max-width: 960px;
+    }
+  
+    @media (min-width: $xl) {
+      max-width: 1140px;
+    }
+  
+    @media (min-width: $xxl) {
+      max-width: 1320px;
+    }
+  }
+  
+  // Full width container (for sections that span full width)
+  .container-fluid {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 35px;
+    padding-right: 35px;
+  }

@@ -44,6 +44,10 @@ const { pathname } = Astro.url;
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="designDropdown">
                         <li>
+                            <a class={`dropdown-item${pathname === '/design' ? ' active' : ''}`} href="/design"
+                                >Design System</a>
+                        </li>
+                        <li>
                             <a class={`dropdown-item${pathname === '/design/example-page' ? ' active' : ''}`} href="/design/example-page"
                                 >Example Page</a>
                         </li>

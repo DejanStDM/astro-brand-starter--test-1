@@ -1,3 +1,271 @@
 // ==========================================================================
 // Typography System
 // ==========================================================================
+
+@use '../utils/variables' as *;
+
+// ==========================================================================
+// Typography Mixins - From Figma Design
+// ==========================================================================
+
+// Headline 1 - Semi Bold, 64/76
+@mixin headline-1 {
+  font-family: $font-family-primary;
+  font-size: 64px;
+  font-weight: $font-weight-semibold;
+  line-height: 76px;
+  letter-spacing: 0.1px;
+  
+  @media (max-width: $md) {
+    font-size: 48px;
+    line-height: 56px;
+  }
+  
+  @media (max-width: $sm) {
+    font-size: 36px;
+    line-height: 44px;
+  }
+}
+
+// Headline 2 - Semi Bold, 36/44
+@mixin headline-2 {
+  font-family: $font-family-primary;
+  font-size: 36px;
+  font-weight: $font-weight-semibold;
+  line-height: 44px;
+  letter-spacing: 0.1px;
+  
+  @media (max-width: $md) {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  
+  @media (max-width: $sm) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+
+// Headline 3 - Bold, 28/36
+@mixin headline-3 {
+  font-family: $font-family-primary;
+  font-size: 28px;
+  font-weight: $font-weight-bold;
+  line-height: 36px;
+  letter-spacing: 0.1px;
+  
+  @media (max-width: $md) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+  
+  @media (max-width: $sm) {
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+// Headline 4 - Semi Bold, 20/28
+@mixin headline-4 {
+  font-family: $font-family-primary;
+  font-size: 20px;
+  font-weight: $font-weight-semibold;
+  line-height: 28px;
+  letter-spacing: 0.1px;
+  
+  @media (max-width: $md) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+// Body 1 - Regular, 18/28
+@mixin body-1-regular {
+  font-family: $font-family-primary;
+  font-size: 18px;
+  font-weight: $font-weight-regular;
+  line-height: 28px;
+}
+
+// Body 1 - Medium, 18/28
+@mixin body-1-medium {
+  font-family: $font-family-primary;
+  font-size: 18px;
+  font-weight: $font-weight-medium;
+  line-height: 28px;
+}
+
+// Body 2 - Regular, 16/24
+@mixin body-2-regular {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: $font-weight-regular;
+  line-height: 24px;
+}
+
+// Body 2 - Medium, 16/24
+@mixin body-2-medium {
+  font-family: $font-family-primary;
+  font-size: 16px;
+  font-weight: $font-weight-medium;
+  line-height: 24px;
+}
+
+// Body 3 - Regular, 14/20
+@mixin body-3-regular {
+  font-family: $font-family-primary;
+  font-size: 14px;
+  font-weight: $font-weight-regular;
+  line-height: 20px;
+}
+
+// Body 3 - Medium, 14/20
+@mixin body-3-medium {
+  font-family: $font-family-primary;
+  font-size: 14px;
+  font-weight: $font-weight-medium;
+  line-height: 20px;
+}
+
+// Body 4 - Regular, 12/16
+@mixin body-4-regular {
+  font-family: $font-family-primary;
+  font-size: 12px;
+  font-weight: $font-weight-regular;
+  line-height: 16px;
+}
+
+// Body 4 - Medium, 12/16
+@mixin body-4-medium {
+  font-family: $font-family-primary;
+  font-size: 12px;
+  font-weight: $font-weight-medium;
+  line-height: 16px;
+}
+
+// ==========================================================================
+// Typography Utility Classes
+// ==========================================================================
+
+// Headline Classes
+.heading-h1 {
+  @include headline-1;
+  
+}
+
+.heading-h2 {
+  @include headline-2;
+  
+}
+
+.heading-h3 {
+  @include headline-3;
+  
+}
+
+.heading-h4 {
+  @include headline-4;
+  
+}
+
+// Body Text Classes
+.body-1-regular {
+  @include body-1-regular
+}
+
+.body-1-medium {
+  @include body-1-medium;
+  
+}
+
+.body-2-regular {
+  @include body-2-regular;
+  
+}
+
+.body-2-medium {
+  @include body-2-medium;
+  
+}
+
+.body-3-regular {
+  @include body-3-regular;
+  
+}
+
+.body-3-medium {
+  @include body-3-medium;
+  
+}
+
+.body-4-regular {
+  @include body-4-regular;
+  
+}
+
+.body-4-medium {
+  @include body-4-medium;
+  
+}
+
+// ==========================================================================
+// Typography Modifiers
+// ==========================================================================
+
+// Color Modifiers
+.text-primary {
+  color: $color-text-primary !important;
+}
+
+.text-secondary {
+  color: $color-text-secondary !important;
+}
+
+.text-muted {
+  color: $color-text-muted !important;
+}
+
+.text-white {
+  color: $color-neutral-white !important;
+}
+
+.text-blue {
+  color: $color-primary-blue !important;
+}
+
+.text-green {
+  color: $color-brand-primary !important;
+}
+
+// Weight Modifiers
+.font-regular {
+  font-weight: $font-weight-regular !important;
+}
+
+.font-medium {
+  font-weight: $font-weight-medium !important;
+}
+
+.font-semibold {
+  font-weight: $font-weight-semibold !important;
+}
+
+.font-bold {
+  font-weight: $font-weight-bold !important;
+}
+
+// Alignment Modifiers
+.text-left {
+  text-align: left !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+
+
