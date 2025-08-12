@@ -1,15 +1,13 @@
-# Astro Brand Starter
+# Astro Brand Starter Test 1
 
-This is a template project for creating brand websites with Astro and Builder.io integration.
+This is the first testing project that uses an Astro starter project with an updated Figma file for brand website development and Builder.io integration.
 
-
-
-
+## Figma: 
+https://www.figma.com/design/BQVTUivEIwMe4bdk9H72ml/Builder.io-test?node-id=3-681&m=dev
 
 ## 🚀 Project Structure
 
 This project uses Astro for component-driven development and Vite for fast builds and hot reload. The goal is to create HTML, SCSS, and JS that can be easily copy-pasted into other systems (e.g., Drupal themes) after build. There is no direct Drupal integration in this project.
-
 
 
 ## 🧞 Commands
