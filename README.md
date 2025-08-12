@@ -2,6 +2,9 @@
 
 This is the first testing project that uses an Astro starter project with an updated Figma file for brand website development and Builder.io integration.
 
+### Update to starter template
+New rule for design system is added - .cursor\rules\design-system.mdc
+
 ## Figma: 
 https://www.figma.com/design/BQVTUivEIwMe4bdk9H72ml/Builder.io-test?node-id=3-681&m=dev
 
