@@ -1,0 +1,221 @@
+// Use design system variables
+@use "../utils/variables" as *;
+
+.blog-preview {
+  &__header {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__title {
+    color: $color-neutral-dark-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    margin: 0;
+    
+    @media (max-width: $md) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__subtitle {
+    width: 628px;
+    color: $color-neutral-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+    
+    @media (max-width: $md) {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
+
+  &__content {
+    padding: 0 144px;
+    
+    @media (max-width: $xl) {
+      padding: 0 80px;
+    }
+    
+    @media (max-width: $lg) {
+      padding: 0 40px;
+    }
+    
+    @media (max-width: $md) {
+      padding: 0 20px;
+    }
+  }
+
+  &__swiper {
+    position: relative;
+    overflow: visible;
+    
+    .swiper-slide {
+      height: auto;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: -96px;
+    position: relative;
+    height: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 286px;
+    border-radius: $border-radius-md;
+    object-fit: cover;
+    margin-bottom: -96px;
+    z-index: 1;
+  }
+
+  &__card-content {
+    display: flex;
+    padding: 96px 16px 16px;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    border-radius: $border-radius-md;
+    background: $color-neutral-silver;
+    box-shadow: $shadow-xl;
+    position: relative;
+    z-index: 2;
+    margin-top: 0;
+    width: calc(100% - 32px);
+    margin-left: 16px;
+    margin-right: 16px;
+    transition: $transition-normal;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-xxl;
+    }
+  }
+
+  &__card-title {
+    color: $color-neutral-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0;
+    min-height: 56px;
+    display: flex;
+    align-items: center;
+    
+    @media (max-width: $md) {
+      font-size: 18px;
+      line-height: 26px;
+      min-height: 52px;
+    }
+  }
+
+  &__card-link {
+    display: flex;
+    padding: 8px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+    cursor: pointer;
+    transition: $transition-normal;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      transform: translateX(5px);
+    }
+  }
+
+  &__link-text {
+    color: $color-brand-primary;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    
+    @media (max-width: $md) {
+      font-size: 18px;
+    }
+  }
+
+  &__link-icon {
+    width: 24px;
+    height: 24px;
+    transition: $transition-normal;
+    
+    .blog-preview__card-link:hover & {
+      transform: translateX(3px);
+    }
+  }
+}
+
+// Swiper Navigation Styles for Blog Preview
+.blog-preview {
+  .swiper-button-next,
+  .swiper-button-prev {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: $color-brand-primary;
+    transition: $transition-normal;
+    box-shadow: $shadow-md;
+    
+    &:hover {
+      background-color: $color-brand-primary;
+      color: $color-neutral-white;
+      transform: scale(1.1);
+    }
+
+    &::after {
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    @media (max-width: $md) {
+      width: 40px;
+      height: 40px;
+      
+      &::after {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .swiper-pagination {
+    position: static;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: rgba($color-brand-primary, 0.3);
+      opacity: 1;
+      transition: $transition-normal;
+      
+      &-active {
+        background: $color-brand-primary;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
