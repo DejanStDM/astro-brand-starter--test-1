@@ -17,18 +17,30 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    padding: 22px $spacing-lg;
+    padding: 22px 35px;
     position: relative;
 
+    // Use the same responsive breakpoints as container system
+    @media (min-width: $sm) {
+      max-width: 540px;
+    }
+
     @media (min-width: $md) {
-      padding: 22px $spacing-xxxl;
+      max-width: 720px;
     }
 
     @media (min-width: $lg) {
-      padding: 22px 105px;
-      gap: 152px;
+      max-width: 960px;
+    }
+
+    @media (min-width: $xl) {
+      max-width: 1140px;
+    }
+
+    @media (min-width: $xxl) {
+      max-width: 1320px;
     }
   }
 
