@@ -1,0 +1,94 @@
+// Use design system variables
+@use "../utils/variables" as *;
+
+.clients {
+  &__header {
+    margin-bottom: 16px;
+  }
+
+  &__title {
+    color: $color-neutral-dark-grey;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    margin-bottom: 8px;
+  }
+
+  &__description {
+    color: $color-neutral-grey;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: center;
+  }
+
+  &__content {
+    padding: 0 144px;
+    
+    @media (max-width: $xl) {
+      padding: 0 80px;
+    }
+    
+    @media (max-width: $lg) {
+      padding: 0 40px;
+    }
+    
+    @media (max-width: $md) {
+      padding: 0 20px;
+    }
+  }
+
+  &__logo-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    height: 98px;
+    
+    @media (max-width: $lg) {
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    
+    @media (max-width: $md) {
+      gap: 15px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    padding: 4px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: $border-radius-md;
+    transition: $transition-normal;
+    
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: $lg) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+
+  &__logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(1);
+    transition: $transition-normal;
+    
+    .clients__logo:hover & {
+      filter: grayscale(0);
+    }
+  }
+}
