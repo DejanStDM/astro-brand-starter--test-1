@@ -4,31 +4,27 @@
 .testimonial {
   &__content {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 78px;
-    padding: 0 144px;
-    
-    @media (max-width: $xl) {
-      padding: 0 80px;
+    gap: 40px;
+   
+    @media (min-width: $lg) {
+      flex-direction: row;
+      align-items: center;
       gap: 60px;
     }
     
-    @media (max-width: $lg) {
-      padding: 0 40px;
-      gap: 40px;
-      flex-direction: column;
-    }
-    
-    @media (max-width: $md) {
-      padding: 0 20px;
+    @media (min-width: $xl) {
+      gap: 78px;
     }
   }
 
   &__image {
     flex-shrink: 0;
+    order: 1;
     
-    @media (max-width: $lg) {
-      order: 2;
+    @media (min-width: $lg) {
+      order: 1;
     }
   }
 
@@ -53,26 +49,28 @@
   &__text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 32px;
     flex: 1;
+    order: 2;
     
-    @media (max-width: $lg) {
-      order: 1;
-      align-items: center;
+    @media (min-width: $lg) {
+      order: 2;
+      align-items: flex-start;
     }
   }
 
   &__text-content {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 16px;
     align-self: stretch;
+    text-align: center;
     
-    @media (max-width: $lg) {
-      align-items: center;
-      text-align: center;
+    @media (min-width: $lg) {
+      align-items: flex-start;
+      text-align: left;
     }
   }
 
@@ -102,12 +100,12 @@
   &__author-group {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
     align-self: stretch;
     
-    @media (max-width: $lg) {
-      align-items: center;
+    @media (min-width: $lg) {
+      align-items: flex-start;
     }
   }
 

@@ -1,0 +1,222 @@
+---
+import DevLayout from '../../../layouts/DevLayout.astro';
+import HeroSlider from '../../../components/design/HeroSlider.astro';
+---
+
+<DevLayout title="Hero Slider Component">
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="display-4 mb-4">Hero Slider Component</h1>
+        <p class="lead mb-5">
+          <strong>HeroSlider</strong> is a responsive hero section with slider functionality built using Swiper.js.
+        </p>
+      </div>
+    </div>
+
+    <!-- Component Demo -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Live Demo</h2>
+        <div class="border rounded p-3 bg-light">
+          <HeroSlider />
+        </div>
+      </div>
+    </div>
+
+    <!-- Component Code -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Component Code</h2>
+        <div class="bg-dark text-light p-3 rounded">
+          <pre><code>&lt;section class="page-sec page-sec--hero-slider"&gt;
+  &lt;div class="container"&gt;
+    &lt;div class="hero-slider sec"&gt;
+      &lt;div class="swiper hero-slider__swiper js__hero-slider"&gt;
+        &lt;div class="swiper-wrapper"&gt;
+          
+          &lt;!-- Slide 1 --&gt;
+          &lt;div class="swiper-slide"&gt;
+            &lt;div class="hero-slider__slide"&gt;
+              &lt;div class="hero-slider__content sec__content"&gt;
+                
+                &lt;!-- Text Content --&gt;
+                &lt;div class="hero-slider__text-group"&gt;
+                  &lt;div class="hero-slider__text-content"&gt;
+                    &lt;h1 class="hero-slider__title sec__title"&gt;
+                      &lt;span class="hero-slider__title-line"&gt;Lessons and insights&lt;/span&gt;
+                      &lt;span class="hero-slider__title-line hero-slider__title-line--highlight"&gt;from 8 years&lt;/span&gt;
+                    &lt;/h1&gt;
+                    
+                    &lt;p class="hero-slider__subtitle"&gt;
+                      Where to grow your business as a photographer: site or social media?
+                    &lt;/p&gt;
+                    
+                    &lt;div class="hero-slider__actions"&gt;
+                      &lt;button class="btn btn-primary hero-slider__btn hero-slider__btn--primary"&gt;
+                        Register
+                      &lt;/button&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+                
+                &lt;!-- Image Content --&gt;
+                &lt;div class="hero-slider__image-group"&gt;
+                  &lt;img src="/images/hero/slide1.webp" alt="Lessons and insights from 8 years" class="hero-slider__image" /&gt;
+                &lt;/div&gt;
+                
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          
+        &lt;/div&gt;
+        
+        &lt;!-- Navigation arrows --&gt;
+        &lt;div class="swiper-button-next"&gt;&lt;/div&gt;
+        &lt;div class="swiper-button-prev"&gt;&lt;/div&gt;
+        
+        &lt;!-- Pagination dots --&gt;
+        &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Features</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Responsive design with mobile-first approach
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Smooth slide transitions with fade effect
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Navigation arrows and pagination dots
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Autoplay with pause on hover
+              </li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Keyboard navigation support
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Touch gesture support for mobile
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Staggered text animations
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                Performance optimized with intersection observer
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- File Structure -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">File Structure</h2>
+        <div class="bg-light p-3 rounded">
+          <ul class="list-unstyled mb-0">
+            <li><code>src/components/design/HeroSlider.astro</code> - Main component file</li>
+            <li><code>src/scss/components/_hero-slider.scss</code> - Component styles</li>
+            <li><code>src/scripts/modules/hero-slider.mjs</code> - JavaScript functionality</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Usage Instructions -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Usage Instructions</h2>
+        <div class="bg-light p-3 rounded">
+          <ol>
+            <li><strong>Import the component:</strong> <code>import HeroSlider from '../../components/design/HeroSlider.astro';</code></li>
+            <li><strong>Use in your page:</strong> <code>&lt;HeroSlider /&gt;</code></li>
+            <li><strong>Ensure Swiper.js is loaded:</strong> The component requires Swiper.js to be available globally</li>
+            <li><strong>Customize content:</strong> Modify the slide content, images, and text in the component file</li>
+            <li><strong>Styling Customization:</strong> Modify variables in <code>_hero-slider.scss</code></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+    <!-- Customization -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Customization Options</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h4 class="h5">Content Customization</h4>
+            <ul>
+              <li>Change slide text and titles</li>
+              <li>Replace hero images</li>
+              <li>Modify button text and actions</li>
+              <li>Adjust slide count</li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <h4 class="h5">Style Customization</h4>
+            <ul>
+              <li>Modify color scheme</li>
+              <li>Adjust typography sizes</li>
+              <li>Change spacing and layout</li>
+              <li>Customize animations</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dependencies -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Dependencies</h2>
+        <div class="bg-light p-3 rounded">
+          <ul class="list-unstyled mb-0">
+            <li><strong>Swiper.js:</strong> For slider functionality (loaded via CDN)</li>
+            <li><strong>SCSS:</strong> For styling and responsive design</li>
+            <li><strong>Design System:</strong> Uses global typography and layout classes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Browser Support -->
+    <div class="row mb-5">
+      <div class="col-12">
+        <h2 class="h3 mb-4">Browser Support</h2>
+        <div class="bg-light p-3 rounded">
+          <ul class="list-unstyled mb-0">
+            <li><strong>Modern Browsers:</strong> Chrome 60+, Firefox 55+, Safari 12+, Edge 79+</li>
+            <li><strong>Mobile:</strong> iOS Safari 12+, Chrome Mobile 60+</li>
+            <li><strong>Features:</strong> CSS Grid, Flexbox, CSS Custom Properties, Intersection Observer</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DevLayout>

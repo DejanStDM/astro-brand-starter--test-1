@@ -42,19 +42,7 @@
   }
 
   &__content {
-    padding: 0 144px;
     
-    @media (max-width: $xl) {
-      padding: 0 80px;
-    }
-    
-    @media (max-width: $lg) {
-      padding: 0 40px;
-    }
-    
-    @media (max-width: $md) {
-      padding: 0 20px;
-    }
   }
 
   &__swiper {
@@ -86,7 +74,7 @@
 
   &__card-content {
     display: flex;
-    padding: 96px 16px 16px;
+    padding:  16px;
     flex-direction: column;
     align-items: center;
     gap: 16px;
@@ -100,7 +88,8 @@
     margin-left: 16px;
     margin-right: 16px;
     transition: $transition-normal;
-    
+    flex: 1;
+    justify-content: space-between;
     &:hover {
       transform: translateY(-5px);
       box-shadow: $shadow-xxl;
@@ -156,10 +145,10 @@
   }
 
   &__link-icon {
-    width: 24px;
-    height: 24px;
+    // width: 24px;
+    // height: 24px;
     transition: $transition-normal;
-    
+    color: $color-brand-primary;
     .blog-preview__card-link:hover & {
       transform: translateX(3px);
     }

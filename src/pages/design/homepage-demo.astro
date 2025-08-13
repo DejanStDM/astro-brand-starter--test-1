@@ -1,12 +1,13 @@
 ---
-import ProductionLayout from '../layouts/ProductionLayout.astro';
-import ExampleHeroSlider from '../components/examples/ExampleHeroSlider.astro';
-import Clients from '../components/Clients.astro';
-import Community from '../components/Community.astro';
-import SplitSection from '../components/SplitSection.astro';
-import Achievements from '../components/Achievements.astro';
-import Testimonial from '../components/Testimonial.astro';
-import BlogPreview from '../components/BlogPreview.astro';
+import ProductionLayout from '../../layouts/ProductionLayout.astro';
+import HeroSlider from '../../components/design/HeroSlider.astro';
+import HeroSlider2 from '../../components/design/HeroSlider2.astro';
+import Clients from '../../components/design/Clients.astro';
+import Community from '../../components/design/Community.astro';
+import SplitSection from '../../components/design/SplitSection.astro';
+import Achievements from '../../components/design/Achievements.astro';
+import Testimonial from '../../components/design/Testimonial.astro';
+import BlogPreview from '../../components/design/BlogPreview.astro';
 ---
 
 <ProductionLayout
@@ -15,7 +16,7 @@ import BlogPreview from '../components/BlogPreview.astro';
   showFooterCta={true}
 >
   <!-- Hero Section -->
-  <ExampleHeroSlider />
+      <HeroSlider2 />
   
   <!-- Clients Section -->
   <Clients />
@@ -40,7 +41,7 @@ import BlogPreview from '../components/BlogPreview.astro';
     title="How to design your site footer like we did"
     description="Donec a eros justo. Fusce egestas tristique ultrices. Nam tempor, augue nec tincidunt molestie, massa nunc varius arcu, at scelerisque elit erat a magna. Donec quis erat at libero ultrices mollis. In hac habitasse platea dictumst. Vivamus vehicula leo dui, at porta nisi facilisis finibus. In euismod augue vitae nisi ultricies, non aliquet urna tincidunt. Integer in nisi eget nulla commodo faucibus efficitur quis massa. Praesent felis est, finibus et nisi ac, hendrerit venenatis libero. Donec consectetur faucibus ipsum id gravida."
     buttonText="Learn More"
-    imageSrc="/images/hero/vecteezy_3d-illustration-of-software-development_36584129.png"
+    imageSrc="/images/hero/vecteezy_3d-illustration-of-software-development_36584129.webp"
     imageAlt="How to design your site footer like we did"
     reverse={true}
   />

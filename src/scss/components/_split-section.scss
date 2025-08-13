@@ -1,37 +1,24 @@
 // Use design system variables
 @use "../utils/variables" as *;
+@use "sass:color";
 
 .split-section {
   &__content {
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 50px;
-    padding: 0 144px;
-    
-    @media (max-width: $xl) {
-      padding: 0 80px;
-      gap: 40px;
-    }
-    
-    @media (max-width: $lg) {
-      padding: 0 40px;
-      gap: 30px;
-    }
-    
-    @media (max-width: $md) {
-      flex-direction: column;
-      padding: 0 20px;
-      gap: 40px;
+    align-items: center;
+    @media (min-width: #{$md}) {
+      grid-template-columns: 2fr 3fr;
     }
   }
 
   &__image {
-    flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     
-    @media (max-width: $md) {
+    @media (max-width: #{$md - 1px}) {
       order: 2;
     }
   }
@@ -44,13 +31,12 @@
   }
 
   &__text {
-    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 32px;
     
-    @media (max-width: $md) {
+    @media (max-width: #{$md - 1px}) {
       order: 1;
       text-align: center;
       align-items: center;
@@ -64,7 +50,7 @@
     gap: 16px;
     align-self: stretch;
     
-    @media (max-width: $md) {
+    @media (max-width: #{$md - 1px}) {
       align-items: center;
     }
   }
@@ -77,13 +63,13 @@
     line-height: 44px;
     margin: 0;
     
-    @media (max-width: $md) {
+    @media (max-width: #{$md - 1px}) {
       font-size: 28px;
       line-height: 36px;
       text-align: center;
     }
     
-    @media (max-width: $sm) {
+    @media (max-width: #{$sm - 1px}) {
       font-size: 24px;
       line-height: 32px;
     }
@@ -97,7 +83,7 @@
     line-height: 20px;
     margin: 0;
     
-    @media (max-width: $md) {
+    @media (max-width: #{$md - 1px}) {
       text-align: center;
     }
   }
@@ -126,7 +112,7 @@
     transition: $transition-normal;
     
     &:hover {
-      background: darken($color-brand-primary, 10%);
+      background: color.adjust($color-brand-primary, $lightness: -10%);
       transform: translateY(-2px);
       box-shadow: $shadow-md;
     }
@@ -139,21 +125,36 @@
   // Reverse layout modifier
   &--reverse {
     .split-section__content {
-      @media (min-width: $md + 1) {
-        flex-direction: row-reverse;
+      @media (min-width: #{$md}) {
+        grid-template-columns: 3fr 2fr;
+        grid-template-areas: "text image";
       }
     }
     
     .split-section__text {
-      @media (min-width: $md + 1) {
+      @media (min-width: #{$md}) {
+        grid-area: text;
         align-items: flex-end;
         text-align: right;
       }
     }
     
+    .split-section__image {
+      @media (min-width: #{$md}) {
+        grid-area: image;
+      }
+    }
+    
     .split-section__text-content {
-      @media (min-width: $md + 1) {
+      @media (min-width: #{$md}) {
         align-items: flex-end;
+        text-align: right;
+      }
+    }
+    
+    .split-section__actions {
+      @media (min-width: #{$md}) {
+        justify-content: flex-end;
       }
     }
   }

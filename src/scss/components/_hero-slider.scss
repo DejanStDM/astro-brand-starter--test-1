@@ -1,0 +1,281 @@
+@use "../utils/variables" as *;
+
+// Hero Slider Component Styles
+// ==========================================
+
+.page-sec--hero-slider {
+  padding: 0;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.hero-slider {
+  width: 100%;
+  position: relative;
+  
+  &__swiper {
+    width: 100%;
+    height: 100vh;
+  }
+  
+  &__slide {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+  }
+  
+  &__text-group {
+    z-index: 2;
+    position: relative;
+  }
+  
+  &__text-content {
+    color: white;
+  }
+  
+  &__title {
+    font-size: 3.5rem;
+    font-weight: $font-weight-bold;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    
+    @media (max-width: $md) {
+      font-size: 2.5rem;
+    }
+    
+    @media (max-width: $sm) {
+      font-size: 2rem;
+    }
+  }
+  
+  &__title-line {
+    display: block;
+    
+    &--highlight {
+      color: $color-brand-primary;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  &__subtitle {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+    
+    @media (max-width: $md) {
+      font-size: 1.1rem;
+    }
+  }
+  
+  &__actions {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    
+    @media (max-width: $md) {
+      justify-content: center;
+    }
+  }
+  
+  &__btn {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: $font-weight-semibold;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    
+    &--primary {
+      background: $color-brand-primary;
+      color: white;
+      
+      &:hover {
+        background: $color-shade-1;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(76, 175, 79, 0.3);
+      }
+    }
+  }
+  
+  &__image-group {
+    position: relative;
+    z-index: 1;
+    
+    @media (max-width: $md) {
+      order: -1;
+    }
+  }
+  
+  &__image {
+    width: 100%;
+    height: auto;
+    max-width: 500px;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+    
+    &:hover {
+      transform: scale(1.05);
+    }
+    
+    @media (max-width: $md) {
+      max-width: 300px;
+    }
+  }
+}
+
+.page-sec--hero-slider{
+
+  // Swiper Navigation Styles
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: white;
+    background: rgba(255, 255, 255, 0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+    
+    &::after {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  }
+  
+  .swiper-pagination {
+    bottom: 2rem;
+    
+    .swiper-pagination-bullet {
+      width: 12px;
+      height: 12px;
+      background: rgba(255, 255, 255, 0.5);
+      opacity: 1;
+      transition: all 0.3s ease;
+      
+      &-active {
+        background: $color-brand-primary;
+        transform: scale(1.2);
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: $lg) {
+  .page-sec--hero-slider {
+    min-height: 80vh;
+  }
+  
+  .hero-slider {
+    &__swiper {
+      height: 80vh;
+    }
+    
+    &__slide {
+      height: 80vh;
+    }
+    
+    &__title {
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: $md) {
+  .page-sec--hero-slider {
+    min-height: 70vh;
+  }
+  
+  .hero-slider {
+    &__swiper {
+      height: 70vh;
+    }
+    
+    &__slide {
+      height: 70vh;
+    }
+    
+    &__content {
+      padding: 2rem 1rem;
+    }
+    
+    &__title {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    
+    &__subtitle {
+      margin-bottom: 1.5rem;
+    }
+  }
+}
+
+@media (max-width: $sm) {
+  .page-sec--hero-slider {
+    min-height: 60vh;
+  }
+  
+  .hero-slider {
+    &__swiper {
+      height: 60vh;
+    }
+    
+    &__slide {
+      height: 60vh;
+    }
+    
+    &__title {
+      font-size: 2rem;
+    }
+    
+    &__subtitle {
+      font-size: 1rem;
+    }
+    
+    &__btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 1rem;
+    }
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    width: 40px;
+    height: 40px;
+    
+    &::after {
+      font-size: 1rem;
+    }
+  }
+}

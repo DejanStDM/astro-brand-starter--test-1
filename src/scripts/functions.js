@@ -8,8 +8,8 @@ import { initExampleBackToTop } from "./modules/example-back-to-top.mjs";
 import { initExampleCheckbox } from "./modules/example-checkbox.mjs";
 import { initExampleFloatingLabels } from "./modules/example-floating-labels.mjs";
 import { initExampleModal } from "./modules/example-modal.mjs";
-import { initHeroSlider } from './modules/hero-section.mjs';
-import { initExampleHeroSlider } from "./modules/example-hero-slider.mjs";
+import { initHeroSlider } from "./modules/hero-slider.mjs";
+import { initHeroSlider2 } from "./modules/hero-slider-2.mjs";
 import { initBlogPreviewSlider } from "./modules/blog-preview-slider.mjs";
 import "./modules/navbar.mjs";
 
@@ -20,7 +20,8 @@ initExampleAccordion();
 initExampleCheckbox();
 initExampleFloatingLabels();
 initExampleModal();
-initExampleHeroSlider();
+initHeroSlider();
+initHeroSlider2();
 initBlogPreviewSlider();
 
 // Initialize countdown timer and back-to-top
@@ -32,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
       initExampleBackToTop();
       
       // Initialize hero slider if element exists
-      if (document.querySelector('.hero-swiper')) {
+      if (document.querySelector('.js__hero-slider')) {
           initHeroSlider();
       }
       

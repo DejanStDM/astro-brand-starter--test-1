@@ -4,156 +4,213 @@
 .achievements {
   &__content {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
     align-items: center;
-    padding: 0 144px;
-    gap: 80px;
+    gap: 30px;
     
-    @media (max-width: $xl) {
-      padding: 0 80px;
+    @media (min-width: $md) {
+      gap: 40px;
+    }
+    
+    @media (min-width: $lg) {
       gap: 60px;
     }
     
-    @media (max-width: $lg) {
-      padding: 0 40px;
-      gap: 40px;
-      flex-direction: column;
-      text-align: center;
-    }
-    
-    @media (max-width: $md) {
-      padding: 0 20px;
+    @media (min-width: $xl) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 80px;
+      align-items: center;
+      gap: 0;
     }
   }
-
+  
   &__header {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 8px;
-    flex-shrink: 0;
-    width: 540px;
+    width: 100%;
+    text-align: center;
     
-    @media (max-width: $lg) {
-      align-items: center;
-      width: 100%;
+    @media (min-width: $xl) {
+      align-items: flex-start;
+      width: 540px;
+      text-align: left;
     }
   }
-
+  
   &__title {
     color: $color-neutral-dark-grey;
-    font-family: $font-family-primary;
-    font-size: 36px;
-    font-weight: 600;
-    line-height: 44px;
+    text-align: center;
     margin: 0;
+    font-size: 24px;
+    line-height: 32px;
     
-    @media (max-width: $md) {
+    @media (min-width: $md) {
       font-size: 28px;
       line-height: 36px;
     }
     
-    @media (max-width: $sm) {
-      font-size: 24px;
-      line-height: 32px;
+    @media (min-width: $lg) {
+      font-size: 32px;
+      line-height: 40px;
+    }
+    
+    @media (min-width: $xl) {
+      font-size: 36px;
+      line-height: 44px;
+      text-align: left;
     }
   }
-
+  
   &__title-text {
     color: $color-neutral-dark-grey;
+    display: block;
   }
-
+  
   &__title-highlight {
     color: $color-brand-primary;
   }
-
+  
   &__subtitle {
     color: $color-text-primary;
     font-family: $font-family-primary;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 20px;
     margin: 0;
+    text-align: center;
     
-    @media (max-width: $lg) {
-      text-align: center;
+    @media (min-width: $md) {
+      font-size: 15px;
+      line-height: 22px;
+    }
+    
+    @media (min-width: $xl) {
+      font-size: 16px;
+      line-height: 24px;
+      text-align: left;
     }
   }
-
+  
   &__stats {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
+    width: 100%;
     
-    @media (max-width: $sm) {
+    @media (min-width: $md) {
+      gap: 30px;
+    }
+    
+    @media (min-width: $lg) {
+      gap: 40px;
+    }
+  }
+  
+  &__row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    
+    @media (min-width: $sm) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 20px;
+      gap: 20px;
+    }
+    
+    @media (min-width: $md) {
+      gap: 25px;
+    }
+    
+    @media (min-width: $lg) {
       gap: 30px;
     }
   }
-
-  &__row {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    
-    @media (max-width: $sm) {
-      flex-direction: column;
-      gap: 20px;
-    }
-  }
-
+  
   &__stat {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 12px;
+    text-align: center;
+    width: 100%;
     
-    @media (max-width: $sm) {
-      flex-direction: column;
-      text-align: center;
-      gap: 12px;
+    @media (min-width: $sm) {
+      flex-direction: row;
+      align-items: center;
+      text-align: left;
+      gap: 16px;
+      width: auto;
     }
   }
-
+  
   &__icon {
-    width: 48px;
-    height: 48px;
+    width: 40px;
+    height: 40px;
     flex-shrink: 0;
+    
+    @media (min-width: $md) {
+      width: 44px;
+      height: 44px;
+    }
+    
+    @media (min-width: $lg) {
+      width: 48px;
+      height: 48px;
+    }
   }
-
+  
   &__stat-text {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     
-    @media (max-width: $sm) {
-      align-items: center;
+    @media (min-width: $sm) {
+      align-items: flex-start;
     }
   }
-
+  
   &__number {
     color: $color-neutral-dark-grey;
     font-family: $font-family-primary;
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
-    line-height: 36px;
+    line-height: 32px;
     margin: 0;
     
-    @media (max-width: $md) {
-      font-size: 24px;
-      line-height: 32px;
+    @media (min-width: $md) {
+      font-size: 26px;
+      line-height: 34px;
+    }
+    
+    @media (min-width: $lg) {
+      font-size: 28px;
+      line-height: 36px;
     }
   }
-
+  
   &__label {
     color: $color-neutral-grey;
     font-family: $font-family-primary;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: 400;
-    line-height: 24px;
+    line-height: 20px;
     margin: 0;
     
-    @media (max-width: $md) {
-      font-size: 14px;
+    @media (min-width: $md) {
+      font-size: 15px;
+      line-height: 22px;
+    }
+    
+    @media (min-width: $lg) {
+      font-size: 16px;
+      line-height: 24px;
     }
   }
 }

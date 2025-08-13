@@ -1,6 +1,51 @@
 ---
 // No frontmatter needed for static navbar
 const { pathname } = Astro.url;
+
+const navigationItems = [
+  { label: 'Home', href: '/', id: 'home' },
+  { 
+    label: 'Design pages', 
+    id: 'designDropdown',
+    items: [
+      { label: 'Design System', href: '/design', id: 'design' },
+      { label: 'Example Page', href: '/design/example-page', id: 'example-page' },
+      { label: 'Homepage Demo', href: '/design/homepage-demo', id: 'homepage-demo' }
+    ]
+  },
+  { 
+    label: 'Dev pages', 
+    id: 'devDropdown',
+    items: [
+      { label: 'Components All', href: '/dev/design-system/components-all', id: 'components-all' },
+      { label: 'Buttons', href: '/dev/design-system/buttons-page', id: 'buttons' },
+      { label: 'Typography', href: '/dev/design-system/typography', id: 'typography' },
+      { label: 'Container', href: '/dev/design-system/container', id: 'container' },
+      { label: 'Tags', href: '/dev/design-system/tags', id: 'tags' }
+    ]
+  },
+  { 
+    label: 'Dev components', 
+    id: 'devComponentsDropdown',
+    items: [
+      { label: 'Example Slider', href: '/dev/components-pages/example-slider-page', id: 'example-slider' },
+      { label: 'Example Hero Section', href: '/dev/components-pages/example-hero-page', id: 'example-hero' },
+              { label: 'Hero Slider', href: '/dev/components-pages/hero-slider-page', id: 'hero-slider' },
+      { label: 'Example Countdown', href: '/dev/components-pages/example-count-down-page', id: 'example-countdown' },
+      { label: 'Example Accordion', href: '/dev/components-pages/example-accordion-page', id: 'example-accordion' },
+      { label: 'Example Back to Top', href: '/dev/components-pages/example-back-to-top-page', id: 'example-back-to-top' },
+      { label: 'Example Checkbox', href: '/dev/components-pages/example-checkbox-page', id: 'example-checkbox' },
+      { label: 'Example Floating Labels', href: '/dev/components-pages/example-floating-labels-page', id: 'example-floating-labels' },
+      { label: 'Example Modal', href: '/dev/components-pages/example-modal-page', id: 'example-modal' }
+    ]
+  }
+];
+
+function isActiveLink(href: string): boolean {
+  if (href === '/' && pathname === '/') return true;
+  if (href !== '/' && pathname.startsWith(href)) return true;
+  return false;
+}
 ---
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,101 +73,44 @@ const { pathname } = Astro.url;
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class={`nav-link${pathname === '/' ? ' active' : ''}`} href="/">Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="designDropdown"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        Design pages
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="designDropdown">
-                        <li>
-                            <a class={`dropdown-item${pathname === '/design' ? ' active' : ''}`} href="/design"
-                                >Design System</a>
-                        </li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/design/example-page' ? ' active' : ''}`} href="/design/example-page"
-                                >Example Page</a>
-                        </li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/homepage-demo' ? ' active' : ''}`} href="/homepage-demo"
-                                >Homepage Demo</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="devDropdown"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        Dev pages
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="devDropdown">
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/design-system/components-all' ? ' active' : ''}`} href="/dev/design-system/components-all"
-                                >Components All</a>
-                        </li>
-                        <!-- Space -->
-                        <li class="dropdown-divider"></li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/design-system/buttons-page' ? ' active' : ''}`} href="/dev/design-system/buttons-page"
-                                >Buttons</a>
-                        </li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/design-system/typography' ? ' active' : ''}`} href="/dev/design-system/typography"
-                                >Typography</a>
-                        </li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/design-system/container' ? ' active' : ''}`} href="/dev/design-system/container"
-                                >Container</a>
-                        </li>
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/design-system/tags' ? ' active' : ''}`} href="/dev/design-system/tags">Tags</a>
-                        </li>
-                       
-                    </ul>
-                </li>
-                <li class="nav-item dropdown">
-                    <a
-                        class="nav-link dropdown-toggle"
-                        href="#"
-                        id="devComponentsDropdown"
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
-                    >
-                        Dev components
-                    </a>
-                    <ul
-                        class="dropdown-menu"
-                        aria-labelledby="devComponentsDropdown"
-                    >
-                        <li>
-                            <a class={`dropdown-item${pathname === '/dev/components-pages/example-slider-page' ? ' active' : ''}`} href="/dev/components-pages/example-slider-page"
-                                >Example Slider</a>
-                        </li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-hero-page' ? ' active' : ''}`} href="/dev/components-pages/example-hero-page">Example Hero Section</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-hero-slider-page' ? ' active' : ''}`} href="/dev/components-pages/example-hero-slider-page">Example Hero Slider</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-count-down-page' ? ' active' : ''}`} href="/dev/components-pages/example-count-down-page">Example Countdown</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-accordion-page' ? ' active' : ''}`} href="/dev/components-pages/example-accordion-page">Example Accordion</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-back-to-top-page' ? ' active' : ''}`} href="/dev/components-pages/example-back-to-top-page">Example Back to Top</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-checkbox-page' ? ' active' : ''}`} href="/dev/components-pages/example-checkbox-page">Example Checkbox</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-floating-labels-page' ? ' active' : ''}`} href="/dev/components-pages/example-floating-labels-page">Example Floating Labels</a></li>
-                        <li><a class={`dropdown-item${pathname === '/dev/components-pages/example-modal-page' ? ' active' : ''}`} href="/dev/components-pages/example-modal-page">Example Modal</a></li>
-                    </ul>
+                {navigationItems.map((item) => (
+                  item.items ? (
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            id={item.id}
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            {item.label}
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby={item.id}>
+                            {item.id === 'devDropdown' && (
+                              <>
+                                <li>
+                                    <a class={`dropdown-item${isActiveLink('/dev/design-system/components-all') ? ' active' : ''}`} href="/dev/design-system/components-all"
+                                        >Components All</a>
+                                </li>
+                                <li class="dropdown-divider"></li>
+                              </>
+                            )}
+                            {item.items.map((subItem) => (
+                              <li>
+                                  <a class={`dropdown-item${isActiveLink(subItem.href) ? ' active' : ''}`} href={subItem.href}
+                                      >{subItem.label}</a>
+                              </li>
+                            ))}
+                        </ul>
+                    </li>
+                  ) : (
+                    <li class="nav-item">
+                        <a class={`nav-link${isActiveLink(item.href) ? ' active' : ''}`} href={item.href}>{item.label}</a>
+                    </li>
+                  )
+                ))}
             </ul>
-            </li>
         </div>
     </div>
 </nav>
