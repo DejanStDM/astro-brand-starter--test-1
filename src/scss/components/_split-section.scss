@@ -1,0 +1,160 @@
+// Use design system variables
+@use "../utils/variables" as *;
+
+.split-section {
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    padding: 0 144px;
+    
+    @media (max-width: $xl) {
+      padding: 0 80px;
+      gap: 40px;
+    }
+    
+    @media (max-width: $lg) {
+      padding: 0 40px;
+      gap: 30px;
+    }
+    
+    @media (max-width: $md) {
+      flex-direction: column;
+      padding: 0 20px;
+      gap: 40px;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media (max-width: $md) {
+      order: 2;
+    }
+  }
+
+  &__image-img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: $border-radius-md;
+  }
+
+  &__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    
+    @media (max-width: $md) {
+      order: 1;
+      text-align: center;
+      align-items: center;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    
+    @media (max-width: $md) {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    color: $color-neutral-dark-grey;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    margin: 0;
+    
+    @media (max-width: $md) {
+      font-size: 28px;
+      line-height: 36px;
+      text-align: center;
+    }
+    
+    @media (max-width: $sm) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__description {
+    color: $color-neutral-grey;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+    
+    @media (max-width: $md) {
+      text-align: center;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+  }
+
+  &__btn {
+    display: flex;
+    padding: 14px 32px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: $border-radius-sm;
+    background: $color-brand-primary;
+    color: $color-neutral-white;
+    border: none;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: $transition-normal;
+    
+    &:hover {
+      background: darken($color-brand-primary, 10%);
+      transform: translateY(-2px);
+      box-shadow: $shadow-md;
+    }
+    
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  // Reverse layout modifier
+  &--reverse {
+    .split-section__content {
+      @media (min-width: $md + 1) {
+        flex-direction: row-reverse;
+      }
+    }
+    
+    .split-section__text {
+      @media (min-width: $md + 1) {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+    
+    .split-section__text-content {
+      @media (min-width: $md + 1) {
+        align-items: flex-end;
+      }
+    }
+  }
+}
