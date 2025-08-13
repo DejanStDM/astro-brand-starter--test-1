@@ -13,35 +13,13 @@
   z-index: 1000;
   transition: all $transition-normal;
 
-  &__container {
+  &__inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
-    margin: 0 auto;
-    padding: 22px 35px;
+    padding-top: 22px;
+    padding-bottom: 22px;
     position: relative;
-
-    // Use the same responsive breakpoints as container system
-    @media (min-width: $sm) {
-      max-width: 540px;
-    }
-
-    @media (min-width: $md) {
-      max-width: 720px;
-    }
-
-    @media (min-width: $lg) {
-      max-width: 960px;
-    }
-
-    @media (min-width: $xl) {
-      max-width: 1140px;
-    }
-
-    @media (min-width: $xxl) {
-      max-width: 1320px;
-    }
   }
 
   // ==========================================================================
