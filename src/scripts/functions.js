@@ -11,6 +11,7 @@ import { initExampleModal } from "./modules/example-modal.mjs";
 import { initHeroSlider } from './modules/hero-section.mjs';
 import { initExampleHeroSlider } from "./modules/example-hero-slider.mjs";
 import { initBlogPreviewSlider } from "./modules/blog-preview-slider.mjs";
+import "./modules/navbar.mjs";
 
 exampleFunction();
 buttonsExample();
