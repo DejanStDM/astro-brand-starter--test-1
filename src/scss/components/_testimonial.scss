@@ -1,0 +1,227 @@
+// Use design system variables
+@use "../utils/variables" as *;
+
+.testimonial {
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 78px;
+    padding: 0 144px;
+    
+    @media (max-width: $xl) {
+      padding: 0 80px;
+      gap: 60px;
+    }
+    
+    @media (max-width: $lg) {
+      padding: 0 40px;
+      gap: 40px;
+      flex-direction: column;
+    }
+    
+    @media (max-width: $md) {
+      padding: 0 20px;
+    }
+  }
+
+  &__image {
+    flex-shrink: 0;
+    
+    @media (max-width: $lg) {
+      order: 2;
+    }
+  }
+
+  &__image-img {
+    width: 326px;
+    height: 326px;
+    border-radius: $border-radius-md;
+    box-shadow: $shadow-xl;
+    object-fit: cover;
+    
+    @media (max-width: $lg) {
+      width: 280px;
+      height: 280px;
+    }
+    
+    @media (max-width: $md) {
+      width: 240px;
+      height: 240px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    flex: 1;
+    
+    @media (max-width: $lg) {
+      order: 1;
+      align-items: center;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    align-self: stretch;
+    
+    @media (max-width: $lg) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__quote {
+    color: $color-neutral-grey;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 24px;
+    margin: 0;
+    font-style: italic;
+    
+    &::before {
+      content: '"';
+      font-size: 20px;
+      color: $color-brand-primary;
+    }
+    
+    &::after {
+      content: '"';
+      font-size: 20px;
+      color: $color-brand-primary;
+    }
+  }
+
+  &__author-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    align-self: stretch;
+    
+    @media (max-width: $lg) {
+      align-items: center;
+    }
+  }
+
+  &__author {
+    color: $color-brand-primary;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    margin: 0;
+    font-style: normal;
+  }
+
+  &__author-org {
+    color: $color-neutral-light-grey;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+  }
+
+  &__brand-bar {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    align-self: stretch;
+    
+    @media (max-width: $lg) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__brand-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 41px;
+    flex: 1;
+    
+    @media (max-width: $md) {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__brand-logo {
+    display: flex;
+    height: 48px;
+    padding: 4px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: $border-radius-md;
+    transition: $transition-normal;
+    
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      transform: translateY(-2px);
+    }
+    
+    @media (max-width: $md) {
+      height: 40px;
+    }
+  }
+
+  &__brand-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: grayscale(1);
+    transition: $transition-normal;
+    
+    .testimonial__brand-logo:hover & {
+      filter: grayscale(0);
+    }
+  }
+
+  &__cta {
+    display: flex;
+    padding: 8px;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: $transition-normal;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      transform: translateX(5px);
+    }
+  }
+
+  &__cta-text {
+    color: $color-brand-primary;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 28px;
+    
+    @media (max-width: $md) {
+      font-size: 18px;
+    }
+  }
+
+  &__cta-icon {
+    width: 24px;
+    height: 24px;
+    transition: $transition-normal;
+    
+    .testimonial__cta:hover & {
+      transform: translateX(3px);
+    }
+  }
+}

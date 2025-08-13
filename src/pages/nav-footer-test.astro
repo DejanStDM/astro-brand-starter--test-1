@@ -1,0 +1,79 @@
+---
+import ProductionLayout from '../layouts/ProductionLayout.astro';
+---
+
+<ProductionLayout 
+  title="Nav & Footer Test - Nexcent"
+  description="Testing responsive navigation and footer components"
+  showFooterCta={true}
+>
+  <section style="min-height: 60vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #4CAF4F 0%, #2E7D31 100%); color: white;">
+    <div style="text-align: center; padding: 2rem;">
+      <h1 style="font-size: 3rem; margin-bottom: 1rem; font-weight: 700;">Nav & Footer Test</h1>
+      <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.9;">
+        Testing responsive navigation and footer components across different screen sizes
+      </p>
+      <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Test Instructions:</h2>
+        <ul style="text-align: left; list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;">✅ Test hamburger menu on mobile (< 992px)</li>
+          <li style="margin-bottom: 0.5rem;">✅ Test desktop navigation (≥ 992px)</li>
+          <li style="margin-bottom: 0.5rem;">✅ Test footer responsiveness</li>
+          <li style="margin-bottom: 0.5rem;">✅ Test footer newsletter form</li>
+          <li style="margin-bottom: 0.5rem;">✅ Test social links</li>
+          <li style="margin-bottom: 0.5rem;">✅ Test accessibility features</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 1rem; background: #f5f7fa;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="text-align: center; margin-bottom: 2rem; color: #263238;">Responsive Breakpoints</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem;">
+        <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #4CAF4F; margin-bottom: 1rem;">Mobile (< 992px)</h3>
+          <ul style="color: #717171; line-height: 1.6;">
+            <li>Hamburger menu visible</li>
+            <li>Logo on left, hamburger on right</li>
+            <li>Mobile menu slides from right</li>
+            <li>Footer stacked vertically</li>
+          </ul>
+        </div>
+        <div style="background: white; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          <h3 style="color: #4CAF4F; margin-bottom: 1rem;">Desktop (≥ 992px)</h3>
+          <ul style="color: #717171; line-height: 1.6;">
+            <li>Full navigation menu visible</li>
+            <li>Login and Sign up buttons</li>
+            <li>Hamburger menu hidden</li>
+            <li>Footer in horizontal layout</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding: 4rem 1rem; background: white;">
+    <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+      <h2 style="margin-bottom: 2rem; color: #263238;">Interactive Features</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+        <div style="padding: 1.5rem; border: 2px solid #4CAF4F; border-radius: 8px;">
+          <h4 style="color: #4CAF4F; margin-bottom: 0.5rem;">Navigation</h4>
+          <p style="color: #717171; font-size: 0.9rem;">Hover effects, active states, keyboard navigation</p>
+        </div>
+        <div style="padding: 1.5rem; border: 2px solid #4CAF4F; border-radius: 8px;">
+          <h4 style="color: #4CAF4F; margin-bottom: 0.5rem;">Mobile Menu</h4>
+          <p style="color: #717171; font-size: 0.9rem;">Overlay, slide animation, focus management</p>
+        </div>
+        <div style="padding: 1.5rem; border: 2px solid #4CAF4F; border-radius: 8px;">
+          <h4 style="color: #4CAF4F; margin-bottom: 0.5rem;">Footer Links</h4>
+          <p style="color: #717171; font-size: 0.9rem;">Hover states, focus indicators</p>
+        </div>
+        <div style="padding: 1.5rem; border: 2px solid #4CAF4F; border-radius: 8px;">
+          <h4 style="color: #4CAF4F; margin-bottom: 0.5rem;">Newsletter</h4>
+          <p style="color: #717171; font-size: 0.9rem;">Form validation, submit button</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</ProductionLayout>

@@ -1,0 +1,463 @@
+@use '../utils/variables' as *;
+
+// ==========================================================================
+// Footer Component Styles
+// ==========================================================================
+
+.footer {
+  // ==========================================================================
+  // CTA Section
+  // ==========================================================================
+  &__cta {
+    background-color: $color-neutral-silver;
+    padding: 32px 0;
+
+    @media (min-width: $md) {
+      padding: 64px 0;
+    }
+  }
+
+  &__cta-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    text-align: center;
+
+    @media (min-width: $md) {
+      padding: 0 $spacing-xxxl;
+    }
+
+    @media (min-width: $lg) {
+      padding: 0 165px;
+    }
+  }
+
+  &__cta-title {
+    max-width: 887px;
+    color: $color-neutral-black;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: $font-weight-semibold;
+    line-height: 44px;
+    margin: 0;
+
+    @media (min-width: $md) {
+      font-size: 48px;
+      line-height: 58px;
+    }
+
+    @media (min-width: $lg) {
+      font-size: 64px;
+      line-height: 76px;
+    }
+  }
+
+  &__cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 32px;
+    background-color: $color-brand-primary;
+    color: $color-neutral-white;
+    text-decoration: none;
+    border-radius: $border-radius-sm;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    line-height: 24px;
+    transition: all $transition-fast;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-shade-1;
+      transform: translateY(-2px);
+      box-shadow: $shadow-lg;
+    }
+
+    &:active {
+      transform: translateY(0);
+      box-shadow: $shadow-md;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand-primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__cta-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    transition: transform $transition-fast;
+
+    .footer__cta-btn:hover & {
+      transform: translateX(2px);
+    }
+  }
+
+  // ==========================================================================
+  // Main Footer
+  // ==========================================================================
+  &__main {
+    background-color: $color-neutral-black;
+    color: $color-neutral-silver;
+  }
+
+  &__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 50px $spacing-lg;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @media (min-width: $md) {
+      padding: 64px $spacing-xxxl;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 30px;
+    }
+
+    @media (min-width: $lg) {
+      padding: 64px 165px;
+      gap: 125px;
+    }
+  }
+
+  // ==========================================================================
+  // Brand Section
+  // ==========================================================================
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+
+    @media (min-width: $md) {
+      gap: 40px;
+      flex-shrink: 0;
+    }
+  }
+
+  &__logo-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand-primary;
+      outline-offset: 2px;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  &__logo {
+    height: 30px;
+    width: auto;
+    display: block;
+
+    @media (min-width: $lg) {
+      height: 30px;
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+
+    @media (min-width: $md) {
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__copyright-text,
+  &__rights-text {
+    color: $color-neutral-silver;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 20px;
+    margin: 0;
+    max-width: 350px;
+  }
+
+  &__social {
+    // Social icons container
+  }
+
+  &__social-list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: $md) {
+      justify-content: center;
+      width: 176px;
+    }
+  }
+
+  &__social-item {
+    // Individual social item
+  }
+
+  &__social-link {
+    display: block;
+    width: 32px;
+    height: 32px;
+    text-decoration: none;
+    border-radius: 50%;
+    transition: all $transition-fast;
+
+    &:hover {
+      transform: translateY(-2px);
+      opacity: 0.8;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand-primary;
+      outline-offset: 2px;
+    }
+  }
+
+  &__social-icon {
+    width: 32px;
+    height: 32px;
+    display: block;
+  }
+
+  // ==========================================================================
+  // Links Section
+  // ==========================================================================
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+
+    @media (min-width: $md) {
+      flex-direction: row;
+      gap: 30px;
+      align-items: flex-start;
+    }
+  }
+
+  &__column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @media (min-width: $md) {
+      gap: 24px;
+      flex: 1;
+    }
+
+    &--newsletter {
+      @media (min-width: $md) {
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    }
+  }
+
+  &__column-title {
+    color: $color-neutral-white;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    line-height: 28px;
+    margin: 0;
+    width: 160px;
+    
+    @media (min-width: $md) {
+      align-self: stretch;
+    }
+  }
+
+  &__column-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    @media (min-width: $md) {
+      gap: 12px;
+    }
+  }
+
+  &__column-item {
+    // Individual link item
+  }
+
+  &__column-link {
+    display: block;
+    color: $color-neutral-silver;
+    text-decoration: none;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 20px;
+    width: 160px;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand-primary;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+  }
+
+  // ==========================================================================
+  // Newsletter Section
+  // ==========================================================================
+  &__newsletter {
+    width: 100%;
+    max-width: 255px;
+
+    @media (min-width: $md) {
+      align-self: stretch;
+    }
+  }
+
+  &__newsletter-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 11px;
+    border-radius: 8px;
+    background-color: rgba($color-neutral-white, 0.2);
+    backdrop-filter: blur(4px);
+    transition: all $transition-fast;
+
+    &:focus-within {
+      background-color: rgba($color-neutral-white, 0.3);
+      box-shadow: 0 0 0 2px rgba($color-brand-primary, 0.5);
+    }
+  }
+
+  &__newsletter-input {
+    flex: 1;
+    background: none;
+    border: none;
+    color: $color-neutral-white;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 20px;
+    outline: none;
+    width: 100%;
+
+    &::placeholder {
+      color: rgba($color-neutral-silver, 0.8);
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__newsletter-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-shrink: 0;
+    padding: 0;
+    border-radius: 2px;
+    transition: transform $transition-fast;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:focus-visible {
+      outline: 2px solid $color-brand-primary;
+      outline-offset: 2px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
+
+  &__newsletter-icon {
+    width: 18px;
+    height: 18px;
+    display: block;
+  }
+
+  // ==========================================================================
+  // Newsletter Form States & Animations
+  // ==========================================================================
+  &__newsletter-form {
+    &.newsletter-form--loading {
+      .footer__newsletter-btn {
+        pointer-events: none;
+        opacity: 0.6;
+      }
+    }
+
+    &.newsletter-form--success {
+      .footer__newsletter-wrapper {
+        background-color: rgba($color-action-success, 0.2);
+      }
+    }
+
+    &.newsletter-form--error {
+      .footer__newsletter-wrapper {
+        background-color: rgba($color-action-error, 0.2);
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Responsive Layout Adjustments
+  // ==========================================================================
+  @media (max-width: $md - 1px) {
+    &__brand {
+      align-items: center;
+      text-align: center;
+    }
+
+    &__copyright {
+      align-items: center;
+      text-align: center;
+    }
+
+    &__column--newsletter {
+      justify-content: center;
+      align-items: center;
+
+      .footer__column-title {
+        text-align: center;
+        width: auto;
+      }
+    }
+  }
+}
