@@ -10,6 +10,7 @@ import { initExampleFloatingLabels } from "./modules/example-floating-labels.mjs
 import { initExampleModal } from "./modules/example-modal.mjs";
 import { initHeroSlider } from './modules/hero-section.mjs';
 import { initExampleHeroSlider } from "./modules/example-hero-slider.mjs";
+import { initBlogPreviewSlider } from "./modules/blog-preview-slider.mjs";
 
 exampleFunction();
 buttonsExample();
@@ -19,6 +20,7 @@ initExampleCheckbox();
 initExampleFloatingLabels();
 initExampleModal();
 initExampleHeroSlider();
+initBlogPreviewSlider();
 
 // Initialize countdown timer and back-to-top
 document.addEventListener('DOMContentLoaded', () => {
