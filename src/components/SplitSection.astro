@@ -1,0 +1,43 @@
+---
+// SplitSection component - reusable split layout with image and content
+interface Props {
+  title: string;
+  description: string;
+  buttonText?: string;
+  imageSrc: string;
+  imageAlt: string;
+  reverse?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  buttonText = "Learn More", 
+  imageSrc, 
+  imageAlt, 
+  reverse = false 
+} = Astro.props;
+---
+
+<section class={`split-section sec sec--padding-medium ${reverse ? 'split-section--reverse' : ''}`}>
+  <div class="container">
+    <div class="split-section__content sec__content">
+      <div class="split-section__image">
+        <img src={imageSrc} alt={imageAlt} class="split-section__image-img">
+      </div>
+      
+      <div class="split-section__text">
+        <div class="split-section__text-content">
+          <h2 class="split-section__title sec__title">{title}</h2>
+          <p class="split-section__description">{description}</p>
+        </div>
+        
+        <div class="split-section__actions">
+          <button class="btn btn-primary split-section__btn">
+            {buttonText}
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
