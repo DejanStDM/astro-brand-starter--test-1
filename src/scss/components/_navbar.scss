@@ -1,0 +1,375 @@
+@use '../utils/variables' as *;
+
+// ==========================================================================
+// Navbar Component Styles
+// ==========================================================================
+
+.navbar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: $color-neutral-silver;
+  z-index: 1000;
+  transition: all $transition-normal;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    position: relative;
+  }
+
+  // ==========================================================================
+  // Brand/Logo
+  // ==========================================================================
+  &__brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+    z-index: 1001;
+  }
+
+  &__logo {
+    height: 24px;
+    width: auto;
+    transition: opacity $transition-fast;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    @media (min-width: $lg) {
+      height: 24px;
+    }
+  }
+
+  // ==========================================================================
+  // Desktop Menu
+  // ==========================================================================
+  &__menu {
+    display: none;
+    flex: 1;
+    justify-content: center;
+
+    @media (min-width: $lg) {
+      display: flex;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__nav-item {
+    // Base styles handled by nav-link
+  }
+
+  &__nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    color: $color-neutral-black;
+    text-decoration: none;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
+    transition: all $transition-fast;
+    position: relative;
+
+    &:hover {
+      color: $color-brand-primary;
+    }
+
+    &--active {
+      color: $color-brand-primary;
+      font-weight: $font-weight-medium;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -2px;
+        left: 10px;
+        right: 10px;
+        height: 2px;
+        background-color: $color-brand-primary;
+        border-radius: 1px;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Actions (Login/Signup)
+  // ==========================================================================
+  &__actions {
+    display: none;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+
+    @media (min-width: $lg) {
+      display: flex;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    line-height: 20px;
+    text-align: center;
+    transition: all $transition-fast;
+    border: 1px solid transparent;
+    cursor: pointer;
+
+    &--secondary {
+      color: $color-brand-primary;
+      background-color: transparent;
+
+      &:hover {
+        background-color: rgba($color-brand-primary, 0.1);
+        transform: translateY(-1px);
+      }
+
+      &:active {
+        transform: translateY(0);
+      }
+    }
+
+    &--primary {
+      color: $color-neutral-white;
+      background-color: $color-brand-primary;
+
+      &:hover {
+        background-color: $color-shade-1;
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+      }
+
+      &:active {
+        transform: translateY(0);
+        box-shadow: $shadow-sm;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Mobile Hamburger Toggle
+  // ==========================================================================
+  &__toggle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    position: relative;
+
+    @media (min-width: $lg) {
+      display: none;
+    }
+
+    &[aria-expanded="true"] {
+      .navbar__toggle-bar {
+        &:nth-child(1) {
+          transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          transform: rotate(-45deg) translate(7px, -6px);
+        }
+      }
+    }
+  }
+
+  &__toggle-bar {
+    width: 16px;
+    height: 1.5px;
+    background-color: $color-neutral-grey;
+    border-radius: 1px;
+    transition: all $transition-normal;
+    margin: 2px 0;
+    transform-origin: center;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // ==========================================================================
+  // Mobile Menu Overlay
+  // ==========================================================================
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba($color-neutral-black, 0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all $transition-normal;
+    z-index: 999;
+
+    @media (min-width: $lg) {
+      display: none;
+    }
+
+    &.navbar__overlay--active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__mobile-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 280px;
+    height: 100vh;
+    background-color: $color-neutral-white;
+    box-shadow: $shadow-xl;
+    transform: translateX(100%);
+    transition: transform $transition-normal;
+    padding: 80px $spacing-xl $spacing-xl;
+    overflow-y: auto;
+
+    .navbar__overlay--active & {
+      transform: translateX(0);
+    }
+
+    @media (min-width: $sm) {
+      width: 320px;
+    }
+  }
+
+  &__mobile-nav {
+    list-style: none;
+    margin: 0 0 $spacing-xxxl 0;
+    padding: 0;
+  }
+
+  &__mobile-nav-item {
+    margin-bottom: $spacing-md;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__mobile-nav-link {
+    display: block;
+    padding: $spacing-lg;
+    color: $color-neutral-black;
+    text-decoration: none;
+    font-family: $font-family-primary;
+    font-size: 18px;
+    font-weight: $font-weight-regular;
+    line-height: 28px;
+    border-radius: $border-radius-sm;
+    transition: all $transition-fast;
+
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      color: $color-brand-primary;
+    }
+
+    &--active {
+      background-color: $color-brand-primary;
+      color: $color-neutral-white;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  &__mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+    padding-top: $spacing-xl;
+    border-top: 1px solid rgba($color-neutral-grey, 0.2);
+  }
+
+  &__mobile-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $spacing-lg $spacing-xl;
+    border-radius: $border-radius-sm;
+    text-decoration: none;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: $font-weight-medium;
+    line-height: 24px;
+    text-align: center;
+    transition: all $transition-fast;
+    border: 1px solid transparent;
+
+    &--secondary {
+      color: $color-brand-primary;
+      background-color: transparent;
+      border-color: $color-brand-primary;
+
+      &:hover {
+        background-color: $color-brand-primary;
+        color: $color-neutral-white;
+        transform: translateY(-1px);
+      }
+    }
+
+    &--primary {
+      color: $color-neutral-white;
+      background-color: $color-brand-primary;
+
+      &:hover {
+        background-color: $color-shade-1;
+        transform: translateY(-1px);
+        box-shadow: $shadow-md;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // Body lock when mobile menu is open
+  // ==========================================================================
+  &.navbar--menu-open {
+    ~ .main-content {
+      overflow: hidden;
+    }
+  }
+}
+
+// Body scroll lock class (applied via JavaScript)
+body.navbar-menu-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+}

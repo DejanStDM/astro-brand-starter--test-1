@@ -1,0 +1,129 @@
+// Use design system variables
+@use "../utils/variables" as *;
+
+.community {
+  &__header {
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__title {
+    width: 542px;
+    color: $color-neutral-dark-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 36px;
+    font-weight: 600;
+    line-height: 44px;
+    margin-bottom: 0;
+    
+    @media (max-width: $md) {
+      width: 100%;
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__subtitle {
+    color: $color-neutral-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+
+  &__content {
+    padding: 0 144px;
+    
+    @media (max-width: $xl) {
+      padding: 0 80px;
+    }
+    
+    @media (max-width: $lg) {
+      padding: 0 40px;
+    }
+    
+    @media (max-width: $md) {
+      padding: 0 20px;
+    }
+  }
+
+  &__card-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+    
+    @media (max-width: $lg) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    width: 299px;
+    padding: 24px 32px;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+    border-radius: $border-radius-md;
+    background: $color-neutral-white;
+    box-shadow: $shadow-sm;
+    transition: $transition-normal;
+    
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: $shadow-lg;
+    }
+    
+    @media (max-width: $lg) {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+
+  &__card-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+  }
+
+  &__icon {
+    width: 65px;
+    height: 56px;
+    object-fit: contain;
+  }
+
+  &__card-title {
+    color: $color-neutral-dark-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 36px;
+    margin: 0;
+    
+    @media (max-width: $md) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+  }
+
+  &__card-description {
+    color: $color-neutral-grey;
+    text-align: center;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    margin: 0;
+  }
+}
