@@ -1,0 +1,106 @@
+---
+// Navigation component with responsive mobile menu
+export interface Props {
+  currentPath?: string;
+}
+
+const { currentPath = '' } = Astro.props;
+
+const navigationItems = [
+  { label: 'Home', href: '/', id: 'home' },
+  { label: 'Service', href: '/service', id: 'service' },
+  { label: 'Feature', href: '/feature', id: 'feature' },
+  { label: 'Product', href: '/product', id: 'product' },
+  { label: 'Testimonial', href: '/testimonial', id: 'testimonial' },
+  { label: 'FAQ', href: '/faq', id: 'faq' }
+];
+
+function isActiveLink(href: string): boolean {
+  if (href === '/' && currentPath === '/') return true;
+  if (href !== '/' && currentPath.startsWith(href)) return true;
+  return false;
+}
+---
+
+<nav class="navbar" id="js__navbar">
+  <div class="navbar__container">
+    <!-- Logo -->
+    <a href="/" class="navbar__brand" aria-label="Nexcent Home">
+      <img 
+        src="/images/Logo.png" 
+        alt="Nexcent"
+        class="navbar__logo"
+        width="154"
+        height="24"
+      />
+    </a>
+
+    <!-- Desktop Menu -->
+    <div class="navbar__menu" id="js__navbar-menu">
+      <ul class="navbar__nav">
+        {navigationItems.map((item) => (
+          <li class="navbar__nav-item">
+            <a 
+              href={item.href}
+              class={`navbar__nav-link ${isActiveLink(item.href) ? 'navbar__nav-link--active' : ''}`}
+              data-nav-link={item.id}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Actions -->
+    <div class="navbar__actions">
+      <a href="/login" class="navbar__btn navbar__btn--secondary">
+        Login
+      </a>
+      <a href="/signup" class="navbar__btn navbar__btn--primary">
+        Sign up
+      </a>
+    </div>
+
+    <!-- Mobile Hamburger Menu Toggle -->
+    <button 
+      class="navbar__toggle" 
+      id="js__navbar-toggle"
+      aria-expanded="false"
+      aria-controls="js__navbar-menu"
+      aria-label="Toggle navigation menu"
+    >
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+      <span class="navbar__toggle-bar"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div class="navbar__overlay" id="js__navbar-overlay">
+    <div class="navbar__mobile-menu">
+      <ul class="navbar__mobile-nav">
+        {navigationItems.map((item) => (
+          <li class="navbar__mobile-nav-item">
+            <a 
+              href={item.href}
+              class={`navbar__mobile-nav-link ${isActiveLink(item.href) ? 'navbar__mobile-nav-link--active' : ''}`}
+              data-mobile-nav-link={item.id}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      
+      <div class="navbar__mobile-actions">
+        <a href="/login" class="navbar__mobile-btn navbar__mobile-btn--secondary">
+          Login
+        </a>
+        <a href="/signup" class="navbar__mobile-btn navbar__mobile-btn--primary">
+          Sign up
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
