@@ -194,6 +194,7 @@
     cursor: pointer;
     transition: $transition-normal;
     border-radius: $border-radius-sm;
+    text-decoration: none;
     
     &:hover {
       background-color: rgba($color-brand-primary, 0.1);

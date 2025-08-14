@@ -332,10 +332,39 @@ function initComponent() {
 - **Modifier**: `.component-name__element--modifier`
 
 ### Responsive Design
-- **Desktop first** approach
-- **Breakpoints**: 768px (tablet), 480px (mobile)
+- **Mobile first** approach - ALWAYS start with mobile styles and scale up
+- **Breakpoints**: 480px (mobile), 768px (tablet), 992px (desktop)
 - **Flexible layouts** using CSS Grid/Flexbox (styled by Builders.io)
 - **No Bootstrap dependencies** in production components
+
+#### Mobile-First Implementation Pattern:
+```scss
+.component-name {
+  // Mobile styles (default/base styles)
+  padding: 1rem;
+  font-size: 1rem;
+  
+  // Tablet and up (768px+)
+  @media (min-width: $md) {
+    padding: 2rem;
+    font-size: 1.125rem;
+  }
+  
+  // Desktop and up (992px+)
+  @media (min-width: $lg) {
+    padding: 3rem;
+    font-size: 1.25rem;
+  }
+  
+  // Large desktop (1200px+)
+  @media (min-width: $xl) {
+    padding: 4rem;
+    font-size: 1.375rem;
+  }
+}
+```
+
+**CRITICAL: Never use `max-width` media queries for mobile-first approach. Always use `min-width` to scale up from mobile.**
 
 ### Animation Guidelines
 - **Transitions**: 0.3s ease for hover effects
@@ -386,6 +415,60 @@ When reviewing component code, ask these questions:
 - **Component consolidation**: Merge similar components to reduce duplication
 - **Documentation updates**: Keep design system documentation current with new patterns
 
+## Button and Interactive Element Guidelines
+
+### Button-to-Link Conversion Rule
+**ALWAYS use anchor tags (`<a>`) instead of `<button>` elements for non-form interactive elements.**
+
+#### When to Use Links vs Buttons:
+- **Use `<a href="#">` for:**
+  - Navigation actions (Read more, Learn more, View details)
+  - External links
+  - Internal page navigation
+  - Call-to-action buttons that navigate to other pages
+  - Any clickable element that doesn't submit form data
+
+- **Use `<button>` only for:**
+  - Form submissions
+  - JavaScript-only actions (modals, toggles, etc.)
+  - Actions that don't navigate to new pages
+
+#### Implementation Pattern:
+```astro
+<!-- ✅ CORRECT: Use anchor tags for navigation actions -->
+<a href="#" class="btn btn-primary component-name__btn">
+  Read More
+</a>
+
+<a href="/about" class="btn btn-secondary component-name__btn">
+  Learn More
+</a>
+
+<!-- ❌ WRONG: Don't use buttons for navigation -->
+<button class="btn btn-primary component-name__btn">
+  Read More
+</button>
+```
+
+#### SCSS Styling for Link Buttons:
+```scss
+.component-name {
+  &__btn {
+    // Make links look and behave like buttons
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    transition: $transition-normal;
+    border-radius: $border-radius-sm;
+    
+    &:hover {
+      background-color: rgba($color-brand-primary, 0.1);
+      text-decoration: none;
+    }
+  }
+}
+```
+
 ## Common Pitfalls to Avoid
 
 1. **Missing JavaScript hooks**: Always use `js__` prefix for JavaScript selectors
@@ -395,6 +478,7 @@ When reviewing component code, ask these questions:
 5. **No responsive design**: Always include mobile breakpoints
 6. **Accessibility issues**: Include proper ARIA labels and keyboard support
 7. **Performance problems**: Use efficient DOM queries and event handling
+8. **Wrong element types**: Use `<a>` tags for navigation, `<button>` only for forms
 
 ## References
 

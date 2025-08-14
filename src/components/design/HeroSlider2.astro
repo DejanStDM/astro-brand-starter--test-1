@@ -1,5 +1,46 @@
 ---
 // ExampleHeroSlider.astro - Hero section with slider functionality
+export interface Props {
+  slides?: Array<{
+    title: string;
+    titleHighlight: string;
+    subtitle: string;
+    image: string;
+    imageAlt: string;
+    buttonText?: string;
+    buttonHref?: string;
+  }>;
+}
+
+const { slides = [
+  {
+    title: "Lessons and insights",
+    titleHighlight: "from 8 years",
+    subtitle: "Where to grow your business as a photographer: site or social media?",
+    image: "/images/hero/slide1.webp",
+    imageAlt: "Lessons and insights from 8 years",
+    buttonText: "Register",
+    buttonHref: "#"
+  },
+  {
+    title: "Build and grow",
+    titleHighlight: "your community",
+    subtitle: "Connect with like-minded people and expand your professional network.",
+    image: "/images/hero/slide2.webp",
+    imageAlt: "Build and grow your community",
+    buttonText: "Register",
+    buttonHref: "#"
+  },
+  {
+    title: "Achieve excellence",
+    titleHighlight: "with dedication",
+    subtitle: "Transform your passion into success with our proven methodologies.",
+    image: "/images/hero/slide3.webp",
+    imageAlt: "Achieve excellence with dedication",
+    buttonText: "Register",
+    buttonHref: "#"
+  }
+] } = Astro.props;
 ---
 
 <section class="page-sec page-sec--hero-slider-2">
@@ -8,114 +49,43 @@
         <div class="swiper hero-slider-2__swiper js__hero-slider-2">
           <div class="swiper-wrapper">
             
-            <!-- Slide 1 -->
-            <div class="swiper-slide">
-              <div class="hero-slider-2__slide">
-                <div class="hero-slider-2__content sec__content">
-                  
-                  <!-- Text Content -->
-                  <div class="hero-slider-2__text-group">
-                    <div class="hero-slider-2__text-content">
-                      <h1 class="hero-slider-2__title sec__title">
-                        <span class="hero-slider-2__title-line">Lessons and insights</span>
-                        <span class="hero-slider-2__title-line hero-slider-2__title-line--highlight">from 8 years</span>
-                      </h1>
-                      
-                      <p class="hero-slider-2__subtitle">
-                        Where to grow your business as a photographer: site or social media?
-                      </p>
-                      
-                      <div class="hero-slider-2__actions">
-                        <button class="btn btn-primary hero-slider-2__btn hero-slider-2__btn--primary">
-                          Register
-                        </button>
+            {slides.map((slide) => (
+              <div class="swiper-slide">
+                <div class="hero-slider-2__slide">
+                  <div class="hero-slider-2__content sec__content">
+                    
+                    <!-- Text Content -->
+                    <div class="hero-slider-2__text-group">
+                      <div class="hero-slider-2__text-content">
+                        <h1 class="hero-slider-2__title sec__title">
+                          <span class="hero-slider-2__title-line">{slide.title}</span>
+                          <span class="hero-slider-2__title-line hero-slider-2__title-line--highlight">{slide.titleHighlight}</span>
+                        </h1>
+                        
+                        <p class="hero-slider-2__subtitle">
+                          {slide.subtitle}
+                        </p>
+                        
+                        <div class="hero-slider-2__actions">
+                          <a href={slide.buttonHref} class="btn btn-primary hero-slider-2__btn hero-slider-2__btn--primary">
+                            {slide.buttonText}
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  
-                  <!-- Image Content -->
-                  <div class="hero-slider-2__image-group">
-                    <img src="/images/hero/slide1.webp" alt="Lessons and insights from 8 years" class="hero-slider-2__image" />
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
-            
-            <!-- Slide 2 -->
-            <div class="swiper-slide">
-              <div class="hero-slider-2__slide">
-                <div class="hero-slider-2__content sec__content">
-                  
-                  <!-- Text Content -->
-                  <div class="hero-slider-2__text-group">
-                    <div class="hero-slider-2__text-content">
-                      <h1 class="hero-slider-2__title sec__title">
-                        <span class="hero-slider-2__title-line">Build and grow</span>
-                        <span class="hero-slider-2__title-line hero-slider-2__title-line--highlight">your community</span>
-                      </h1>
-                      
-                      <p class="hero-slider-2__subtitle">
-                        Connect with like-minded people and expand your professional network.
-                      </p>
-                      
-                      <div class="hero-slider-2__actions">
-                        <button class="btn btn-primary hero-slider-2__btn hero-slider-2__btn--primary">
-                          Register
-                        </button>
-                      </div>
+                    
+                    <!-- Image Content -->
+                    <div class="hero-slider-2__image-group">
+                      <img src={slide.image} alt={slide.imageAlt} class="hero-slider-2__image" />
                     </div>
+                    
                   </div>
-                  
-                  <!-- Image Content -->
-                  <div class="hero-slider-2__image-group">
-                    <img src="/images/hero/slide2.webp" alt="Build and grow your community" class="hero-slider-2__image" />
-                  </div>
-                  
                 </div>
               </div>
-            </div>
-            
-            <!-- Slide 3 -->
-            <div class="swiper-slide">
-              <div class="hero-slider-2__slide">
-                <div class="hero-slider-2__content sec__content">
-                  
-                  <!-- Text Content -->
-                  <div class="hero-slider-2__text-group">
-                    <div class="hero-slider-2__text-content">
-                      <h1 class="hero-slider-2__title sec__title">
-                        <span class="hero-slider-2__title-line">Achieve excellence</span>
-                        <span class="hero-slider-2__title-line hero-slider-2__title-line--highlight">with dedication</span>
-                      </h1>
-                      
-                      <p class="hero-slider-2__subtitle">
-                        Transform your passion into success with our proven methodologies.
-                      </p>
-                      
-                      <div class="hero-slider-2__actions">
-                        <button class="btn btn-primary hero-slider-2__btn hero-slider-2__btn--primary">
-                          Register
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <!-- Image Content -->
-                  <div class="hero-slider-2__image-group">
-                    <img src="/images/hero/slide3.webp" alt="Achieve excellence with dedication" class="hero-slider-2__image" />
-                  </div>
-                  
-                </div>
-              </div>
-            </div>
+            ))}
             
           </div>
-          
-            <!-- Navigation arrows
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div> -->
-          
+
           <!-- Pagination dots -->
           <div class="swiper-pagination"></div>
         </div>
