@@ -3,7 +3,7 @@ import { exampleFunction } from "./modules/module-example.mjs";
 import { buttonsExample } from "./modules/buttons-example.mjs";
 import { initExampleSlider } from "./modules/example-slider.mjs";
 import { countDownTimer } from "./modules/example-count-down.mjs";
-import { initExampleAccordion } from "./modules/example-accordion.mjs";
+import { initExampleAccordion as initAccordions } from "./modules/example-accordion.mjs";
 import { initExampleBackToTop } from "./modules/example-back-to-top.mjs";
 import { initExampleCheckbox } from "./modules/example-checkbox.mjs";
 import { initExampleFloatingLabels } from "./modules/example-floating-labels.mjs";
