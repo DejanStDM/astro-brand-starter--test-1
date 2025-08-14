@@ -1,0 +1,35 @@
+---
+import ProductionLayout from '../layouts/ProductionLayout.astro';
+import ServicesHero from '../components/design/ServicesHero.astro';
+import ServicesGrid from '../components/design/ServicesGrid.astro';
+import ProcessSection from '../components/design/ProcessSection.astro';
+import Achievements from '../components/design/Achievements.astro';
+import ServicesCta from '../components/design/ServicesCta.astro';
+---
+
+<ProductionLayout
+  title="Services - Nexcent"
+  description="Comprehensive solutions for membership management, association services, and community building. Discover how we can help your organization thrive."
+  keywords="services, membership management, association services, community building, nexcent"
+  currentPath="/services"
+  showFooterCta={false}
+>
+  <!-- Services Hero Section -->
+  <ServicesHero />
+  
+  <!-- Services Grid Section -->
+  <ServicesGrid />
+  
+  <!-- Process Section -->
+  <ProcessSection />
+  
+  <!-- Achievements Section -->
+  <Achievements 
+    title="Trusted by Organizations"
+    titleHighlight="Worldwide"
+    subtitle="Our proven track record speaks for itself"
+  />
+  
+  <!-- Services CTA Section -->
+  <ServicesCta />
+</ProductionLayout>
