@@ -1,10 +1,10 @@
-// Example Accordion Module
+// Accordion Module - handles both example and FAQ accordions
 export function initExampleAccordion() {
   // Wait for DOM to be ready
   document.addEventListener('DOMContentLoaded', () => {
-    // Find all accordions on the page
-    const accordionElements = document.querySelectorAll('.js__example-accordion');
-    
+    // Find all accordions on the page (both example and FAQ)
+    const accordionElements = document.querySelectorAll('.js__example-accordion, .js__faq-accordion');
+
     if (accordionElements.length === 0) return;
 
     // Initialize each accordion
@@ -72,4 +72,4 @@ function initAccordion(accordionElement) {
       }
     });
   });
-} 
+}

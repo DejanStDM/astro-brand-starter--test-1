@@ -1,0 +1,67 @@
+---
+// Process Section Component - shows how we work
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  steps?: ProcessStep[];
+}
+
+export interface ProcessStep {
+  number: string;
+  title: string;
+  description: string;
+}
+
+const { 
+  title = "Our Process",
+  subtitle = "How we deliver exceptional results for your organization",
+  steps = [
+    {
+      number: "01",
+      title: "Discovery & Analysis",
+      description: "We start by understanding your organization's unique needs, challenges, and goals through comprehensive consultation."
+    },
+    {
+      number: "02", 
+      title: "Strategic Planning",
+      description: "Our team develops a customized strategy and roadmap tailored specifically to your requirements and objectives."
+    },
+    {
+      number: "03",
+      title: "Implementation",
+      description: "We execute the plan with precision, ensuring smooth deployment and minimal disruption to your operations."
+    },
+    {
+      number: "04",
+      title: "Support & Growth",
+      description: "Ongoing support, training, and optimization to ensure your success and continued growth over time."
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="process-section sec sec--padding-large sec--bg-silver">
+  <div class="container">
+    <div class="process-section__header sec__header">
+      <h2 class="process-section__title sec__title">{title}</h2>
+      <p class="process-section__subtitle sec__subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="process-section__content sec__content">
+      <div class="process-section__steps">
+        {steps.map((step, index) => (
+          <div class="process-section__step">
+            <div class="process-section__step-number">{step.number}</div>
+            <div class="process-section__step-content">
+              <h3 class="process-section__step-title">{step.title}</h3>
+              <p class="process-section__step-description">{step.description}</p>
+            </div>
+            {index < steps.length - 1 && (
+              <div class="process-section__connector"></div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,67 @@
+---
+// FAQ Hero Section Component
+export interface Props {
+  title?: string;
+  titleHighlight?: string;
+  subtitle?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const { 
+  title = "Got Questions?",
+  titleHighlight = "We Have Answers",
+  subtitle = "Frequently Asked Questions",
+  description = "Find answers to the most common questions about our services, processes, and support. Can't find what you're looking for? Our team is here to help.",
+  image = "/images/customers/customers-main-img.png",
+  imageAlt = "Got Questions? We Have Answers"
+} = Astro.props;
+---
+
+<section class="faq-hero sec sec--padding-large">
+  <div class="container">
+    <div class="faq-hero__content sec__content">
+      
+      <!-- Text Content -->
+      <div class="faq-hero__text-group">
+        <div class="faq-hero__text-content">
+          <!-- Badge/Subtitle -->
+          <div class="faq-hero__badge">
+            {subtitle}
+          </div>
+          
+          <!-- Main Title -->
+          <h1 class="faq-hero__title sec__title">
+            <span class="faq-hero__title-line">{title}</span>
+            <span class="faq-hero__title-line faq-hero__title-line--highlight">{titleHighlight}</span>
+          </h1>
+          
+          <!-- Description -->
+          <p class="faq-hero__description">
+            {description}
+          </p>
+          
+          <!-- Action Buttons -->
+          <div class="faq-hero__actions">
+            <a href="#faq" class="btn btn--primary">
+              <span class="btn__text">Browse FAQs</span>
+            </a>
+            <a href="#contact" class="btn btn--tertiary">
+              <span class="btn__text">Contact Support</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Image Content -->
+      <div class="faq-hero__image-group">
+        <div class="faq-hero__image-wrapper">
+          <img src={image} alt={imageAlt} class="faq-hero__image" />
+          <div class="faq-hero__image-decoration"></div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>

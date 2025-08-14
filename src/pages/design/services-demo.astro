@@ -1,0 +1,27 @@
+---
+import DesignLayout from '../../layouts/DesignLayout.astro';
+import DesignNav from '../../components/design/DesignNav.astro';
+import ServicesHero from '../../components/design/ServicesHero.astro';
+import ServicesGrid from '../../components/design/ServicesGrid.astro';
+import ProcessSection from '../../components/design/ProcessSection.astro';
+import ServicesCta from '../../components/design/ServicesCta.astro';
+---
+
+<DesignLayout
+  title="Services Demo - Design System"
+  description="Services page components demonstration for the design system"
+>
+  <DesignNav currentPath="/design/services-demo" />
+  
+  <!-- Services Hero Section -->
+  <ServicesHero />
+  
+  <!-- Services Grid Section -->
+  <ServicesGrid />
+  
+  <!-- Process Section -->
+  <ProcessSection />
+  
+  <!-- Services CTA Section -->
+  <ServicesCta />
+</DesignLayout>

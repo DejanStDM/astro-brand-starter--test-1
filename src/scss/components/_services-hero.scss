@@ -1,0 +1,234 @@
+// ==========================================================================
+// Services Hero Section - Enhanced
+// ==========================================================================
+
+@use "../utils/variables" as *;
+
+.services-hero {
+  position: relative;
+  overflow: hidden;
+  
+  // Background gradient
+  background: linear-gradient(135deg, $color-neutral-white 0%, $color-tint-5 100%);
+  
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+
+    @media (min-width: $md) {
+      grid-template-columns: 1fr 1fr;
+      gap: 96px;
+      min-height: 600px;
+    }
+  }
+
+  &__text-group {
+    order: 2;
+
+    @media (min-width: $md) {
+      order: 1;
+    }
+  }
+
+  &__text-content {
+    max-width: 100%;
+
+    @media (min-width: $md) {
+      max-width: 580px;
+    }
+  }
+
+  // Badge/Subtitle styling
+  &__badge {
+    display: inline-block;
+    background: $color-brand-primary;
+    color: $color-neutral-white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    line-height: 20px;
+    margin-bottom: 24px;
+    position: relative;
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -8px;
+      transform: translateY(-50%);
+      width: 0;
+      height: 0;
+      border-left: 8px solid $color-brand-primary;
+      border-top: 8px solid transparent;
+      border-bottom: 8px solid transparent;
+    }
+  }
+
+  &__title {
+    margin-bottom: 24px;
+    
+    .services-hero__title-line {
+      display: block;
+      
+      &--highlight {
+        color: $color-brand-primary;
+        position: relative;
+        
+        &:after {
+          content: "";
+          position: absolute;
+          bottom: 4px;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background: linear-gradient(90deg, $color-brand-primary 0%, $color-tint-2 100%);
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+
+  &__description {
+    font-family: $font-family-primary;
+    font-size: 18px;
+    font-weight: $font-weight-regular;
+    line-height: 28px;
+    color: $color-neutral-grey;
+    margin-bottom: 40px;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+
+  // Stats section
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-top: 32px;
+    border-top: 1px solid $color-neutral-silver;
+    
+    @media (max-width: $sm) {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+  }
+
+  &__stat {
+    text-align: center;
+    
+    @media (min-width: $md) {
+      text-align: left;
+    }
+  }
+
+  &__stat-number {
+    font-family: $font-family-primary;
+    font-size: 32px;
+    font-weight: $font-weight-bold;
+    line-height: 40px;
+    color: $color-brand-primary;
+    margin-bottom: 4px;
+    
+    @media (max-width: $md) {
+      font-size: 28px;
+      line-height: 36px;
+    }
+  }
+
+  &__stat-label {
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-medium;
+    line-height: 20px;
+    color: $color-neutral-grey;
+  }
+
+  &__image-group {
+    order: 1;
+    text-align: center;
+
+    @media (min-width: $md) {
+      order: 2;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    display: inline-block;
+    max-width: 500px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 0px 20px 40px 0px rgba(171, 190, 209, 0.3);
+    position: relative;
+    z-index: 2;
+  }
+
+  // Decorative element behind image
+  &__image-decoration {
+    position: absolute;
+    top: 20px;
+    right: -20px;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, $color-tint-3 0%, $color-tint-4 100%);
+    border-radius: 20px;
+    z-index: 1;
+    
+    @media (max-width: $md) {
+      top: 10px;
+      right: -10px;
+    }
+  }
+
+  // Floating elements for visual interest
+  &:before {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, $color-tint-4 0%, $color-tint-5 100%);
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 1;
+    
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+  
+  &:after {
+    content: "";
+    position: absolute;
+    bottom: 15%;
+    left: 5%;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, $color-brand-primary 0%, $color-tint-1 100%);
+    border-radius: 12px;
+    opacity: 0.4;
+    z-index: 1;
+    transform: rotate(15deg);
+    
+    @media (max-width: $md) {
+      display: none;
+    }
+  }
+}
