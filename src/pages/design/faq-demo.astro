@@ -1,0 +1,23 @@
+---
+import DesignLayout from '../../layouts/DesignLayout.astro';
+import DesignNav from '../../components/design/DesignNav.astro';
+import FaqHero from '../../components/design/FaqHero.astro';
+import FaqAccordion from '../../components/design/FaqAccordion.astro';
+import FaqCta from '../../components/design/FaqCta.astro';
+---
+
+<DesignLayout
+  title="FAQ Demo - Design System"
+  description="FAQ page components demonstration for the design system"
+>
+  <DesignNav currentPath="/design/faq-demo" />
+  
+  <!-- FAQ Hero Section -->
+  <FaqHero />
+  
+  <!-- FAQ Accordion Section -->
+  <FaqAccordion />
+  
+  <!-- FAQ CTA Section -->
+  <FaqCta />
+</DesignLayout>
