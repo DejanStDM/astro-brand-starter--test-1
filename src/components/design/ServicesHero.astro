@@ -1,54 +1,86 @@
 ---
-// Services Hero Section Component
+// Services Hero Section Component - Enhanced version inspired by site's hero sections
 export interface Props {
   title?: string;
   titleHighlight?: string;
   subtitle?: string;
+  description?: string;
   image?: string;
   imageAlt?: string;
+  stats?: Array<{
+    number: string;
+    label: string;
+  }>;
 }
 
-const { 
-  title = "Comprehensive Solutions",
-  titleHighlight = "for Your Business",
-  subtitle = "Discover our full range of services designed to help your organization thrive and grow in today's digital landscape.",
+const {
+  title = "Transform Your Organization",
+  titleHighlight = "with Expert Services",
+  subtitle = "Comprehensive Solutions for Modern Businesses",
+  description = "From membership management to community building, we provide the tools and expertise your organization needs to thrive in today's digital landscape.",
   image = "/images/hero/vecteezy_3d-illustration-of-software-development_36584129.webp",
-  imageAlt = "Comprehensive Solutions for Your Business"
+  imageAlt = "Transform Your Organization with Expert Services",
+  stats = [
+    { number: "500+", label: "Organizations Served" },
+    { number: "98%", label: "Client Satisfaction" },
+    { number: "24/7", label: "Support Available" }
+  ]
 } = Astro.props;
 ---
 
 <section class="services-hero sec sec--padding-large">
   <div class="container">
     <div class="services-hero__content sec__content">
-      
+
       <!-- Text Content -->
       <div class="services-hero__text-group">
         <div class="services-hero__text-content">
+          <!-- Badge/Subtitle -->
+          <div class="services-hero__badge">
+            {subtitle}
+          </div>
+
+          <!-- Main Title -->
           <h1 class="services-hero__title sec__title">
             <span class="services-hero__title-line">{title}</span>
             <span class="services-hero__title-line services-hero__title-line--highlight">{titleHighlight}</span>
           </h1>
-          
-          <p class="services-hero__subtitle">
-            {subtitle}
+
+          <!-- Description -->
+          <p class="services-hero__description">
+            {description}
           </p>
-          
+
+          <!-- Action Buttons -->
           <div class="services-hero__actions">
-            <a href="#services" class="btn btn-primary services-hero__btn">
-              Explore Services
+            <a href="#services" class="btn btn--primary">
+              <span class="btn__text">Explore Services</span>
             </a>
-            <a href="#contact" class="btn btn-secondary services-hero__btn">
-              Get Quote
+            <a href="#contact" class="btn btn--tertiary">
+              <span class="btn__text">Get Started</span>
             </a>
+          </div>
+
+          <!-- Stats -->
+          <div class="services-hero__stats">
+            {stats.map((stat) => (
+              <div class="services-hero__stat">
+                <div class="services-hero__stat-number">{stat.number}</div>
+                <div class="services-hero__stat-label">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      
+
       <!-- Image Content -->
       <div class="services-hero__image-group">
-        <img src={image} alt={imageAlt} class="services-hero__image" />
+        <div class="services-hero__image-wrapper">
+          <img src={image} alt={imageAlt} class="services-hero__image" />
+          <div class="services-hero__image-decoration"></div>
+        </div>
       </div>
-      
+
     </div>
   </div>
 </section>
