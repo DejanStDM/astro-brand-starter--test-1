@@ -2,18 +2,23 @@
 // Services Grid Section
 // ==========================================================================
 
+@use "../utils/variables" as *;
+
 .services-grid {
   &__header {
     text-align: center;
-    margin-bottom: $spacing-xxxl;
+    margin-bottom: 48px;
   }
 
   &__title {
-    margin-bottom: $spacing-lg;
+    margin-bottom: 16px;
   }
 
   &__subtitle {
-    @include body-1-regular;
+    font-family: $font-family-primary;
+    font-size: 18px;
+    font-weight: $font-weight-regular;
+    line-height: 28px;
     color: $color-neutral-grey;
     max-width: 600px;
     margin: 0 auto;
@@ -22,7 +27,7 @@
   &__list {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacing-xxxl;
+    gap: 48px;
 
     @media (min-width: $md) {
       grid-template-columns: repeat(2, 1fr);
@@ -35,58 +40,76 @@
 
   &__card {
     background: $color-neutral-white;
-    border-radius: $border-radius-lg;
-    padding: $spacing-xxxl;
-    box-shadow: $shadow-md;
+    border-radius: 10px;
+    padding: 48px;
+    box-shadow: 0px 4px 8px 0px rgba(171, 190, 209, 0.4);
     text-align: center;
-    transition: $transition-normal;
+    transition: 0.3s ease-in-out;
     border: 1px solid transparent;
 
     &:hover {
       transform: translateY(-4px);
-      box-shadow: $shadow-lg;
+      box-shadow: 0px 6px 12px 0px rgba(171, 190, 209, 0.3);
       border-color: $color-brand-primary;
     }
   }
 
   &__card-header {
-    margin-bottom: $spacing-xl;
+    margin-bottom: 24px;
   }
 
   &__icon {
     width: 64px;
     height: 64px;
-    margin: 0 auto $spacing-lg;
+    margin: 0 auto 16px;
     display: block;
   }
 
   &__card-title {
-    @include headline-3;
+    font-family: $font-family-primary;
+    font-size: 28px;
+    font-weight: $font-weight-bold;
+    line-height: 36px;
     color: $color-neutral-black;
-    margin-bottom: $spacing-md;
+    margin-bottom: 12px;
+    
+    @media (max-width: $md) {
+      font-size: 24px;
+      line-height: 32px;
+    }
+    
+    @media (max-width: $sm) {
+      font-size: 20px;
+      line-height: 28px;
+    }
   }
 
   &__card-description {
-    @include body-2-regular;
+    font-family: $font-family-primary;
+    font-size: 16px;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
     color: $color-neutral-grey;
-    margin-bottom: $spacing-xl;
-    line-height: 1.6;
+    margin-bottom: 24px;
   }
 
   &__feature-list {
     list-style: none;
     padding: 0;
-    margin: 0 0 $spacing-xl 0;
+    margin: 0 0 24px 0;
     text-align: left;
   }
 
   &__feature-item {
-    @include body-3-regular;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 20px;
     color: $color-neutral-dark-grey;
-    padding: $spacing-sm 0;
+    padding: 8px 0;
     border-bottom: 1px solid $color-neutral-silver;
     position: relative;
-    padding-left: $spacing-lg;
+    padding-left: 16px;
 
     &:before {
       content: "✓";
