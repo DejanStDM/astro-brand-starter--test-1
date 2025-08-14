@@ -1,0 +1,111 @@
+// ==========================================================================
+// Services Grid Section
+// ==========================================================================
+
+.services-grid {
+  &__header {
+    text-align: center;
+    margin-bottom: $spacing-xxxl;
+  }
+
+  &__title {
+    margin-bottom: $spacing-lg;
+  }
+
+  &__subtitle {
+    @include body-1-regular;
+    color: $color-neutral-grey;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xxxl;
+
+    @media (min-width: $md) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (min-width: $lg) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__card {
+    background: $color-neutral-white;
+    border-radius: $border-radius-lg;
+    padding: $spacing-xxxl;
+    box-shadow: $shadow-md;
+    text-align: center;
+    transition: $transition-normal;
+    border: 1px solid transparent;
+
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-lg;
+      border-color: $color-brand-primary;
+    }
+  }
+
+  &__card-header {
+    margin-bottom: $spacing-xl;
+  }
+
+  &__icon {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto $spacing-lg;
+    display: block;
+  }
+
+  &__card-title {
+    @include headline-3;
+    color: $color-neutral-black;
+    margin-bottom: $spacing-md;
+  }
+
+  &__card-description {
+    @include body-2-regular;
+    color: $color-neutral-grey;
+    margin-bottom: $spacing-xl;
+    line-height: 1.6;
+  }
+
+  &__feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 $spacing-xl 0;
+    text-align: left;
+  }
+
+  &__feature-item {
+    @include body-3-regular;
+    color: $color-neutral-dark-grey;
+    padding: $spacing-sm 0;
+    border-bottom: 1px solid $color-neutral-silver;
+    position: relative;
+    padding-left: $spacing-lg;
+
+    &:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: $color-brand-primary;
+      font-weight: $font-weight-bold;
+    }
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__card-actions {
+    margin-top: auto;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+}

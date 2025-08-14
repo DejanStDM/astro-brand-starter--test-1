@@ -1,0 +1,64 @@
+// ==========================================================================
+// Services CTA Section
+// ==========================================================================
+
+.services-cta {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-xxxl;
+    align-items: center;
+
+    @media (min-width: $md) {
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-xxxl * 2;
+    }
+  }
+
+  &__image-group {
+    order: 1;
+    text-align: center;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    object-fit: cover;
+    border-radius: $border-radius-lg;
+  }
+
+  &__text-group {
+    order: 2;
+  }
+
+  &__text-content {
+    max-width: 100%;
+
+    @media (min-width: $md) {
+      max-width: 500px;
+    }
+  }
+
+  &__title {
+    margin-bottom: $spacing-xl;
+    color: $color-neutral-black;
+  }
+
+  &__subtitle {
+    @include body-1-regular;
+    color: $color-neutral-grey;
+    margin-bottom: $spacing-xxxl;
+    line-height: 1.6;
+  }
+
+  &__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-lg;
+  }
+
+  &__btn {
+    min-width: 150px;
+  }
+}
