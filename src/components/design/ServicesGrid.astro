@@ -1,0 +1,92 @@
+---
+// Services Grid Component - displays service offerings
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  services?: Service[];
+}
+
+export interface Service {
+  icon: string;
+  alt: string;
+  title: string;
+  description: string;
+  features: string[];
+}
+
+const { 
+  title = "Our Services",
+  subtitle = "Complete solutions tailored to your organization's needs",
+  services = [
+    {
+      icon: "/images/community/Membership-Organisations.svg",
+      alt: "Membership Management",
+      title: "Membership Management",
+      description: "Comprehensive membership solutions with automated renewals, payments, and member engagement tools.",
+      features: [
+        "Automated renewals",
+        "Payment processing",
+        "Member portals",
+        "Analytics & reporting"
+      ]
+    },
+    {
+      icon: "/images/community/National-Associations.svg",
+      alt: "Association Services",
+      title: "Association Services",
+      description: "Specialized tools for national and regional associations to manage their operations effectively.",
+      features: [
+        "Event management",
+        "Communications",
+        "Directory services",
+        "Certification tracking"
+      ]
+    },
+    {
+      icon: "/images/community/Clubs-And-Groups.svg",
+      alt: "Community Building",
+      title: "Community Building",
+      description: "Build and nurture thriving communities with our comprehensive engagement platform.",
+      features: [
+        "Discussion forums",
+        "Social features",
+        "Content management",
+        "Moderation tools"
+      ]
+    }
+  ]
+} = Astro.props;
+---
+
+<section id="services" class="services-grid sec sec--padding-large">
+  <div class="container">
+    <div class="services-grid__header sec__header">
+      <h2 class="services-grid__title sec__title">{title}</h2>
+      <p class="services-grid__subtitle sec__subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="services-grid__content sec__content">
+      <div class="services-grid__list">
+        {services.map((service) => (
+          <div class="services-grid__card">
+            <div class="services-grid__card-header">
+              <img src={service.icon} alt={service.alt} class="services-grid__icon">
+              <h3 class="services-grid__card-title">{service.title}</h3>
+            </div>
+            <p class="services-grid__card-description">{service.description}</p>
+            <ul class="services-grid__feature-list">
+              {service.features.map((feature) => (
+                <li class="services-grid__feature-item">{feature}</li>
+              ))}
+            </ul>
+            <div class="services-grid__card-actions">
+              <a href="#contact" class="btn btn-outline services-grid__btn">
+                Learn More
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,53 @@
+---
+// Services CTA Component - call to action section
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  buttonPrimaryText?: string;
+  buttonSecondaryText?: string;
+  image?: string;
+  imageAlt?: string;
+}
+
+const { 
+  title = "Ready to Transform Your Organization?",
+  subtitle = "Join thousands of organizations who trust us to manage their communities and drive growth. Get started today with a free consultation.",
+  buttonPrimaryText = "Get Started",
+  buttonSecondaryText = "Schedule Consultation",
+  image = "/images/customers/customers-main-img.png",
+  imageAlt = "Ready to Transform Your Organization"
+} = Astro.props;
+---
+
+<section class="services-cta sec sec--padding-large">
+  <div class="container">
+    <div class="services-cta__content sec__content">
+      
+      <!-- Image Content -->
+      <div class="services-cta__image-group">
+        <img src={image} alt={imageAlt} class="services-cta__image" />
+      </div>
+      
+      <!-- Text Content -->
+      <div class="services-cta__text-group">
+        <div class="services-cta__text-content">
+          <h2 class="services-cta__title sec__title">{title}</h2>
+          
+          <p class="services-cta__subtitle">
+            {subtitle}
+          </p>
+          
+          <div class="services-cta__actions">
+            <a href="#contact" class="btn btn-primary services-cta__btn">
+              {buttonPrimaryText}
+            </a>
+            <a href="#consultation" class="btn btn-secondary services-cta__btn">
+              {buttonSecondaryText}
+            </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</section>
