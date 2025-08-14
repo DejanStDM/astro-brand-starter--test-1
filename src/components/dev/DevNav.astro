@@ -4,13 +4,14 @@ const { pathname } = Astro.url;
 
 const navigationItems = [
   { label: 'Home', href: '/', id: 'home' },
-  { 
-    label: 'Design pages', 
+  {
+    label: 'Design pages',
     id: 'designDropdown',
     items: [
       { label: 'Design System', href: '/design', id: 'design' },
       { label: 'Example Page', href: '/design/example-page', id: 'example-page' },
-      { label: 'Homepage Demo', href: '/design/homepage-demo', id: 'homepage-demo' }
+      { label: 'Homepage Demo', href: '/design/homepage-demo', id: 'homepage-demo' },
+      { label: 'Services Demo', href: '/design/services-demo', id: 'services-demo' }
     ]
   },
   { 
