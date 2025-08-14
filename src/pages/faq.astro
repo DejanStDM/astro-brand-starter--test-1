@@ -1,0 +1,23 @@
+---
+import ProductionLayout from '../layouts/ProductionLayout.astro';
+import FaqHero from '../components/design/FaqHero.astro';
+import FaqAccordion from '../components/design/FaqAccordion.astro';
+import FaqCta from '../components/design/FaqCta.astro';
+---
+
+<ProductionLayout
+  title="FAQ - Nexcent"
+  description="Frequently asked questions about our membership management, association services, and community building solutions. Get answers to common questions about pricing, support, and features."
+  keywords="faq, frequently asked questions, support, help, membership management, association services, nexcent"
+  currentPath="/faq"
+  showFooterCta={false}
+>
+  <!-- FAQ Hero Section -->
+  <FaqHero />
+  
+  <!-- FAQ Accordion Section -->
+  <FaqAccordion />
+  
+  <!-- FAQ CTA Section -->
+  <FaqCta />
+</ProductionLayout>
