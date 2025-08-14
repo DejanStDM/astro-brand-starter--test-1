@@ -2,18 +2,23 @@
 // Process Section
 // ==========================================================================
 
+@use "../utils/variables" as *;
+
 .process-section {
   &__header {
     text-align: center;
-    margin-bottom: $spacing-xxxl * 1.5;
+    margin-bottom: 72px;
   }
 
   &__title {
-    margin-bottom: $spacing-lg;
+    margin-bottom: 16px;
   }
 
   &__subtitle {
-    @include body-1-regular;
+    font-family: $font-family-primary;
+    font-size: 18px;
+    font-weight: $font-weight-regular;
+    line-height: 28px;
     color: $color-neutral-grey;
     max-width: 600px;
     margin: 0 auto;
@@ -22,16 +27,16 @@
   &__steps {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacing-xxxl;
+    gap: 48px;
 
     @media (min-width: $md) {
       grid-template-columns: repeat(2, 1fr);
-      gap: $spacing-xxxl;
+      gap: 48px;
     }
 
     @media (min-width: $lg) {
       grid-template-columns: repeat(4, 1fr);
-      gap: $spacing-xl;
+      gap: 24px;
     }
   }
 
@@ -55,10 +60,10 @@
     justify-content: center;
     font-size: 24px;
     font-weight: $font-weight-bold;
-    margin: 0 auto $spacing-xl;
+    margin: 0 auto 24px;
 
     @media (min-width: $lg) {
-      margin: 0 0 $spacing-xl 0;
+      margin: 0 0 24px 0;
     }
   }
 
@@ -67,15 +72,25 @@
   }
 
   &__step-title {
-    @include headline-4;
+    font-family: $font-family-primary;
+    font-size: 20px;
+    font-weight: $font-weight-semibold;
+    line-height: 28px;
     color: $color-neutral-black;
-    margin-bottom: $spacing-md;
+    margin-bottom: 12px;
+    
+    @media (max-width: $md) {
+      font-size: 18px;
+      line-height: 24px;
+    }
   }
 
   &__step-description {
-    @include body-3-regular;
+    font-family: $font-family-primary;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 20px;
     color: $color-neutral-grey;
-    line-height: 1.6;
   }
 
   &__connector {
@@ -85,8 +100,8 @@
       display: block;
       position: absolute;
       top: 30px;
-      right: -#{$spacing-xl / 2};
-      width: $spacing-xl;
+      right: -12px;
+      width: 24px;
       height: 2px;
       background: $color-neutral-light-grey;
 
