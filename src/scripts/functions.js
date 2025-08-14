@@ -16,7 +16,7 @@ import "./modules/navbar.mjs";
 exampleFunction();
 buttonsExample();
 initExampleSlider();
-initExampleAccordion();
+initAccordions();
 initExampleCheckbox();
 initExampleFloatingLabels();
 initExampleModal();
