@@ -1,0 +1,85 @@
+---
+// FAQ CTA Component - call to action for questions not answered
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  description?: string;
+  buttonPrimaryText?: string;
+  buttonSecondaryText?: string;
+  contactMethods?: Array<{
+    icon: string;
+    title: string;
+    description: string;
+    link: string;
+  }>;
+}
+
+const { 
+  title = "Still Have Questions?",
+  subtitle = "We're Here to Help",
+  description = "Can't find the answer you're looking for? Our support team is available 24/7 to assist you with any questions or concerns.",
+  buttonPrimaryText = "Contact Support",
+  buttonSecondaryText = "Schedule Call",
+  contactMethods = [
+    {
+      icon: "/images/social-Icon-1.svg",
+      title: "Live Chat",
+      description: "Get instant help from our support team",
+      link: "#chat"
+    },
+    {
+      icon: "/images/social-Icon-2.svg", 
+      title: "Email Support",
+      description: "Send us a detailed message",
+      link: "#email"
+    },
+    {
+      icon: "/images/social-Icon-3.svg",
+      title: "Phone Support",
+      description: "Speak directly with our experts",
+      link: "#phone"
+    }
+  ]
+} = Astro.props;
+---
+
+<section class="faq-cta sec sec--padding-large">
+  <div class="container">
+    <div class="faq-cta__content sec__content">
+      
+      <!-- Header -->
+      <div class="faq-cta__header">
+        <div class="faq-cta__badge">
+          {subtitle}
+        </div>
+        <h2 class="faq-cta__title sec__title">{title}</h2>
+        <p class="faq-cta__description">{description}</p>
+        
+        <div class="faq-cta__actions">
+          <a href="#contact" class="btn btn--primary">
+            <span class="btn__text">{buttonPrimaryText}</span>
+          </a>
+          <a href="#schedule" class="btn btn--tertiary">
+            <span class="btn__text">{buttonSecondaryText}</span>
+          </a>
+        </div>
+      </div>
+      
+      <!-- Contact Methods -->
+      <div class="faq-cta__contact-methods">
+        {contactMethods.map((method) => (
+          <div class="faq-cta__contact-method">
+            <div class="faq-cta__contact-icon">
+              <img src={method.icon} alt={method.title} />
+            </div>
+            <div class="faq-cta__contact-content">
+              <h3 class="faq-cta__contact-title">{method.title}</h3>
+              <p class="faq-cta__contact-description">{method.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      
+    </div>
+  </div>
+</section>

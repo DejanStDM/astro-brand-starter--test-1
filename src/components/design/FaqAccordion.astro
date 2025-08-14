@@ -1,0 +1,108 @@
+---
+// FAQ Accordion Component - Main FAQ content
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  categories?: FaqCategory[];
+}
+
+export interface FaqCategory {
+  title: string;
+  questions: FaqQuestion[];
+}
+
+export interface FaqQuestion {
+  question: string;
+  answer: string;
+}
+
+const { 
+  title = "Frequently Asked Questions",
+  subtitle = "Everything you need to know about our services and support",
+  categories = [
+    {
+      title: "General Questions",
+      questions: [
+        {
+          question: "What services do you offer?",
+          answer: "We offer comprehensive membership management, association services, and community building solutions. Our platform includes automated renewals, payment processing, event management, communication tools, and member engagement features designed to help organizations thrive."
+        },
+        {
+          question: "How do I get started?",
+          answer: "Getting started is easy! Simply contact our team for a free consultation. We'll assess your organization's needs, provide a customized solution proposal, and guide you through the implementation process. Most organizations are up and running within 2-4 weeks."
+        },
+        {
+          question: "Is there a free trial available?",
+          answer: "Yes! We offer a 14-day free trial for all new customers. During this period, you'll have access to all features and our support team will help you set up your organization's profile and import existing data."
+        }
+      ]
+    },
+    {
+      title: "Technical Support",
+      questions: [
+        {
+          question: "What kind of support do you provide?",
+          answer: "We provide comprehensive 24/7 support including live chat, email support, phone support, and an extensive knowledge base. Our support team includes technical specialists who can help with setup, troubleshooting, and optimization."
+        },
+        {
+          question: "Do you offer training for our team?",
+          answer: "Absolutely! We provide comprehensive training including live onboarding sessions, video tutorials, documentation, and ongoing training webinars. We ensure your team feels confident using all platform features."
+        },
+        {
+          question: "How do you handle data security?",
+          answer: "Security is our top priority. We use enterprise-grade encryption, regular security audits, GDPR compliance, and SOC 2 Type II certification. Your data is stored in secure, redundant data centers with 99.9% uptime guarantee."
+        }
+      ]
+    },
+    {
+      title: "Billing & Pricing",
+      questions: [
+        {
+          question: "How does pricing work?",
+          answer: "Our pricing is based on the number of members in your organization and the features you need. We offer flexible monthly and annual plans with no setup fees. Contact us for a personalized quote based on your specific requirements."
+        },
+        {
+          question: "Can I change my plan later?",
+          answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect at your next billing cycle, and we'll prorate any differences. Our team can help you choose the best plan as your organization grows."
+        },
+        {
+          question: "Do you offer discounts for nonprofits?",
+          answer: "Yes! We offer special pricing for qualified nonprofit organizations, educational institutions, and community groups. Contact our sales team to learn more about our nonprofit pricing program."
+        }
+      ]
+    }
+  ]
+} = Astro.props;
+---
+
+<section id="faq" class="faq-accordion sec sec--padding-large sec--bg-silver">
+  <div class="container">
+    <div class="faq-accordion__header sec__header">
+      <h2 class="faq-accordion__title sec__title">{title}</h2>
+      <p class="faq-accordion__subtitle sec__subtitle">{subtitle}</p>
+    </div>
+    
+    <div class="faq-accordion__content sec__content">
+      {categories.map((category, categoryIndex) => (
+        <div class="faq-accordion__category">
+          <h3 class="faq-accordion__category-title">{category.title}</h3>
+          
+          <div class="accordion js__faq-accordion" data-accordion="single">
+            {category.questions.map((faq, questionIndex) => (
+              <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                  {faq.question}
+                </button>
+                <div class="accordion-body">
+                  <div class="accordion-body__inner">
+                    {faq.answer}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
